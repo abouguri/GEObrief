@@ -66,7 +66,7 @@ export default function Home() {
           </h1>
 
           <p className="text-xl text-white/70 mb-8 max-w-2xl mx-auto leading-relaxed">
-            Enter a keyword. Grok analyzes how ChatGPT, Perplexity, and Google AI
+            Enter a keyword. We analyze how ChatGPT, Perplexity, and Google AI
             Overviews answer it. Get a GEO-optimized brief designed to get
             <span className="text-white font-semibold"> cited</span> by AI
             engines.
