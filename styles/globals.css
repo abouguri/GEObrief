@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  @apply border-border;
+}
+
+body {
+  @apply bg-brand-dark text-white;
+  font-feature-settings: "rounding" 1;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection styles */
+::selection {
+  @apply bg-brand-accent text-brand-dark;
+}
+
+/* Code blocks */
+code {
+  @apply font-mono text-sm;
+}
+
+pre {
+  @apply bg-black rounded-lg p-4 overflow-x-auto;
+}
+
+/* Links */
+a {
+  @apply text-brand-accent hover:opacity-80 transition-opacity;
+}
+
+/* Buttons */
+button {
+  @apply transition-all duration-200;
+}
+
+/* Input fields */
+input,
+textarea,
+select {
+  @apply bg-black/40 border border-white/10 rounded-lg px-3 py-2 text-white placeholder-white/50 focus:outline-none focus:border-brand-accent transition-colors;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  @apply w-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-black/20;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-brand-accent/40 hover:bg-brand-accent/60 rounded-full;
+}
