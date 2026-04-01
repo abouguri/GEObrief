@@ -82,8 +82,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       if (!newUser) throw new Error('Sign up failed');
 
       // Create user record in users table
-      const { error: userError } = await client
-        .from('users')
+      const { error: userError } = await (client.from('users') as any)
         .insert({
           id: newUser.id,
           email: newUser.email,
