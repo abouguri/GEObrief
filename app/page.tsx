@@ -88,7 +88,7 @@ export default function Home() {
           </div>
 
           <p className="text-white/50 text-sm">
-            ✓ 3 free briefs/month &nbsp; ✓ No credit card required &nbsp; ✓ Lifetime deal: $59 early access
+            ✓ 3 free briefs/month &nbsp; ✓ No credit card required &nbsp; ✓ Annual plan: $99/year
           </p>
         </div>
       </section>
@@ -291,13 +291,13 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* Lifetime Deal */}
+          {/* Annual Plan */}
           <div className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:border-brand-accent/30 transition-colors">
-            <h3 className="text-2xl font-bold mb-2">Lifetime Deal</h3>
-            <p className="text-white/60 mb-6">One-time payment, forever access</p>
+            <h3 className="text-2xl font-bold mb-2">Annual</h3>
+            <p className="text-white/60 mb-6">Save 33% vs monthly</p>
             <div className="mb-8">
-              <div className="text-4xl font-bold text-brand-accent">$59</div>
-              <p className="text-white/60 text-sm mt-1">one-time</p>
+              <div className="text-4xl font-bold text-brand-accent">$99</div>
+              <p className="text-white/60 text-sm mt-1">/year</p>
             </div>
             <ul className="space-y-3 mb-8 text-sm">
               <li className="flex items-center gap-2">
@@ -323,7 +323,7 @@ export default function Home() {
               href="https://gumroad.com/geobrief"
               className="w-full bg-white/10 border border-white/20 text-white py-3 rounded-lg font-semibold hover:border-brand-accent hover:bg-white/5 transition-all text-center block"
             >
-              Get Lifetime Deal
+              Get Annual Plan
             </a>
           </div>
         </div>
