@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { grok, generateGeoBrief, formatBriefAsMarkdown } from "@/lib/grok";
+import { generateGeoBrief, formatBriefAsMarkdown } from "@/lib/grok";
 import { checkUsageLimit, incrementUsage } from "@/lib/usage";
 
 export const runtime = "nodejs";
