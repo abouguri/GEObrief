@@ -6,7 +6,6 @@ export const metadata: Metadata = {
   title: "GEObrief.ai - AI-Optimized Content Briefs for ChatGPT & Perplexity",
   description:
     "Stop writing for Google. Start writing for AI. Generate GEO-optimized content briefs designed to get cited by AI answer engines. 3 free briefs/month, then $15/mo.",
-  canonical: process.env.NEXT_PUBLIC_APP_URL || "https://geobrief.ai",
 };
 
 export default function Home() {
