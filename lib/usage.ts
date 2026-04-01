@@ -13,7 +13,8 @@ export interface UserUsage {
  */
 export async function checkUsageLimit(userId: string): Promise<boolean> {
   try {
-    const { data: user, error } = await supabaseAdmin
+    const client = supabaseAdmin();
+    const { data: user, error } = await client
       .from("users")
       .select("usage_count, plan, usage_reset_date")
       .eq("id", userId)
@@ -35,7 +36,7 @@ export async function checkUsageLimit(userId: string): Promise<boolean> {
 
     if (isNewMonth) {
       // Reset usage count
-      await supabaseAdmin
+      await client
         .from("users")
         .update({
           usage_count: 0,
@@ -61,7 +62,8 @@ export async function checkUsageLimit(userId: string): Promise<boolean> {
  */
 export async function incrementUsage(userId: string): Promise<void> {
   try {
-    const { data: user, error: fetchError } = await supabaseAdmin
+    const client = supabaseAdmin();
+    const { data: user, error: fetchError } = await client
       .from("users")
       .select("usage_count")
       .eq("id", userId)
@@ -71,7 +73,7 @@ export async function incrementUsage(userId: string): Promise<void> {
       throw new Error("User not found");
     }
 
-    await supabaseAdmin
+    await client
       .from("users")
       .update({ usage_count: user.usage_count + 1 })
       .eq("id", userId);
@@ -86,7 +88,8 @@ export async function incrementUsage(userId: string): Promise<void> {
  */
 export async function getUserUsageStats(userId: string): Promise<UserUsage> {
   try {
-    const { data: user, error } = await supabaseAdmin
+    const client = supabaseAdmin();
+    const { data: user, error } = await client
       .from("users")
       .select("id, usage_count, plan, usage_reset_date")
       .eq("id", userId)
@@ -113,10 +116,11 @@ export async function getUserUsageStats(userId: string): Promise<UserUsage> {
  */
 export async function resetUserUsage(userId: string): Promise<void> {
   try {
+    const client = supabaseAdmin();
     const nextMonth = new Date();
     nextMonth.setMonth(nextMonth.getMonth() + 1);
 
-    await supabaseAdmin
+    await client
       .from("users")
       .update({
         usage_count: 0,
