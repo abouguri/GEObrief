@@ -1,15 +1,25 @@
 import OpenAI from "openai";
 
-const apiKey = process.env.GROK_API_KEY;
+let grokClient: OpenAI | null = null;
 
-if (!apiKey) {
-  throw new Error("Missing GROK_API_KEY in environment variables");
+function getGrokClient(): OpenAI {
+  if (!grokClient) {
+    const apiKey = process.env.GROK_API_KEY;
+    
+    if (!apiKey) {
+      throw new Error("Missing GROK_API_KEY in environment variables");
+    }
+    
+    grokClient = new OpenAI({
+      apiKey,
+      baseURL: "https://api.x.ai/v1",
+    });
+  }
+  
+  return grokClient;
 }
 
-export const grok = new OpenAI({
-  apiKey,
-  baseURL: "https://api.x.ai/v1",
-});
+export { getGrokClient as grok };
 
 export interface GROKBriefInput {
   keyword: string;
@@ -63,7 +73,8 @@ Use web search to analyze current AI engine responses to this keyword.
 Return ONLY valid JSON, no markdown formatting.`;
 
   try {
-    const response = await grok.chat.completions.create({
+    const client = getGrokClient();
+    const response = await client.chat.completions.create({
       model: "grok-3",
       messages: [
         { role: "system", content: systemPrompt },
