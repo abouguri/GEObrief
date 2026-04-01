@@ -349,11 +349,11 @@ export default function Home() {
 
           <details className="bg-white/5 border border-white/10 rounded-lg p-6 hover:border-brand-accent/30 transition-colors group cursor-pointer">
             <summary className="font-bold flex items-center justify-between">
-              How does Grok analyze what AI engines are citing?
+              How do you analyze what AI engines are citing?
               <span className="group-open:rotate-180 transition-transform">↓</span>
             </summary>
             <p className="text-white/60 mt-4">
-              Grok uses web search to find how ChatGPT, Perplexity, and Google AI
+              We use advanced web search to find how ChatGPT, Perplexity, and Google AI
               Overviews currently answer your target keyword. We analyze their
               citations, recommended formats, and E-E-A-T signals, then generate a
               brief optimized to outcompete.
@@ -391,9 +391,8 @@ export default function Home() {
               <span className="group-open:rotate-180 transition-transform">↓</span>
             </summary>
             <p className="text-white/60 mt-4">
-              No. We don't sell data. Briefs are private to your account. We use
-              Grok API for analysis, but no keywords or briefs are logged by X.AI
-              beyond normal API usage patterns.
+              No. We don't sell data. Briefs are private to your account. Your keywords
+              and briefs are never logged or shared. We take privacy seriously.
             </p>
           </details>
 
@@ -534,10 +533,10 @@ export default function Home() {
               },
               {
                 "@type": "Question",
-                name: "How does Grok analyze what AI engines are citing?",
+                name: "How do you analyze what AI engines are citing?",
                 acceptedAnswer: {
                   "@type": "Answer",
-                  text: "Grok uses web search to find how ChatGPT, Perplexity, and Google AI Overviews currently answer your target keyword. We analyze their citations, recommended formats, and E-E-A-T signals, then generate a brief optimized to outcompete.",
+                  text: "We use advanced web search to find how ChatGPT, Perplexity, and Google AI Overviews currently answer your target keyword. We analyze their citations, recommended formats, and E-E-A-T signals, then generate a brief optimized to outcompete.",
                 },
               },
               {
