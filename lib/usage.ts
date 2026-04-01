@@ -3,8 +3,15 @@ import { supabaseAdmin } from "./supabase";
 export interface UserUsage {
   userId: string;
   usageCount: number;
-  plan: "free" | "pro" | "lifetime";
+  plan: "free" | "pro" | "annual";
   monthStart: string; // ISO date string
+}
+
+interface UserRecord {
+  id: string;
+  usage_count: number;
+  plan: "free" | "pro" | "annual";
+  usage_reset_date: string;
 }
 
 /**
@@ -24,13 +31,15 @@ export async function checkUsageLimit(userId: string): Promise<boolean> {
       throw new Error("User not found");
     }
 
-    // Pro and lifetime users have unlimited briefs
-    if (user.plan === "pro" || user.plan === "lifetime") {
+    const userData = user as UserRecord;
+
+    // Pro and annual users have unlimited briefs
+    if (userData.plan === "pro" || userData.plan === "annual") {
       return true;
     }
 
     // Check if monthly reset is needed
-    const resetDate = new Date(user.usage_reset_date);
+    const resetDate = new Date(userData.usage_reset_date);
     const now = new Date();
     const isNewMonth = now > resetDate;
 
@@ -50,7 +59,7 @@ export async function checkUsageLimit(userId: string): Promise<boolean> {
     }
 
     // Free plan: max 3 briefs per month
-    return user.usage_count < 3;
+    return userData.usage_count < 3;
   } catch (error) {
     console.error("Usage check error:", error);
     throw error;
@@ -73,9 +82,11 @@ export async function incrementUsage(userId: string): Promise<void> {
       throw new Error("User not found");
     }
 
+    const userData = user as { usage_count: number };
+
     await client
       .from("users")
-      .update({ usage_count: user.usage_count + 1 })
+      .update({ usage_count: userData.usage_count + 1 })
       .eq("id", userId);
   } catch (error) {
     console.error("Usage increment error:", error);
@@ -99,11 +110,13 @@ export async function getUserUsageStats(userId: string): Promise<UserUsage> {
       throw new Error("User not found");
     }
 
+    const userData = user as UserRecord;
+
     return {
-      userId: user.id,
-      usageCount: user.usage_count,
-      plan: user.plan,
-      monthStart: user.usage_reset_date,
+      userId: userData.id,
+      usageCount: userData.usage_count,
+      plan: userData.plan,
+      monthStart: userData.usage_reset_date,
     };
   } catch (error) {
     console.error("Usage stats error:", error);
