@@ -45,14 +45,13 @@ export async function checkUsageLimit(userId: string): Promise<boolean> {
 
     if (isNewMonth) {
       // Reset usage count
-      await client
-        .from("users")
+      await (client.from("users") as any)
         .update({
           usage_count: 0,
           usage_reset_date: new Date(now.getFullYear(), now.getMonth() + 1, 1)
             .toISOString()
             .split("T")[0],
-        } as any)
+        })
         .eq("id", userId);
 
       return true;
@@ -84,9 +83,8 @@ export async function incrementUsage(userId: string): Promise<void> {
 
     const userData = user as { usage_count: number };
 
-    await client
-      .from("users")
-      .update({ usage_count: userData.usage_count + 1 } as any)
+    await (client.from("users") as any)
+      .update({ usage_count: userData.usage_count + 1 })
       .eq("id", userId);
   } catch (error) {
     console.error("Usage increment error:", error);
@@ -133,12 +131,11 @@ export async function resetUserUsage(userId: string): Promise<void> {
     const nextMonth = new Date();
     nextMonth.setMonth(nextMonth.getMonth() + 1);
 
-    await client
-      .from("users")
+    await (client.from("users") as any)
       .update({
         usage_count: 0,
         usage_reset_date: nextMonth.toISOString().split("T")[0],
-      } as any)
+      })
       .eq("id", userId);
   } catch (error) {
     console.error("Usage reset error:", error);
