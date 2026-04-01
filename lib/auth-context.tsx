@@ -40,8 +40,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           setUser(session?.user ?? null);
         }
       } catch (err) {
-        console.error('Auth initialization error:', err);
-        setError(err instanceof Error ? err.message : 'Auth initialization failed');
+        const message = err instanceof Error ? err.message : 'Auth initialization failed';
+        console.error('Auth initialization error:', message);
+        setError(message);
       } finally {
         setLoading(false);
       }
@@ -50,18 +51,22 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     initializeAuth();
 
     // Listen for auth changes
-    const client = supabase();
-    const { data: { subscription } } = client.auth.onAuthStateChange(
-      (_event, session) => {
-        setSession(session);
-        setUser(session?.user ?? null);
-        setError(null);
-      }
-    );
+    try {
+      const client = supabase();
+      const { data: { subscription } } = client.auth.onAuthStateChange(
+        (_event, session) => {
+          setSession(session);
+          setUser(session?.user ?? null);
+          setError(null);
+        }
+      );
 
-    return () => {
-      subscription?.unsubscribe();
-    };
+      return () => {
+        subscription?.unsubscribe();
+      };
+    } catch (err) {
+      console.error('Failed to set up auth listener:', err);
+    }
   }, []);
 
   const signUp = async (email: string, password: string) => {
