@@ -1,4 +1,5 @@
 import { supabaseAdmin } from "./supabase";
+import { FREE_BRIEF_LIMIT } from "./config";
 
 export interface UserUsage {
   userId: string;
@@ -57,8 +58,8 @@ export async function checkUsageLimit(userId: string): Promise<boolean> {
       return true;
     }
 
-    // Free plan: max 3 briefs per month
-    return userData.usage_count < 3;
+    // Free plan: capped briefs per month
+    return userData.usage_count < FREE_BRIEF_LIMIT;
   } catch (error) {
     console.error("Usage check error:", error);
     throw error;

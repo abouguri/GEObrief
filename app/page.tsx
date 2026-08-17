@@ -1,54 +1,21 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Zap, TrendingUp, FileText, BarChart3, Shield } from "lucide-react";
+import MarketingNav from "@/components/MarketingNav";
+import MarketingFooter from "@/components/MarketingFooter";
+import { GUMROAD_LIFETIME_URL, SITE_URL } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "GEObrief.ai - AI-Optimized Content Briefs for ChatGPT & Perplexity",
   description:
     "Stop writing for Google. Start writing for AI. Generate GEO-optimized content briefs designed to get cited by AI answer engines. 3 free briefs/month, then $15/mo.",
+  alternates: { canonical: SITE_URL },
 };
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-brand-dark text-white">
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-brand-dark/80 backdrop-blur-sm border-b border-white/10 z-50">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-          <div className="text-2xl font-bold text-brand-accent">GEObrief.ai</div>
-          <div className="flex items-center gap-6">
-            <a
-              href="#features"
-              className="text-white/70 hover:text-white transition-colors"
-            >
-              Features
-            </a>
-            <a
-              href="#pricing"
-              className="text-white/70 hover:text-white transition-colors"
-            >
-              Pricing
-            </a>
-            <a
-              href="#faq"
-              className="text-white/70 hover:text-white transition-colors"
-            >
-              FAQ
-            </a>
-            <Link
-              href="/auth/login"
-              className="text-white/70 hover:text-white transition-colors"
-            >
-              Sign In
-            </Link>
-            <Link
-              href="/auth/signup"
-              className="bg-brand-accent text-brand-dark px-4 py-2 rounded-lg font-semibold hover:opacity-90 transition-opacity"
-            >
-              Get Started
-            </Link>
-          </div>
-        </div>
-      </nav>
+      <MarketingNav />
 
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
@@ -88,7 +55,7 @@ export default function Home() {
           </div>
 
           <p className="text-white/50 text-sm">
-            ✓ 3 free briefs/month &nbsp; ✓ No credit card required &nbsp; ✓ Annual plan: $99/year
+            ✓ 3 free briefs/month &nbsp; ✓ No credit card required &nbsp; ✓ Lifetime deal: $59 one-time
           </p>
         </div>
       </section>
@@ -165,14 +132,14 @@ export default function Home() {
               <li className="flex gap-3">
                 <span className="text-brand-accent font-bold">→</span>
                 <span>
-                  <strong>AI Overviews:</strong> Google's AI answers are stealing
+                  <strong>AI Overviews:</strong> Google&apos;s AI answers are stealing
                   clicks from organic results
                 </span>
               </li>
               <li className="flex gap-3">
                 <span className="text-brand-accent font-bold">→</span>
                 <span>
-                  <strong>Content agencies:</strong> Traditional SEO briefs don't
+                  <strong>Content agencies:</strong> Traditional SEO briefs don&apos;t
                   get cited by AI
                 </span>
               </li>
@@ -186,7 +153,7 @@ export default function Home() {
             </ul>
             <p className="text-white/60 text-sm">
               GEObrief.ai bridges the gap. Instead of guessing what AI engines
-              want, we analyze what they're currently citing—then show you how
+              want, we analyze what they&apos;re currently citing—then show you how
               to outcompete.
             </p>
           </div>
@@ -214,7 +181,7 @@ export default function Home() {
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold mb-4">Simple, Transparent Pricing</h2>
           <p className="text-white/60 text-lg">
-            Start free. Upgrade when you're ready.
+            Start free. Upgrade when you&apos;re ready.
           </p>
         </div>
 
@@ -291,13 +258,13 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* Annual Plan */}
+          {/* Lifetime Plan */}
           <div className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:border-brand-accent/30 transition-colors">
-            <h3 className="text-2xl font-bold mb-2">Annual</h3>
-            <p className="text-white/60 mb-6">Save 33% vs monthly</p>
+            <h3 className="text-2xl font-bold mb-2">Lifetime</h3>
+            <p className="text-white/60 mb-6">Early adopter deal — pay once</p>
             <div className="mb-8">
-              <div className="text-4xl font-bold text-brand-accent">$99</div>
-              <p className="text-white/60 text-sm mt-1">/year</p>
+              <div className="text-4xl font-bold text-brand-accent">$59</div>
+              <p className="text-white/60 text-sm mt-1">one-time</p>
             </div>
             <ul className="space-y-3 mb-8 text-sm">
               <li className="flex items-center gap-2">
@@ -320,10 +287,12 @@ export default function Home() {
               </li>
             </ul>
             <a
-              href="https://gumroad.com/geobrief"
+              href={GUMROAD_LIFETIME_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-full bg-white/10 border border-white/20 text-white py-3 rounded-lg font-semibold hover:border-brand-accent hover:bg-white/5 transition-all text-center block"
             >
-              Get Annual Plan
+              Get Lifetime Deal
             </a>
           </div>
         </div>
@@ -342,7 +311,7 @@ export default function Home() {
             <p className="text-white/60 mt-4">
               GEO is the practice of optimizing content to be cited and surfaced by
               AI answer engines like ChatGPT, Perplexity, and Google AI Overviews.
-              It's different from traditional SEO, which focuses on ranking in search
+              It&apos;s different from traditional SEO, which focuses on ranking in search
               results.
             </p>
           </details>
@@ -391,7 +360,7 @@ export default function Home() {
               <span className="group-open:rotate-180 transition-transform">↓</span>
             </summary>
             <p className="text-white/60 mt-4">
-              No. We don't sell data. Briefs are private to your account. Your keywords
+              No. We don&apos;t sell data. Briefs are private to your account. Your keywords
               and briefs are never logged or shared. We take privacy seriously.
             </p>
           </details>
@@ -425,95 +394,7 @@ export default function Home() {
         </Link>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-white/10 py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-4 gap-8 mb-8">
-            <div>
-              <h4 className="font-bold mb-4">Product</h4>
-              <ul className="space-y-2 text-white/60 text-sm">
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    How It Works
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Pricing
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Blog
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-bold mb-4">Resources</h4>
-              <ul className="space-y-2 text-white/60 text-sm">
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    GEO Guide
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    FAQ
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Docs
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-bold mb-4">Legal</h4>
-              <ul className="space-y-2 text-white/60 text-sm">
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Privacy Policy
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Terms of Service
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-bold mb-4">Connect</h4>
-              <ul className="space-y-2 text-white/60 text-sm">
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Twitter
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Reddit
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Email
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="border-t border-white/10 pt-8 text-center text-white/40 text-sm">
-            <p>
-              © 2026 GEObrief.ai. Built by content strategists for content
-              strategists.
-            </p>
-          </div>
-        </div>
-      </footer>
+      <MarketingFooter />
 
       {/* Structured Data - FAQ Schema */}
       <script
@@ -528,7 +409,7 @@ export default function Home() {
                 name: "What is GEO (Generative Engine Optimization)?",
                 acceptedAnswer: {
                   "@type": "Answer",
-                  text: "GEO is the practice of optimizing content to be cited and surfaced by AI answer engines like ChatGPT, Perplexity, and Google AI Overviews. It's different from traditional SEO, which focuses on ranking in search results.",
+                  text: "GEO is the practice of optimizing content to be cited and surfaced by AI answer engines like ChatGPT, Perplexity, and Google AI Overviews. It&apos;s different from traditional SEO, which focuses on ranking in search results.",
                 },
               },
               {
