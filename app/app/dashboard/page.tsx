@@ -20,11 +20,11 @@ import { downloadBriefAsPdf } from '@/lib/pdf';
 import { FREE_BRIEF_LIMIT, GUMROAD_PRO_URL } from '@/lib/config';
 
 /**
- * Clay elevation scale (shared with EmptyState / BriefSkeleton):
- *   L0 page      bg-clay-paper
- *   L1 recessed  bg-clay-shell   + border-clay-border   inputs, chips
- *   L2 secondary bg-clay-surface + border-clay-border   form panel, toolbars
- *   L3 primary   bg-clay-surface + border + shadow      brief output
+ * Elevation scale (shared with EmptyState / BriefSkeleton):
+ *   L0 page      bg-ui-paper
+ *   L1 recessed  bg-ui-shell   + border-ui-border   inputs, chips
+ *   L2 secondary bg-ui-surface + border-ui-border   form panel, toolbars
+ *   L3 primary   bg-ui-surface + border + shadow      brief output
  */
 
 const EXAMPLE_KEYWORDS = [
@@ -35,10 +35,10 @@ const EXAMPLE_KEYWORDS = [
 ];
 
 const FIELD =
-  'w-full rounded-[10px] border border-clay-border bg-clay-shell px-3.5 py-2.5 text-sm text-clay-ink placeholder-clay-placeholder transition-colors focus:border-clay-ring focus:outline-none disabled:opacity-60';
+  'w-full rounded-[10px] border border-ui-border bg-ui-shell px-3.5 py-2.5 text-sm text-ui-ink placeholder-ui-placeholder transition-colors focus:border-ui-ring focus:outline-none disabled:opacity-60';
 
 const SECONDARY_BUTTON =
-  'flex items-center gap-1.5 rounded-[9px] border border-clay-border bg-clay-shell px-3.5 py-2 text-[12.5px] font-semibold text-clay-ink transition-colors hover:border-clay-ring';
+  'flex items-center gap-1.5 rounded-[9px] border border-ui-border bg-ui-shell px-3.5 py-2 text-[12.5px] font-semibold text-ui-ink transition-colors hover:border-ui-ring';
 
 function DashboardContent() {
   const { session, profile, refreshProfile } = useAuth();
@@ -144,7 +144,7 @@ function DashboardContent() {
   };
 
   return (
-    <div className="min-h-screen bg-clay-paper text-clay-ink">
+    <div className="min-h-screen bg-ui-paper text-ui-ink">
       <AppNav />
 
       <div className="mx-auto max-w-6xl px-6 py-10 sm:py-12">
@@ -152,16 +152,16 @@ function DashboardContent() {
           {/* Input form — L2 */}
           <form
             onSubmit={handleGenerateBrief}
-            className="flex flex-col gap-[18px] rounded-2xl border border-clay-border bg-clay-surface p-5 lg:sticky lg:top-24"
+            className="flex flex-col gap-[18px] rounded-2xl border border-ui-border bg-ui-surface p-5 lg:sticky lg:top-24"
           >
             <div>
               <p className="font-serif text-[19px] font-semibold tracking-tight">New brief</p>
-              <p className="mt-1 text-[12.5px] text-clay-muted">One keyword is all we need.</p>
+              <p className="mt-1 text-[12.5px] text-ui-muted">One keyword is all we need.</p>
             </div>
 
             <div>
               <label htmlFor="keyword" className="mb-2 block text-[13px] font-semibold">
-                Target keyword <span className="text-clay-accent">*</span>
+                Target keyword <span className="text-ui-accent">*</span>
               </label>
               <input
                 id="keyword"
@@ -172,14 +172,14 @@ function DashboardContent() {
                 className={FIELD}
                 disabled={loading}
               />
-              <p className="mt-[7px] text-[11.5px] text-clay-faint">
+              <p className="mt-[7px] text-[11.5px] text-ui-faint">
                 The topic you want AI engines to cite you for.
               </p>
             </div>
 
             <div>
               <label htmlFor="websiteUrl" className="mb-2 block text-[13px] font-semibold">
-                Website URL <span className="font-normal text-clay-faint">optional</span>
+                Website URL <span className="font-normal text-ui-faint">optional</span>
               </label>
               <input
                 id="websiteUrl"
@@ -194,7 +194,7 @@ function DashboardContent() {
 
             <div>
               <label htmlFor="niche" className="mb-2 block text-[13px] font-semibold">
-                Industry / niche <span className="font-normal text-clay-faint">optional</span>
+                Industry / niche <span className="font-normal text-ui-faint">optional</span>
               </label>
               <input
                 id="niche"
@@ -217,7 +217,7 @@ function DashboardContent() {
             <button
               type="submit"
               disabled={loading || isAtLimit}
-              className="flex w-full items-center justify-center gap-2 rounded-[10px] bg-clay-accent px-5 py-3 text-[14.5px] font-semibold text-white transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
+              className="flex w-full items-center justify-center gap-2 rounded-[10px] bg-ui-accent px-5 py-3 text-[14.5px] font-semibold text-white transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
             >
               {loading ? (
                 <>
@@ -230,15 +230,15 @@ function DashboardContent() {
             </button>
 
             {!isPaid && !isAtLimit && (
-              <p className="-mt-1 text-center text-[11.5px] text-clay-faint">
+              <p className="-mt-1 text-center text-[11.5px] text-ui-faint">
                 Uses 1 of your {remaining} remaining free brief{remaining === 1 ? '' : 's'} this
                 month.
               </p>
             )}
 
             {isAtLimit && (
-              <div className="rounded-[10px] border border-clay-ring bg-clay-soft p-4">
-                <p className="mb-3 text-sm text-clay-body">
+              <div className="rounded-[10px] border border-ui-ring bg-ui-soft p-4">
+                <p className="mb-3 text-sm text-ui-body">
                   You&apos;ve used all {FREE_BRIEF_LIMIT} free briefs this month. Pro is
                   unlimited.
                 </p>
@@ -246,7 +246,7 @@ function DashboardContent() {
                   href={GUMROAD_PRO_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block w-full rounded-lg bg-clay-accent px-4 py-2 text-center text-sm font-semibold text-white transition-opacity hover:opacity-90"
+                  className="block w-full rounded-lg bg-ui-accent px-4 py-2 text-center text-sm font-semibold text-white transition-opacity hover:opacity-90"
                 >
                   Upgrade to Pro
                 </a>
@@ -260,10 +260,10 @@ function DashboardContent() {
               <BriefSkeleton keyword={keyword.trim()} />
             ) : brief ? (
               <div className="flex flex-col gap-3.5">
-                <div className="flex flex-wrap items-center gap-2.5 rounded-xl border border-clay-border bg-clay-surface px-3.5 py-3">
+                <div className="flex flex-wrap items-center gap-2.5 rounded-xl border border-ui-border bg-ui-surface px-3.5 py-3">
                   <span className="mr-1 text-[13px] font-semibold">{briefKeyword}</span>
                   {geoScore && (
-                    <span className="rounded-full bg-clay-soft px-[9px] py-[3px] text-[11px] font-semibold text-clay-accent">
+                    <span className="rounded-full bg-ui-soft px-[9px] py-[3px] text-[11px] font-semibold text-ui-accent">
                       GEO score: {geoScore}
                     </span>
                   )}
@@ -290,11 +290,11 @@ function DashboardContent() {
 
                 <BriefMarkdown markdown={brief} />
 
-                <div className="flex flex-wrap items-center gap-3 rounded-xl border border-clay-border bg-clay-surface p-4">
-                  <p className="text-[13px] text-clay-muted">
+                <div className="flex flex-wrap items-center gap-3 rounded-xl border border-ui-border bg-ui-surface p-4">
+                  <p className="text-[13px] text-ui-muted">
                     <Link
                       href="/app/history"
-                      className="transition-colors hover:text-clay-ink"
+                      className="transition-colors hover:text-ui-ink"
                     >
                       Saved to your history
                     </Link>
@@ -325,14 +325,14 @@ function DashboardContent() {
                   <button
                     type="button"
                     onClick={focusKeyword}
-                    className="rounded-[10px] bg-clay-accent px-[22px] py-[11px] text-sm font-semibold text-white transition-opacity hover:opacity-90"
+                    className="rounded-[10px] bg-ui-accent px-[22px] py-[11px] text-sm font-semibold text-white transition-opacity hover:opacity-90"
                   >
                     Generate your first brief
                   </button>
                 }
               >
-                <div className="mt-[34px] border-t border-clay-border pt-[26px]">
-                  <p className="mb-3.5 text-[11px] font-semibold uppercase tracking-[0.09em] text-clay-faint">
+                <div className="mt-[34px] border-t border-ui-border pt-[26px]">
+                  <p className="mb-3.5 text-[11px] font-semibold uppercase tracking-[0.09em] text-ui-faint">
                     Or start from an example
                   </p>
                   <div className="flex flex-wrap justify-center gap-2">
@@ -344,7 +344,7 @@ function DashboardContent() {
                           setKeyword(example);
                           focusKeyword();
                         }}
-                        className="rounded-full border border-clay-border bg-clay-shell px-[13px] py-2 text-[12.5px] font-medium text-clay-ink transition-colors hover:border-clay-ring"
+                        className="rounded-full border border-ui-border bg-ui-shell px-[13px] py-2 text-[12.5px] font-medium text-ui-ink transition-colors hover:border-ui-ring"
                       >
                         {example}
                       </button>

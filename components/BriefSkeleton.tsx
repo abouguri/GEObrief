@@ -76,16 +76,16 @@ export default function BriefSkeleton({ keyword }: { keyword: string }) {
     <div
       role="status"
       aria-live="polite"
-      className="overflow-hidden rounded-2xl border border-clay-border bg-clay-surface shadow-[0_1px_2px_rgba(26,22,19,0.04),0_18px_44px_-26px_rgba(26,22,19,0.2)]"
+      className="overflow-hidden rounded-2xl border border-ui-border bg-ui-surface shadow-[0_1px_2px_rgba(42,41,40,0.04),0_18px_44px_-26px_rgba(42,41,40,0.16)]"
     >
-      <div className="border-b border-clay-border bg-clay-wash px-6 py-6">
+      <div className="border-b border-ui-border bg-ui-wash px-6 py-6">
         <div className="mb-1.5 flex items-center gap-2.5">
-          <span className="h-[7px] w-[7px] animate-pulse-dot rounded-full bg-clay-accent" />
-          <h2 className="font-serif text-[21px] font-semibold tracking-tight text-clay-ink">
+          <span className="h-[7px] w-[7px] animate-pulse-dot rounded-full bg-ui-accent" />
+          <h2 className="font-serif text-[21px] font-semibold tracking-tight text-ui-ink">
             Your brief is being written…
           </h2>
         </div>
-        <p className="text-[13.5px] text-clay-muted">
+        <p className="text-[13.5px] text-ui-muted">
           Reading the live web for &ldquo;{keyword}&rdquo; — how ChatGPT, Perplexity and AI
           Overviews answer it right now. Usually 20–40 seconds.
         </p>
@@ -99,16 +99,16 @@ export default function BriefSkeleton({ keyword }: { keyword: string }) {
               <li
                 key={label}
                 className={`flex items-center gap-2.5 text-[13px] ${
-                  done ? 'text-clay-faint' : active ? 'text-clay-ink' : 'text-clay-ghost'
+                  done ? 'text-ui-faint' : active ? 'text-ui-ink' : 'text-ui-ghost'
                 }`}
               >
                 <span
                   className={`flex h-4 w-4 flex-none items-center justify-center rounded-full border ${
                     done
-                      ? 'border-clay-accent bg-clay-accent'
+                      ? 'border-ui-accent bg-ui-accent'
                       : active
-                        ? 'border-clay-ring bg-clay-soft'
-                        : 'border-clay-border'
+                        ? 'border-ui-ring bg-ui-soft'
+                        : 'border-ui-border'
                   }`}
                 >
                   {done && (
@@ -131,9 +131,9 @@ export default function BriefSkeleton({ keyword }: { keyword: string }) {
           })}
         </ol>
 
-        <div className="mt-[18px] h-[3px] overflow-hidden rounded-full bg-clay-track">
+        <div className="mt-[18px] h-[3px] overflow-hidden rounded-full bg-ui-track">
           <div
-            className="h-full rounded-full bg-clay-accent transition-[width] duration-700 ease-out"
+            className="h-full rounded-full bg-ui-accent transition-[width] duration-700 ease-out"
             style={{ width: `${18 + step * 18}%` }}
           />
         </div>
@@ -142,14 +142,14 @@ export default function BriefSkeleton({ keyword }: { keyword: string }) {
       <div className="space-y-[22px] p-6">
         {SECTIONS.map((section) => (
           <div key={section.label}>
-            <p className="mb-2.5 text-[12.5px] font-semibold text-clay-faint">
+            <p className="mb-2.5 text-[12.5px] font-semibold text-ui-faint">
               {section.label}
             </p>
             <div className="space-y-2">
               {section.bars.map((bar, i) => (
                 <div
                   key={i}
-                  className={`${bar.h} ${bar.w} animate-shimmer rounded-md bg-gradient-to-r from-clay-skeleton via-clay-shimmer to-clay-skeleton bg-[length:420px_100%]`}
+                  className={`${bar.h} ${bar.w} animate-shimmer rounded-md bg-gradient-to-r from-ui-skeleton via-ui-shimmer to-ui-skeleton bg-[length:420px_100%]`}
                 />
               ))}
             </div>

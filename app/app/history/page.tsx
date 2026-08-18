@@ -135,22 +135,22 @@ function HistoryContent() {
 
   if (open) {
     return (
-      <div className="min-h-screen bg-clay-paper text-clay-ink">
+      <div className="min-h-screen bg-ui-paper text-ui-ink">
         <AppNav />
         <div className="max-w-4xl mx-auto px-6 py-12 space-y-4">
           <button
             onClick={() => setOpen(null)}
-            className="flex items-center gap-2 text-sm text-clay-muted hover:text-clay-ink transition-colors"
+            className="flex items-center gap-2 text-sm text-ui-muted hover:text-ui-ink transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to history
           </button>
 
-          <div className="flex flex-wrap items-center gap-3 p-4 rounded-lg bg-clay-surface border border-clay-border">
+          <div className="flex flex-wrap items-center gap-3 p-4 rounded-lg bg-ui-surface border border-ui-border">
             <span className="text-sm font-semibold mr-auto">{open.keyword}</span>
             <button
               onClick={handleCopy}
-              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-clay-shell hover:border-clay-ring transition-colors text-sm font-semibold"
+              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-ui-shell hover:border-ui-ring transition-colors text-sm font-semibold"
             >
               {copied ? (
                 <>
@@ -166,7 +166,7 @@ function HistoryContent() {
             </button>
             <button
               onClick={handleDownload}
-              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-clay-shell hover:border-clay-ring transition-colors text-sm font-semibold"
+              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-ui-shell hover:border-ui-ring transition-colors text-sm font-semibold"
             >
               <Download className="w-4 h-4" />
               Download PDF
@@ -180,26 +180,26 @@ function HistoryContent() {
   }
 
   return (
-    <div className="min-h-screen bg-clay-paper text-clay-ink">
+    <div className="min-h-screen bg-ui-paper text-ui-ink">
       <AppNav />
 
       <div className="max-w-4xl mx-auto px-6 py-12">
         <div className="mb-8">
           <h1 className="text-3xl font-bold mb-2">Brief History</h1>
-          <p className="text-clay-muted">
+          <p className="text-ui-muted">
             Every brief you&apos;ve generated, newest first.
           </p>
         </div>
 
         <div className="relative mb-6">
-          <Search className="w-4 h-4 text-clay-faint absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
+          <Search className="w-4 h-4 text-ui-faint absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
           <input
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Filter by keyword or niche"
             aria-label="Filter briefs by keyword or niche"
-            className="w-full pl-11 pr-4 py-3 rounded-lg bg-clay-surface border border-clay-border focus:border-clay-ring focus:outline-none transition-colors text-clay-ink placeholder-clay-placeholder"
+            className="w-full pl-11 pr-4 py-3 rounded-lg bg-ui-surface border border-ui-border focus:border-ui-ring focus:outline-none transition-colors text-ui-ink placeholder-ui-placeholder"
           />
         </div>
 
@@ -212,20 +212,20 @@ function HistoryContent() {
 
         {loading ? (
           <div className="py-20 flex justify-center">
-            <Loader className="w-6 h-6 animate-spin text-clay-accent" />
+            <Loader className="w-6 h-6 animate-spin text-ui-accent" />
           </div>
         ) : briefs.length === 0 ? (
-          <div className="p-10 rounded-lg bg-clay-surface border border-clay-border border-dashed text-center">
-            <p className="text-clay-muted mb-4">You haven&apos;t generated any briefs yet.</p>
+          <div className="p-10 rounded-lg bg-ui-surface border border-ui-border border-dashed text-center">
+            <p className="text-ui-muted mb-4">You haven&apos;t generated any briefs yet.</p>
             <Link
               href="/app/dashboard"
-              className="inline-block px-6 py-2 bg-clay-accent text-white rounded-lg font-semibold hover:opacity-90 transition-opacity text-sm"
+              className="inline-block px-6 py-2 bg-ui-accent text-white rounded-lg font-semibold hover:opacity-90 transition-opacity text-sm"
             >
               Generate your first brief
             </Link>
           </div>
         ) : filtered.length === 0 ? (
-          <p className="text-clay-muted text-center py-12">
+          <p className="text-ui-muted text-center py-12">
             No briefs match &ldquo;{query}&rdquo;.
           </p>
         ) : (
@@ -233,12 +233,12 @@ function HistoryContent() {
             {filtered.map((brief) => (
               <li
                 key={brief.id}
-                className="p-5 rounded-lg bg-clay-surface border border-clay-border hover:border-clay-ring transition-colors"
+                className="p-5 rounded-lg bg-ui-surface border border-ui-border hover:border-ui-ring transition-colors"
               >
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <div className="min-w-0">
                     <p className="font-semibold truncate">{brief.keyword}</p>
-                    <p className="text-xs text-clay-muted mt-1">
+                    <p className="text-xs text-ui-muted mt-1">
                       {formatDate(brief.created_at)}
                       {brief.niche && ` • ${brief.niche}`}
                     </p>
@@ -246,7 +246,7 @@ function HistoryContent() {
                   <button
                     onClick={() => handleOpen(brief.id, brief.keyword)}
                     disabled={openingId === brief.id}
-                    className="px-4 py-2 rounded-lg bg-clay-shell hover:border-clay-ring transition-colors text-sm font-semibold flex items-center gap-2 disabled:opacity-50"
+                    className="px-4 py-2 rounded-lg bg-ui-shell hover:border-ui-ring transition-colors text-sm font-semibold flex items-center gap-2 disabled:opacity-50"
                   >
                     {openingId === brief.id ? (
                       <>

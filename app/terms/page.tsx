@@ -15,16 +15,16 @@ const LAST_UPDATED = 'August 17, 2026';
 
 export default function Terms() {
   return (
-    <main className="min-h-screen bg-clay-paper text-clay-ink">
+    <main className="min-h-screen bg-ui-paper text-ui-ink">
       <MarketingNav />
 
       <article className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto">
         <h1 className="font-serif text-4xl font-bold tracking-tight mb-3">Terms of Service</h1>
-        <p className="text-clay-faint text-sm mb-10">Last updated: {LAST_UPDATED}</p>
+        <p className="text-ui-faint text-sm mb-10">Last updated: {LAST_UPDATED}</p>
 
-        <div className="space-y-8 text-clay-body leading-relaxed">
+        <div className="space-y-8 text-ui-body leading-relaxed">
           <section>
-            <h2 className="font-serif text-xl font-semibold text-clay-ink mb-3">The service</h2>
+            <h2 className="font-serif text-xl font-semibold text-ui-ink mb-3">The service</h2>
             <p>
               GEObrief.ai generates content briefs intended to help you structure content
               for AI answer engines. Briefs are produced by an AI model with live web
@@ -34,7 +34,7 @@ export default function Terms() {
           </section>
 
           <section>
-            <h2 className="font-serif text-xl font-semibold text-clay-ink mb-3">Accounts</h2>
+            <h2 className="font-serif text-xl font-semibold text-ui-ink mb-3">Accounts</h2>
             <p>
               You need an account to generate briefs. You are responsible for keeping your
               credentials secure and for activity under your account. Provide an email
@@ -44,18 +44,18 @@ export default function Terms() {
           </section>
 
           <section>
-            <h2 className="font-serif text-xl font-semibold text-clay-ink mb-3">Plans and limits</h2>
+            <h2 className="font-serif text-xl font-semibold text-ui-ink mb-3">Plans and limits</h2>
             <ul className="list-disc pl-6 space-y-2">
               <li>
-                <strong className="text-clay-ink">Free:</strong> {FREE_BRIEF_LIMIT} briefs per
+                <strong className="text-ui-ink">Free:</strong> {FREE_BRIEF_LIMIT} briefs per
                 calendar month. The counter resets on the first day of each month.
               </li>
               <li>
-                <strong className="text-clay-ink">Pro ($15/month):</strong> unlimited briefs
+                <strong className="text-ui-ink">Pro ($15/month):</strong> unlimited briefs
                 while the subscription is active.
               </li>
               <li>
-                <strong className="text-clay-ink">Lifetime ($59, one-time):</strong> unlimited
+                <strong className="text-ui-ink">Lifetime ($59, one-time):</strong> unlimited
                 briefs with no recurring charge.
               </li>
             </ul>
@@ -66,7 +66,7 @@ export default function Terms() {
           </section>
 
           <section>
-            <h2 className="font-serif text-xl font-semibold text-clay-ink mb-3">Payments and refunds</h2>
+            <h2 className="font-serif text-xl font-semibold text-ui-ink mb-3">Payments and refunds</h2>
             <p>
               Payments are processed by Gumroad under their terms; we never handle your
               card details. Use the same email address for your purchase as for your
@@ -79,7 +79,7 @@ export default function Terms() {
           </section>
 
           <section>
-            <h2 className="font-serif text-xl font-semibold text-clay-ink mb-3">Fair use</h2>
+            <h2 className="font-serif text-xl font-semibold text-ui-ink mb-3">Fair use</h2>
             <p>
               Unlimited plans are for individual and team use of the product as intended.
               We may rate-limit or suspend accounts that automate bulk generation, resell
@@ -90,7 +90,7 @@ export default function Terms() {
           </section>
 
           <section>
-            <h2 className="font-serif text-xl font-semibold text-clay-ink mb-3">Acceptable use</h2>
+            <h2 className="font-serif text-xl font-semibold text-ui-ink mb-3">Acceptable use</h2>
             <p>Do not use GEObrief.ai to:</p>
             <ul className="list-disc pl-6 space-y-2 mt-2">
               <li>generate content designed to deceive, impersonate, or defraud</li>
@@ -101,7 +101,7 @@ export default function Terms() {
           </section>
 
           <section>
-            <h2 className="font-serif text-xl font-semibold text-clay-ink mb-3">Ownership</h2>
+            <h2 className="font-serif text-xl font-semibold text-ui-ink mb-3">Ownership</h2>
             <p>
               You own the briefs generated for you and may use them commercially, including
               for client work. We retain ownership of the software, prompts, and interface.
@@ -112,7 +112,7 @@ export default function Terms() {
           </section>
 
           <section>
-            <h2 className="font-serif text-xl font-semibold text-clay-ink mb-3">
+            <h2 className="font-serif text-xl font-semibold text-ui-ink mb-3">
               Availability and disclaimer
             </h2>
             <p>
@@ -126,7 +126,7 @@ export default function Terms() {
           </section>
 
           <section>
-            <h2 className="font-serif text-xl font-semibold text-clay-ink mb-3">Termination</h2>
+            <h2 className="font-serif text-xl font-semibold text-ui-ink mb-3">Termination</h2>
             <p>
               You may stop using the service and request deletion at any time. We may
               suspend or terminate accounts that breach these terms. If we terminate your
@@ -136,7 +136,7 @@ export default function Terms() {
           </section>
 
           <section>
-            <h2 className="font-serif text-xl font-semibold text-clay-ink mb-3">Changes</h2>
+            <h2 className="font-serif text-xl font-semibold text-ui-ink mb-3">Changes</h2>
             <p>
               We may update these terms. Material changes will be reflected in the date
               above and notified to registered users by email. Continuing to use the
@@ -145,10 +145,10 @@ export default function Terms() {
           </section>
 
           <section>
-            <h2 className="font-serif text-xl font-semibold text-clay-ink mb-3">Contact</h2>
+            <h2 className="font-serif text-xl font-semibold text-ui-ink mb-3">Contact</h2>
             <p>
               Questions about these terms:{' '}
-              <a href={`mailto:${SUPPORT_EMAIL}`} className="text-clay-accent hover:underline">
+              <a href={`mailto:${SUPPORT_EMAIL}`} className="text-ui-accent hover:underline">
                 {SUPPORT_EMAIL}
               </a>
               .

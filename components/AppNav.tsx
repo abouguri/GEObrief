@@ -19,16 +19,16 @@ const LINKS = [
 function QuotaPill({ profile }: { profile: UserProfile | null }) {
   if (!profile) {
     return (
-      <div className="hidden items-center rounded-full border border-clay-border bg-clay-shell px-3 py-1.5 sm:flex">
-        <span className="text-xs text-clay-ghost">Loading usage…</span>
+      <div className="hidden items-center rounded-full border border-ui-border bg-ui-shell px-3 py-1.5 sm:flex">
+        <span className="text-xs text-ui-ghost">Loading usage…</span>
       </div>
     );
   }
 
   if (profile.plan !== 'free') {
     return (
-      <div className="flex items-center rounded-full border border-clay-ring bg-clay-soft px-3 py-1.5">
-        <span className="text-xs font-semibold text-clay-accent">
+      <div className="flex items-center rounded-full border border-ui-ring bg-ui-soft px-3 py-1.5">
+        <span className="text-xs font-semibold text-ui-accent">
           {PLAN_LABELS[profile.plan]} · Unlimited
         </span>
       </div>
@@ -40,7 +40,7 @@ function QuotaPill({ profile }: { profile: UserProfile | null }) {
 
   return (
     <div
-      className="flex items-center gap-2.5 rounded-full border border-clay-border bg-clay-shell px-3 py-1.5"
+      className="flex items-center gap-2.5 rounded-full border border-ui-border bg-ui-shell px-3 py-1.5"
       title={`${remaining} of ${FREE_BRIEF_LIMIT} free briefs left this month`}
     >
       <div className="hidden gap-[3px] sm:flex" aria-hidden="true">
@@ -48,22 +48,22 @@ function QuotaPill({ profile }: { profile: UserProfile | null }) {
           <span
             key={i}
             className={`h-1 w-3.5 rounded-full ${
-              i < remaining ? 'bg-clay-accent' : 'bg-clay-border'
+              i < remaining ? 'bg-ui-accent' : 'bg-ui-border'
             }`}
           />
         ))}
       </div>
-      <span className="text-[12.5px] font-semibold text-clay-ink">
+      <span className="text-[12.5px] font-semibold text-ui-ink">
         {atLimit ? 'No briefs left' : `${remaining} brief${remaining === 1 ? '' : 's'} left`}
       </span>
-      <span className="text-[12.5px] text-clay-ghost" aria-hidden="true">
+      <span className="text-[12.5px] text-ui-ghost" aria-hidden="true">
         ·
       </span>
       <a
         href={GUMROAD_PRO_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-[12.5px] font-semibold text-clay-accent transition-opacity hover:opacity-80"
+        className="text-[12.5px] font-semibold text-ui-accent transition-opacity hover:opacity-80"
       >
         Upgrade
       </a>
@@ -86,13 +86,13 @@ export default function AppNav() {
   };
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-clay-border bg-clay-surface/90 backdrop-blur-xl">
+    <nav className="sticky top-0 z-50 border-b border-ui-border bg-ui-surface/90 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-x-5 gap-y-3 px-6 py-3.5">
         <Link
           href="/"
-          className="text-xl font-bold tracking-tight text-clay-ink"
+          className="text-xl font-bold tracking-tight text-ui-ink"
         >
-          GEObrief<span className="text-clay-accent">.ai</span>
+          GEObrief<span className="text-ui-accent">.ai</span>
         </Link>
 
         <div className="order-2 flex items-center gap-0.5 sm:order-none">
@@ -103,8 +103,8 @@ export default function AppNav() {
               aria-current={pathname === link.href ? 'page' : undefined}
               className={
                 pathname === link.href
-                  ? 'rounded-lg bg-clay-soft px-3 py-1.5 text-[13.5px] font-semibold text-clay-ink'
-                  : 'rounded-lg px-3 py-1.5 text-[13.5px] text-clay-muted transition-colors hover:bg-clay-shell hover:text-clay-ink'
+                  ? 'rounded-lg bg-ui-highlight-soft px-3 py-1.5 text-[13.5px] font-semibold text-ui-ink'
+                  : 'rounded-lg px-3 py-1.5 text-[13.5px] text-ui-muted transition-colors hover:bg-ui-shell hover:text-ui-ink'
               }
             >
               {link.label}
@@ -116,7 +116,7 @@ export default function AppNav() {
           <QuotaPill profile={profile} />
           <button
             onClick={handleSignOut}
-            className="flex items-center gap-2 text-[13px] text-clay-muted transition-colors hover:text-clay-ink"
+            className="flex items-center gap-2 text-[13px] text-ui-muted transition-colors hover:text-ui-ink"
             aria-label="Sign out"
           >
             <LogOut className="h-4 w-4" />

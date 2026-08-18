@@ -7,8 +7,8 @@ import type { UserProfile } from '@/lib/auth-context';
 export default function UsageBanner({ profile }: { profile: UserProfile | null }) {
   if (!profile) {
     return (
-      <div className="p-4 rounded-lg bg-clay-surface border border-clay-border">
-        <p className="text-sm text-clay-faint">Loading usage…</p>
+      <div className="p-4 rounded-lg bg-ui-surface border border-ui-border">
+        <p className="text-sm text-ui-faint">Loading usage…</p>
       </div>
     );
   }
@@ -19,16 +19,16 @@ export default function UsageBanner({ profile }: { profile: UserProfile | null }
   const atLimit = !isPaid && remaining === 0;
 
   return (
-    <div className="p-4 rounded-lg bg-clay-surface border border-clay-border">
+    <div className="p-4 rounded-lg bg-ui-surface border border-ui-border">
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <p className="text-sm text-clay-muted">
+        <p className="text-sm text-ui-muted">
           {isPaid ? (
-            <span className="text-clay-accent font-semibold">
+            <span className="text-ui-accent font-semibold">
               {PLAN_LABELS[profile.plan]} plan • Unlimited briefs
             </span>
           ) : (
             <>
-              <span className="font-semibold text-clay-ink">
+              <span className="font-semibold text-ui-ink">
                 {used} of {FREE_BRIEF_LIMIT}
               </span>{' '}
               free briefs used this month
@@ -41,16 +41,16 @@ export default function UsageBanner({ profile }: { profile: UserProfile | null }
             href={GUMROAD_PRO_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs px-4 py-2 bg-clay-accent text-white rounded font-semibold hover:opacity-90 transition-opacity"
+            className="text-xs px-4 py-2 bg-ui-accent text-white rounded font-semibold hover:opacity-90 transition-opacity"
           >
             Upgrade to Pro
           </a>
         )}
       </div>
       {!isPaid && (
-        <div className="mt-3 h-1 bg-clay-shell rounded-full overflow-hidden">
+        <div className="mt-3 h-1 bg-ui-shell rounded-full overflow-hidden">
           <div
-            className="h-full bg-gradient-to-r from-clay-accent to-clay-ring transition-all"
+            className="h-full bg-gradient-to-r from-ui-accent to-ui-ring transition-all"
             style={{ width: `${(used / FREE_BRIEF_LIMIT) * 100}%` }}
           />
         </div>

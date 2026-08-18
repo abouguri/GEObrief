@@ -12,28 +12,36 @@ const config: Config = {
     extend: {
       colors: {
         /**
-         * Clay — the light editorial palette used by the authenticated app.
-         * Semantic names, so a future palette swap is a one-file edit.
+         * Semantic UI palette — light editorial. Names describe the role, not
+         * the colour, so swapping the palette is a change to this block alone.
+         * Values sampled from the reference interface rather than estimated.
          */
-        clay: {
-          paper: '#F3EFE8',      // page background
-          shell: '#FAF7F2',      // recessed surfaces: inputs, inset panels
-          surface: '#FFFFFF',    // cards and raised panels
-          border: '#E6DFD5',
-          ink: '#1A1613',        // primary text
-          body: '#3D362F',       // long-form body copy
-          quote: '#4A423A',      // pull quotes
-          muted: '#6B6157',      // secondary text
-          faint: '#8A7F73',      // labels, eyebrow text
-          ghost: '#B4A99C',      // inactive / disabled
-          placeholder: '#A69A8C',
-          accent: '#C2542F',     // primary action
-          soft: '#F6E7DF',       // accent tint background
-          ring: '#DC9A80',       // accent border / focus
-          wash: '#FDF6F1',       // tinted panel header
-          track: '#EFE4DA',      // progress track
-          skeleton: '#F4EDE5',
-          shimmer: '#EAE0D5',
+        ui: {
+          paper: '#FCFCFA',        // page ground, faintly warm off-white
+          surface: '#FFFFFF',      // cards and raised panels
+          shell: '#F6F6F4',        // recessed: inputs, inset panels, chips
+          border: '#E3E3E8',
+          hairline: '#E1E1E0',     // lighter rule inside cards
+
+          ink: '#2A2928',          // primary text
+          body: '#44423F',         // long-form body copy
+          quote: '#44423F',
+          muted: '#615F5D',        // secondary text
+          faint: '#8B8B8B',        // labels, eyebrow text
+          ghost: '#B0AEAC',        // inactive / disabled
+          placeholder: '#8B8B8B',
+
+          accent: '#059669',       // primary action (emerald)
+          soft: '#D1FAE5',         // accent tint background
+          ring: '#34D399',         // focus + hover border
+          wash: '#F0FDF9',         // tinted panel header
+
+          highlight: '#7E22CE',    // secondary CTA (purple)
+          'highlight-soft': '#F3E8FF',
+
+          track: '#EDEDF2',        // progress track
+          skeleton: '#F1F1EF',
+          shimmer: '#E3E3E8',
         },
       },
       fontFamily: {
