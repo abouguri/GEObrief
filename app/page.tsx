@@ -445,7 +445,7 @@ export default function Home() {
   };
 
   return (
-    <main className="overflow-x-hidden bg-mk-paper text-mk-ink">
+    <main data-scrollbar="dark" className="overflow-x-hidden bg-mk-paper text-mk-ink">
       {/* Scroll-reveal is pure CSS (animation-timeline: view()), with a
           @supports fallback and a prefers-reduced-motion off-switch — no
           client JS involved. */}

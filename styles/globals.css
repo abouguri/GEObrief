@@ -22,7 +22,34 @@ pre {
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 
-/* Scrollbar: neutral enough to read on both themes. */
+/*
+ * Scrollbar, themed per page rather than one flat neutral.
+ *
+ * Every route is light (`ui-*`) except the landing page, which is dark
+ * (`mk-*`) and marks its root `data-scrollbar="dark"` (see app/page.tsx).
+ * Values are the actual palette tokens from tailwind.config.ts, not
+ * independent colours — keep them in sync if the palette changes.
+ *   light: ui.ghost #B0AEAC (rest) -> ui.accent #059669 (hover)
+ *   dark:  mk.border-strong #39413C (rest) -> mk.accent #10B981 (hover)
+ */
+html {
+  --scrollbar-thumb: rgba(176, 174, 172, 0.6);
+  --scrollbar-thumb-hover: rgba(5, 150, 105, 0.55);
+  scrollbar-color: var(--scrollbar-thumb) transparent;
+  scrollbar-width: thin;
+}
+
+/*
+ * The scrollbar belongs to <html>, several levels above where a page sets
+ * its own theme — so the override has to let html react to its descendant,
+ * not set the variable on the descendant itself (custom properties only
+ * inherit downward, never back up to an ancestor).
+ */
+html:has([data-scrollbar="dark"]) {
+  --scrollbar-thumb: rgba(57, 65, 60, 0.8);
+  --scrollbar-thumb-hover: rgba(16, 185, 129, 0.5);
+}
+
 ::-webkit-scrollbar {
   @apply w-2;
 }
@@ -33,9 +60,9 @@ pre {
 
 ::-webkit-scrollbar-thumb {
   @apply rounded-full;
-  background: rgba(128, 118, 106, 0.35);
+  background: var(--scrollbar-thumb);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(128, 118, 106, 0.55);
+  background: var(--scrollbar-thumb-hover);
 }
