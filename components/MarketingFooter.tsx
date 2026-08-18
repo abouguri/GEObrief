@@ -14,7 +14,7 @@ export default function MarketingFooter() {
             <h4 className="mb-4 font-semibold text-ui-ink">Product</h4>
             <ul className="space-y-2 text-ui-muted text-sm">
               <li>
-                <Link href="/#features" className="hover:text-ui-ink transition-colors">
+                <Link href="/#anatomy" className="hover:text-ui-ink transition-colors">
                   How It Works
                 </Link>
               </li>

@@ -43,6 +43,33 @@ const config: Config = {
           skeleton: '#F1F1EF',
           shimmer: '#E3E3E8',
         },
+        /**
+         * Dark marketing palette — the public landing page only. Deliberately
+         * separate from `ui-*` (the light app palette): the app renders inside
+         * framed mockups on the marketing page using literal `ui-*` values, so
+         * the two palettes coexist on one page and must not collide.
+         */
+        mk: {
+          paper: '#0B0D0C',          // page ground
+          band: '#111413',           // alternating section background
+          surface: '#181C1A',        // cards, inputs on dark
+          'surface-hover': '#1D211F',
+          border: '#262B28',
+          'border-strong': '#39413C',
+
+          ink: '#F4F6F4',            // primary text
+          body: '#C7CDC8',           // secondary text
+          muted: '#8E958F',
+          faint: '#666D68',
+
+          accent: '#10B981',         // marketing green — brighter than ui-accent
+          'accent-hover': '#34D6A0',
+          'accent-ink': '#05221A',   // text on accent-filled buttons
+
+          purple: '#A855F7',         // marketing secondary accent
+          badge: '#7E22CE',          // matches ui-highlight — bridges to the app
+          amber: '#F0A93B',          // third rotating accent
+        },
       },
       fontFamily: {
         serif: ['var(--font-serif)', 'Source Serif 4', 'Georgia', 'serif'],
