@@ -139,7 +139,7 @@ const FAQS = [
   },
   {
     q: "How long does a brief take?",
-    a: "Usually 20–40 seconds. The live search happens before the writing, which is what the wait buys you.",
+    a: "Usually 20–45 seconds. A search step retrieves real sources first, then a separate step writes the brief from them — that two-step handoff is what the wait buys you.",
   },
   {
     q: "Do you store or sell my keywords?",
@@ -847,9 +847,10 @@ export default function Home() {
                   We search the live web
                 </h3>
                 <p className="max-w-[420px] text-[16.5px] leading-relaxed text-mk-muted">
-                  Search runs while the brief is written, so the sources in it are ones
-                  that were actually retrieved — not ones a model remembered. Takes
-                  20–40 seconds.
+                  Search runs first and retrieves real sources, then a second step
+                  writes the brief from them — so the sources in it are ones that
+                  were actually found, not ones a model remembered. Takes 20–45
+                  seconds.
                 </p>
               </div>
               <div className="rounded-2xl border border-mk-purple/30 bg-mk-paper p-[22px]">

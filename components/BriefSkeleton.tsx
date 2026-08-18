@@ -54,7 +54,7 @@ const SECTIONS: Array<{ label: string; bars: Array<{ h: string; w: string }> }> 
 ];
 
 /**
- * Wait state for a 20–40s generation. Two jobs: prove work is happening
+ * Wait state for a 20–45s generation. Two jobs: prove work is happening
  * (named search steps that advance) and show the shape of what is coming
  * (labelled placeholders in the real brief order).
  *
@@ -87,7 +87,7 @@ export default function BriefSkeleton({ keyword }: { keyword: string }) {
         </div>
         <p className="text-[13.5px] text-ui-muted">
           Reading the live web for &ldquo;{keyword}&rdquo; — how ChatGPT, Perplexity and AI
-          Overviews answer it right now. Usually 20–40 seconds.
+          Overviews answer it right now. Usually 20–45 seconds — two searches, then the write-up.
         </p>
 
         <ol className="mt-[18px] space-y-2.5">
