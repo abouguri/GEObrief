@@ -76,15 +76,20 @@ By default Supabase requires email confirmation. For launch, either:
 
 1. Get a key at [console.groq.com](https://console.groq.com) → `GROQ_API_KEY`. The
    free tier needs no credit card.
-2. Leave `GROQ_MODEL` unset to use `groq/compound`. Set it to
-   `groq/compound-mini` if you want faster, cheaper briefs.
-3. The free tier is rate-limited rather than billed, so heavy signup traffic
-   produces 429s rather than a surprise invoice. Watch for those in the logs
-   before deciding to move to a paid tier.
+2. Nothing else to configure — both models are fixed in `lib/ai.ts`.
+3. The free tier's on-demand rate limit is small: about 8,000 tokens/minute
+   per model, verified directly against the API. Brief generation is
+   deliberately split into two calls to stay under that — see the comment
+   at the top of `lib/ai.ts` for the full reasoning. Heavy signup traffic
+   will still produce 429s under load; watch for those in the logs before
+   deciding whether to move to Groq's paid Dev Tier.
 
-Groq (groq.com) is not Grok (xAI). We use Groq's `compound` system specifically
-because web search is built in and automatic — that is what makes the
-cited-sources section of a brief real.
+Groq (groq.com) is not Grok (xAI) — a different company. Brief generation
+uses two Groq calls: `groq/compound-mini` retrieves real search results,
+then `openai/gpt-oss-20b` (no search, no Compound overhead) writes the brief
+from them. `citedSources` in the output comes directly from the first call's
+results — the writing model never restates URLs, so there is no step where
+one could be misremembered.
 
 ---
 
@@ -132,7 +137,6 @@ NEXT_PUBLIC_SUPABASE_URL
 NEXT_PUBLIC_SUPABASE_ANON_KEY
 SUPABASE_SERVICE_ROLE_KEY
 GROQ_API_KEY
-GROQ_MODEL                 # optional
 NEXT_PUBLIC_APP_URL
 NEXT_PUBLIC_SUPPORT_EMAIL
 GUMROAD_SECRET_KEY
