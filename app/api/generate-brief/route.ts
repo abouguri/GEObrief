@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { generateGeoBrief, formatBriefAsMarkdown } from "@/lib/grok";
-import { checkUsageLimit, incrementUsage } from "@/lib/usage";
+import { checkUsageLimit, incrementUsage, getUserUsageStats } from "@/lib/usage";
+import { getUserFromRequest } from "@/lib/auth-server";
+import { saveBrief } from "@/lib/briefs";
 
 export const runtime = "nodejs";
 
@@ -8,7 +10,6 @@ interface GenerateBriefRequest {
   keyword: string;
   websiteUrl?: string;
   niche?: string;
-  userId?: string;
 }
 
 interface ErrorResponse {
@@ -18,9 +19,22 @@ interface ErrorResponse {
 
 export async function POST(request: NextRequest): Promise<NextResponse> {
   try {
+    // Identify the caller before doing any billable work. The user id comes
+    // from a verified access token, never from the request body.
+    const user = await getUserFromRequest(request);
+    if (!user) {
+      return NextResponse.json(
+        {
+          error: "Not authenticated",
+          details: "Sign in to generate a brief.",
+        } as ErrorResponse,
+        { status: 401 }
+      );
+    }
+
     // Parse request body
     const body: GenerateBriefRequest = await request.json();
-    const { keyword, websiteUrl, niche, userId } = body;
+    const { keyword, websiteUrl, niche } = body;
 
     // Validate keyword
     if (!keyword || keyword.trim().length === 0) {
@@ -37,18 +51,16 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       );
     }
 
-    // Check usage limit if userId provided (future: after auth is built)
-    if (userId) {
-      const canGenerate = await checkUsageLimit(userId);
-      if (!canGenerate) {
-        return NextResponse.json(
-          {
-            error: "Usage limit reached",
-            details: "You've used all 3 free briefs this month. Upgrade to Pro.",
-          } as ErrorResponse,
-          { status: 429 }
-        );
-      }
+    // Enforce the free-plan gate server-side
+    const canGenerate = await checkUsageLimit(user.id);
+    if (!canGenerate) {
+      return NextResponse.json(
+        {
+          error: "Usage limit reached",
+          details: "You've used all 3 free briefs this month. Upgrade to Pro.",
+        } as ErrorResponse,
+        { status: 429 }
+      );
     }
 
     // Generate brief via Grok
@@ -61,17 +73,32 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     // Format as markdown
     const briefMarkdown = formatBriefAsMarkdown(brief);
 
-    // Increment usage if userId provided
-    if (userId) {
-      await incrementUsage(userId);
-    }
+    // Persist for the history page, then count the brief against the quota
+    const briefId = await saveBrief({
+      userId: user.id,
+      keyword: keyword.trim(),
+      websiteUrl: websiteUrl?.trim(),
+      niche: niche?.trim(),
+      brief,
+      briefMarkdown,
+    });
+
+    await incrementUsage(user.id);
+    const usage = await getUserUsageStats(user.id);
 
     return NextResponse.json(
       {
         success: true,
+        briefId,
         keyword: keyword.trim(),
         brief,
         briefMarkdown,
+        usage: {
+          plan: usage.plan,
+          usageCount: usage.usageCount,
+          limit: usage.plan === "free" ? 3 : null,
+          resetDate: usage.monthStart,
+        },
       },
       { status: 200 }
     );
@@ -114,8 +141,9 @@ export async function GET(): Promise<NextResponse> {
       message: "GEO Brief API is ready",
       endpoint: "/api/generate-brief",
       method: "POST",
+      auth: "Authorization: Bearer <supabase access token>",
       requiredFields: ["keyword"],
-      optionalFields: ["websiteUrl", "niche", "userId"],
+      optionalFields: ["websiteUrl", "niche"],
     },
     { status: 200 }
   );
