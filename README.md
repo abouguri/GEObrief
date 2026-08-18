@@ -1,6 +1,6 @@
 # GEObrief.ai
 
-AI-optimized content brief generator. Enter a keyword; Grok searches the live web for how AI engines currently answer it and returns a GEO brief built to get cited by ChatGPT, Perplexity, and Google AI Overviews.
+AI-optimized content brief generator. Enter a keyword; the app searches the live web for how AI engines currently answer it and returns a GEO brief built to get cited by ChatGPT, Perplexity, and Google AI Overviews.
 
 **Stop writing for Google. Start writing for AI.**
 
@@ -12,7 +12,7 @@ AI-optimized content brief generator. Enter a keyword; Grok searches the live we
 | Styling | Tailwind CSS |
 | Database | Supabase (PostgreSQL + RLS) |
 | Auth | Supabase Auth — email/password + Google OAuth |
-| AI | Grok (`grok-3`) via the OpenAI SDK, pointed at `api.x.ai` |
+| AI | Groq `compound` (built-in web search) via the OpenAI SDK, pointed at `api.groq.com` |
 | Payments | Gumroad (Ping webhook) |
 | Hosting | Vercel |
 
@@ -59,7 +59,7 @@ The free plan allows 3 briefs per calendar month, enforced entirely server-side:
 1. The dashboard sends the Supabase access token as `Authorization: Bearer <token>`.
 2. `/api/generate-brief` verifies that token and derives the user id from it — the client never supplies its own id.
 3. `checkUsageLimit` reads `plan` and `usage_count` with the service-role key, resetting the counter if the month rolled over.
-4. Only after Grok returns is the brief saved and `usage_count` incremented.
+4. Only after the model returns is the brief saved and `usage_count` incremented.
 
 Client-side checks exist only to shape the UI. Removing them changes nothing about what the server allows.
 
@@ -97,7 +97,7 @@ content/
   posts/                One file per blog post + registry
 lib/
   supabase.ts           Browser + service-role clients
-  grok.ts               Grok call + markdown formatting
+  ai.ts                 Groq compound call, source extraction, markdown formatting
   usage.ts              Usage gate
   briefs.ts             Brief persistence
   auth-server.ts        Bearer-token verification for API routes
@@ -111,7 +111,8 @@ migrations/             SQL, run in order
 
 - **Blog authorship.** Posts are attributed to "The GEObrief.ai Team." E-E-A-T rewards a named author with verifiable credentials — swap in a real byline and a `sameAs` profile link in `content/types.ts` before launch.
 - **Blog statistics.** The posts deliberately contain no third-party statistics, since unverifiable numbers are a liability on exactly the kind of content that argues for sourcing claims. Where you add data, cite it.
-- **Grok web search.** `lib/grok.ts` relies on `grok-3`'s built-in search. If x.ai changes how search is enabled, that call is the single place to update — accurate briefs depend on it.
+- **Web search is the product.** `lib/ai.ts` uses Groq's `compound` system, where search runs automatically and the executed searches come back in the response. The cited-sources section is built from those real results, never from the model's recollection. If a brief comes back with `searchPerformed: false`, the markdown says so explicitly rather than presenting invented URLs.
+- **Groq is not Grok.** Groq (groq.com) is the inference provider used here. Grok (xAI) is a different product; its web search is a server-side tool on the Responses API, noted in `lib/ai.ts` if you ever switch.
 
 ## Scripts
 

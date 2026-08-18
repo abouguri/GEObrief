@@ -2,56 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply bg-brand-dark text-white;
-  font-feature-settings: "rounding" 1;
-}
+/*
+ * Deliberately minimal. Every page sets its own background and text colour,
+ * because the app is light (Clay) while the marketing pages are still dark.
+ * Global element styling that assumes one theme — dark inputs, accent-coloured
+ * links — breaks the other, so components style themselves explicitly.
+ */
 
-/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
 }
 
-/* Selection styles */
-::selection {
-  @apply bg-brand-accent text-brand-dark;
+body {
+  margin: 0;
 }
 
-/* Code blocks */
-code {
-  @apply font-mono text-sm;
-}
-
+code,
 pre {
-  @apply bg-black rounded-lg p-4 overflow-x-auto;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 
-/* Links */
-a {
-  @apply text-brand-accent hover:opacity-80 transition-opacity;
-}
-
-/* Buttons */
-button {
-  @apply transition-all duration-200;
-}
-
-/* Input fields */
-input,
-textarea,
-select {
-  @apply bg-black/40 border border-white/10 rounded-lg px-3 py-2 text-white placeholder-white/50 focus:outline-none focus:border-brand-accent transition-colors;
-}
-
-/* Scrollbar */
+/* Scrollbar: neutral enough to read on both themes. */
 ::-webkit-scrollbar {
   @apply w-2;
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-black/20;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-brand-accent/40 hover:bg-brand-accent/60 rounded-full;
+  @apply rounded-full;
+  background: rgba(128, 118, 106, 0.35);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(128, 118, 106, 0.55);
 }

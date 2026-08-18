@@ -50,12 +50,12 @@ export default function BlogIndex() {
   };
 
   return (
-    <main className="min-h-screen bg-brand-dark text-white">
+    <main className="min-h-screen bg-ui-paper text-ui-ink">
       <MarketingNav />
 
       <section className="pt-32 pb-12 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-        <h1 className="text-4xl sm:text-5xl font-bold mb-4">{TITLE}</h1>
-        <p className="text-white/60 text-lg">{DESCRIPTION}</p>
+        <h1 className="font-serif text-4xl sm:text-5xl font-bold tracking-tight mb-4">{TITLE}</h1>
+        <p className="text-ui-muted text-lg">{DESCRIPTION}</p>
       </section>
 
       <section className="pb-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
@@ -64,18 +64,18 @@ export default function BlogIndex() {
             <li key={post.slug}>
               <Link
                 href={`/blog/${post.slug}`}
-                className="block p-6 rounded-lg bg-white/5 border border-white/10 hover:border-brand-accent/50 transition-colors group"
+                className="block p-6 rounded-lg bg-ui-surface border border-ui-border hover:border-ui-ring transition-colors group"
               >
-                <div className="flex items-center gap-3 text-xs text-white/40 mb-3">
+                <div className="flex items-center gap-3 text-xs text-ui-faint mb-3">
                   <time dateTime={post.publishedAt}>{formatDate(post.publishedAt)}</time>
                   <span>•</span>
                   <span>{post.readingMinutes} min read</span>
                 </div>
-                <h2 className="text-2xl font-bold mb-3 group-hover:text-brand-accent transition-colors">
+                <h2 className="font-serif text-2xl font-semibold mb-3 group-hover:text-ui-accent transition-colors">
                   {post.title}
                 </h2>
-                <p className="text-white/60 mb-4">{post.description}</p>
-                <span className="text-brand-accent text-sm font-semibold inline-flex items-center gap-1">
+                <p className="text-ui-muted mb-4">{post.description}</p>
+                <span className="text-ui-accent text-sm font-semibold inline-flex items-center gap-1">
                   Read guide <ArrowRight size={14} />
                 </span>
               </Link>
@@ -85,17 +85,17 @@ export default function BlogIndex() {
       </section>
 
       <section className="pb-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-        <div className="p-8 rounded-lg bg-brand-accent/10 border border-brand-accent/30 text-center">
+        <div className="p-8 rounded-lg bg-ui-soft border border-ui-ring text-center">
           <h2 className="text-2xl font-bold mb-3">
             Stop researching. Start with a brief.
           </h2>
-          <p className="text-white/60 mb-6">
+          <p className="text-ui-muted mb-6">
             GEObrief.ai analyses how AI engines answer your keyword right now, then hands
             you the brief. Three free every month.
           </p>
           <Link
             href="/auth/signup"
-            className="inline-flex items-center gap-2 bg-brand-accent text-brand-dark px-6 py-3 rounded-lg font-bold hover:opacity-90 transition-opacity"
+            className="inline-flex items-center gap-2 bg-ui-accent text-white px-6 py-3 rounded-lg font-bold hover:opacity-90 transition-opacity"
           >
             Generate a free brief <ArrowRight size={18} />
           </Link>

@@ -72,11 +72,19 @@ By default Supabase requires email confirmation. For launch, either:
 
 ---
 
-## 2. Grok API
+## 2. Groq API
 
-1. Get a key at [console.x.ai](https://console.x.ai) → `GROK_API_KEY`.
-2. Add billing credit. Each brief is one `grok-3` call with web search.
-3. Set a spend limit if the console offers one — the usage gate protects your quota per user, but nothing caps total spend across many signups.
+1. Get a key at [console.groq.com](https://console.groq.com) → `GROQ_API_KEY`. The
+   free tier needs no credit card.
+2. Leave `GROQ_MODEL` unset to use `groq/compound`. Set it to
+   `groq/compound-mini` if you want faster, cheaper briefs.
+3. The free tier is rate-limited rather than billed, so heavy signup traffic
+   produces 429s rather than a surprise invoice. Watch for those in the logs
+   before deciding to move to a paid tier.
+
+Groq (groq.com) is not Grok (xAI). We use Groq's `compound` system specifically
+because web search is built in and automatic — that is what makes the
+cited-sources section of a brief real.
 
 ---
 
@@ -123,7 +131,8 @@ Add all of these under **Settings → Environment Variables** for Production (an
 NEXT_PUBLIC_SUPABASE_URL
 NEXT_PUBLIC_SUPABASE_ANON_KEY
 SUPABASE_SERVICE_ROLE_KEY
-GROK_API_KEY
+GROQ_API_KEY
+GROQ_MODEL                 # optional
 NEXT_PUBLIC_APP_URL
 NEXT_PUBLIC_SUPPORT_EMAIL
 GUMROAD_SECRET_KEY
@@ -185,7 +194,7 @@ Work through this on the live site.
         -d '{"keyword":"test"}'
       ```
 
-      This must return 401 and must not consume Grok credit.
+      This must return 401 and must not consume Groq quota.
 
 **Payments**
 - [ ] `GET /api/webhooks/gumroad` returns `{"status":"ok"}`
@@ -213,9 +222,9 @@ update public.users set plan = 'pro', plan_updated_at = now()
 where email = 'buyer@example.com';
 ```
 
-**Cost control.** Every free signup can consume 3 Grok calls. If signups spike, watch x.ai spend before celebrating. `FREE_BRIEF_LIMIT` in `lib/config.ts` is the single source of truth — both the UI copy and the server-side gate read it, so changing it there is enough.
+**Cost control.** Every free signup can consume 3 Groq calls. On the free tier that means rate limits rather than cost, but briefs will start failing with 429s once you hit them. `FREE_BRIEF_LIMIT` in `lib/config.ts` is the single source of truth — both the UI copy and the server-side gate read it, so changing it there is enough.
 
-**Logs.** Vercel → Deployments → Functions shows API route logs. Grok and Supabase failures are logged with context there.
+**Logs.** Vercel → Deployments → Functions shows API route logs. Groq and Supabase failures are logged with context there.
 
 ---
 

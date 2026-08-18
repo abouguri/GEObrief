@@ -1,52 +1,79 @@
 import ReactMarkdown from 'react-markdown';
 
-/** Shared brief renderer used by the dashboard and the history detail view. */
+/**
+ * Shared brief renderer used by the dashboard and the history detail view.
+ * The brief is the product, so it gets the highest elevation and the
+ * editorial serif — it should read like a document, not a data panel.
+ */
 export default function BriefMarkdown({ markdown }: { markdown: string }) {
   return (
-    <div className="prose prose-invert max-w-none p-6 rounded-lg bg-white/5 border border-white/10 overflow-hidden">
+    <div className="overflow-hidden rounded-2xl border border-ui-border bg-ui-surface p-6 shadow-[0_1px_2px_rgba(42,41,40,0.04),0_18px_44px_-26px_rgba(42,41,40,0.16)] sm:p-8">
       <ReactMarkdown
         components={{
           h1: (props) => (
-            <h1 className="text-3xl font-bold text-white mt-6 mb-4 first:mt-0" {...props} />
+            <h1
+              className="mb-[18px] font-serif text-[32px] font-bold leading-[1.15] tracking-tight text-ui-ink sm:text-4xl"
+              {...props}
+            />
           ),
-          h2: (props) => <h2 className="text-2xl font-bold text-white mt-6 mb-3" {...props} />,
+          h2: (props) => (
+            <h2
+              className="mb-3 mt-[26px] font-serif text-[22px] font-semibold text-ui-ink sm:text-2xl"
+              {...props}
+            />
+          ),
           h3: (props) => (
-            <h3 className="text-xl font-semibold text-white/90 mt-4 mb-2" {...props} />
+            <h3
+              className="mb-2 mt-5 font-serif text-lg font-semibold text-ui-ink"
+              {...props}
+            />
           ),
-          p: (props) => <p className="text-white/80 mb-4 leading-relaxed" {...props} />,
+          p: (props) => (
+            <p className="mb-4 text-[15px] leading-[1.7] text-ui-body" {...props} />
+          ),
           ul: (props) => (
-            <ul className="list-disc list-inside space-y-2 mb-4 text-white/80" {...props} />
+            <ul
+              className="mb-4 flex list-disc flex-col gap-2 pl-[22px] text-[15px] text-ui-body"
+              {...props}
+            />
           ),
           ol: (props) => (
-            <ol className="list-decimal list-inside space-y-2 mb-4 text-white/80" {...props} />
+            <ol
+              className="mb-4 flex list-decimal flex-col gap-2 pl-[22px] text-[15px] text-ui-body"
+              {...props}
+            />
           ),
-          li: (props) => <li className="ml-2" {...props} />,
+          li: (props) => <li className="leading-relaxed" {...props} />,
+          strong: (props) => (
+            <strong className="font-semibold text-ui-ink" {...props} />
+          ),
+          blockquote: (props) => (
+            <blockquote
+              className="my-4 border-l-2 border-ui-accent pl-[18px] font-serif text-[17px] italic leading-relaxed text-ui-quote [&>p]:mb-0 [&>p]:text-[17px] [&>p]:text-ui-quote"
+              {...props}
+            />
+          ),
           code: (props) => (
             <code
-              className="px-2 py-1 rounded bg-white/10 text-brand-accent text-sm font-mono"
+              className="rounded bg-ui-shell px-1.5 py-0.5 font-mono text-[0.9em] text-ui-accent"
               {...props}
             />
           ),
           pre: (props) => (
             <pre
-              className="p-4 rounded-lg bg-black/30 overflow-x-auto mb-4 border border-white/10"
-              {...props}
-            />
-          ),
-          blockquote: (props) => (
-            <blockquote
-              className="pl-4 border-l-2 border-brand-accent italic text-white/70 my-4"
+              className="mb-4 overflow-x-auto rounded-lg border border-ui-border bg-ui-shell p-4 text-sm [&>code]:bg-transparent [&>code]:p-0 [&>code]:text-ui-body"
               {...props}
             />
           ),
           a: (props) => (
             <a
-              className="text-brand-accent hover:underline"
+              className="text-ui-accent underline-offset-2 hover:underline"
               target="_blank"
               rel="noopener noreferrer"
               {...props}
             />
           ),
+          hr: () => <hr className="my-8 border-ui-border" />,
         }}
       >
         {markdown}

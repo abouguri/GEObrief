@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { generateGeoBrief, formatBriefAsMarkdown } from "@/lib/grok";
+import { generateGeoBrief, formatBriefAsMarkdown } from "@/lib/ai";
 import { checkUsageLimit, incrementUsage, getUserUsageStats } from "@/lib/usage";
 import { getUserFromRequest } from "@/lib/auth-server";
 import { saveBrief } from "@/lib/briefs";
@@ -63,7 +63,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       );
     }
 
-    // Generate brief via Grok
+    // Generate the brief (Groq compound, with live web search)
     const brief = await generateGeoBrief({
       keyword: keyword.trim(),
       websiteUrl: websiteUrl?.trim(),

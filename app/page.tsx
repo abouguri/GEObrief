@@ -12,163 +12,212 @@ export const metadata: Metadata = {
   alternates: { canonical: SITE_URL },
 };
 
+const BRIEF_CONTENTS = [
+  {
+    icon: FileText,
+    title: "AI-Optimized Title",
+    body: "Title crafted specifically for AI engines to cite and surface",
+  },
+  {
+    icon: TrendingUp,
+    title: "Content Structure",
+    body: "Ideal format and heading structure AI engines favor most",
+  },
+  {
+    icon: Zap,
+    title: "GEO Score",
+    body: "Likelihood your content will be cited (Low/Med/High estimate)",
+  },
+  {
+    icon: BarChart3,
+    title: "Competing Sources",
+    body: "The sources AI currently cites — study and outperform them",
+  },
+  {
+    icon: Shield,
+    title: "E-E-A-T Signals",
+    body: "Author bio, sources, and proof elements AI looks for",
+  },
+  {
+    icon: FileText,
+    title: "Schema Recommendations",
+    body: "FAQ, HowTo, or Article schema for maximum AI visibility",
+  },
+];
+
+const FAQS = [
+  {
+    q: "What is GEO (Generative Engine Optimization)?",
+    a: "GEO is the practice of optimizing content to be cited and surfaced by AI answer engines like ChatGPT, Perplexity, and Google AI Overviews. It's different from traditional SEO, which focuses on ranking in search results.",
+  },
+  {
+    q: "How do you analyze what AI engines are citing?",
+    a: "We search the live web to find how ChatGPT, Perplexity, and Google AI Overviews currently answer your target keyword. We analyze their citations, recommended formats, and E-E-A-T signals, then generate a brief optimized to outcompete.",
+  },
+  {
+    q: "Can I use GEO for my blog? My agency?",
+    a: "Yes. GEObrief.ai works for indie bloggers, agencies, and content teams. Each brief is a standalone document you can use immediately or refine further.",
+  },
+  {
+    q: "Do you store or sell my keywords?",
+    a: "No. We don't sell data. Briefs are private to your account. Your keywords are sent to our AI provider to generate the brief and are not used for advertising.",
+  },
+  {
+    q: "How long does a brief take to generate?",
+    a: "Usually 20–40 seconds. The model searches the live web before writing, which is what makes the cited-sources section real rather than recalled.",
+  },
+  {
+    q: "Can I cancel anytime?",
+    a: "Yes. No contracts, no lock-in. Upgrade or downgrade anytime. Lifetime deal purchases are final (non-refundable) but never expire.",
+  },
+];
+
+const PLAN_FEATURES = {
+  free: [
+    ["3 briefs/month", true],
+    ["Full brief output", true],
+    ["Copy to clipboard", true],
+    ["PDF download", false],
+    ["Brief history", false],
+  ],
+  paid: [
+    ["Unlimited briefs", true],
+    ["Full brief output", true],
+    ["Copy to clipboard", true],
+    ["PDF download", true],
+    ["Brief history", true],
+    ["Priority support", true],
+  ],
+} as const;
+
+function PlanFeature({ label, included }: { label: string; included: boolean }) {
+  return (
+    <li
+      className={`flex items-center gap-2 ${included ? "text-ui-body" : "text-ui-ghost"}`}
+    >
+      <span className={included ? "text-ui-accent" : "text-ui-ghost"}>
+        {included ? "✓" : "✗"}
+      </span>
+      {label}
+    </li>
+  );
+}
+
 export default function Home() {
   return (
-    <main className="min-h-screen bg-brand-dark text-white">
+    <main className="min-h-screen bg-ui-paper text-ui-ink">
       <MarketingNav />
 
-      {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+      {/* Hero */}
+      <section className="mx-auto max-w-6xl px-4 pb-20 pt-32 sm:px-6 lg:px-8">
         <div className="text-center">
-          <div className="inline-block bg-white/5 border border-brand-accent/20 rounded-full px-4 py-1 mb-6">
-            <span className="text-brand-accent text-sm font-semibold">
-              🚀 AI Search Is Reshaping SEO
+          <div className="mb-6 inline-block rounded-full border border-ui-ring bg-ui-soft px-4 py-1">
+            <span className="text-sm font-semibold text-ui-accent">
+              AI Search Is Reshaping SEO
             </span>
           </div>
 
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+          <h1 className="mb-6 font-serif text-5xl font-bold leading-[1.08] tracking-tight sm:text-6xl lg:text-7xl">
             Stop writing for Google.
             <br />
-            <span className="text-brand-accent">Start writing for AI.</span>
+            <span className="text-ui-accent">Start writing for AI.</span>
           </h1>
 
-          <p className="text-xl text-white/70 mb-8 max-w-2xl mx-auto leading-relaxed">
-            Enter a keyword. We analyze how ChatGPT, Perplexity, and Google AI
-            Overviews answer it. Get a GEO-optimized brief designed to get
-            <span className="text-white font-semibold"> cited</span> by AI
-            engines.
+          <p className="mx-auto mb-8 max-w-2xl text-xl leading-relaxed text-ui-muted [text-wrap:pretty]">
+            Enter a keyword. We analyze how ChatGPT, Perplexity, and Google AI Overviews
+            answer it. Get a GEO-optimized brief designed to get
+            <span className="font-semibold text-ui-ink"> cited</span> by AI engines.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+          <div className="mb-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
               href="/auth/signup"
-              className="bg-brand-accent text-brand-dark px-8 py-4 rounded-lg font-bold text-lg hover:opacity-90 transition-opacity flex items-center gap-2"
+              className="flex items-center gap-2 rounded-lg bg-ui-accent px-8 py-4 text-lg font-bold text-white transition-opacity hover:opacity-90"
             >
               Generate Your First Brief <ArrowRight size={20} />
             </Link>
             <a
               href="#features"
-              className="border border-white/20 text-white px-8 py-4 rounded-lg font-semibold hover:border-brand-accent hover:bg-white/5 transition-all"
+              className="rounded-lg border border-ui-border bg-ui-surface px-8 py-4 font-semibold text-ui-ink transition-colors hover:border-ui-ring"
             >
               Learn More
             </a>
           </div>
 
-          <p className="text-white/50 text-sm">
-            ✓ 3 free briefs/month &nbsp; ✓ No credit card required &nbsp; ✓ Lifetime deal: $59 one-time
+          <p className="text-sm text-ui-faint">
+            ✓ 3 free briefs/month &nbsp; ✓ No credit card required &nbsp; ✓ Lifetime deal:
+            $59 one-time
           </p>
         </div>
       </section>
 
-      {/* Demo / Social Proof */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-        <div className="bg-white/5 border border-white/10 rounded-2xl p-8 backdrop-blur">
-          <div className="text-center mb-8">
-            <h3 className="text-white/50 text-sm uppercase tracking-wider font-semibold">
+      {/* What a brief includes */}
+      <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+        <div className="rounded-2xl border border-ui-border bg-ui-surface p-8 shadow-[0_1px_2px_rgba(42,41,40,0.04),0_18px_44px_-26px_rgba(42,41,40,0.14)]">
+          <div className="mb-8 text-center">
+            <h3 className="text-sm font-semibold uppercase tracking-[0.09em] text-ui-faint">
               What a GEO Brief Includes
             </h3>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-black/40 rounded-lg p-6 border border-white/5 hover:border-brand-accent/30 transition-colors">
-              <FileText className="text-brand-accent mb-4" size={24} />
-              <h4 className="font-bold mb-2">AI-Optimized Title</h4>
-              <p className="text-white/60 text-sm">
-                Title crafted specifically for AI engines to cite and surface
-              </p>
-            </div>
-            <div className="bg-black/40 rounded-lg p-6 border border-white/5 hover:border-brand-accent/30 transition-colors">
-              <TrendingUp className="text-brand-accent mb-4" size={24} />
-              <h4 className="font-bold mb-2">Content Structure</h4>
-              <p className="text-white/60 text-sm">
-                Ideal format and heading structure AI engines favor most
-              </p>
-            </div>
-            <div className="bg-black/40 rounded-lg p-6 border border-white/5 hover:border-brand-accent/30 transition-colors">
-              <Zap className="text-brand-accent mb-4" size={24} />
-              <h4 className="font-bold mb-2">GEO Score</h4>
-              <p className="text-white/60 text-sm">
-                Likelihood your content will be cited (Low/Med/High estimate)
-              </p>
-            </div>
-            <div className="bg-black/40 rounded-lg p-6 border border-white/5 hover:border-brand-accent/30 transition-colors">
-              <BarChart3 className="text-brand-accent mb-4" size={24} />
-              <h4 className="font-bold mb-2">Competing Sources</h4>
-              <p className="text-white/60 text-sm">
-                3 sources AI currently cites—study and outperform them
-              </p>
-            </div>
-            <div className="bg-black/40 rounded-lg p-6 border border-white/5 hover:border-brand-accent/30 transition-colors">
-              <Shield className="text-brand-accent mb-4" size={24} />
-              <h4 className="font-bold mb-2">E-E-A-T Signals</h4>
-              <p className="text-white/60 text-sm">
-                Author bio, sources, and proof elements AI looks for
-              </p>
-            </div>
-            <div className="bg-black/40 rounded-lg p-6 border border-white/5 hover:border-brand-accent/30 transition-colors">
-              <FileText className="text-brand-accent mb-4" size={24} />
-              <h4 className="font-bold mb-2">Schema Recommendations</h4>
-              <p className="text-white/60 text-sm">
-                FAQ, HowTo, or Article schema for maximum AI visibility
-              </p>
-            </div>
+          <div className="grid gap-6 md:grid-cols-3">
+            {BRIEF_CONTENTS.map(({ icon: Icon, title, body }) => (
+              <div
+                key={title}
+                className="rounded-lg border border-ui-border bg-ui-shell p-6 transition-colors hover:border-ui-ring"
+              >
+                <Icon className="mb-4 text-ui-accent" size={24} />
+                <h4 className="mb-2 font-semibold">{title}</h4>
+                <p className="text-sm text-ui-muted">{body}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Why GEO Section */}
-      <section id="features" className="py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+      {/* Why GEO */}
+      <section id="features" className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
+        <div className="grid items-center gap-12 md:grid-cols-2">
           <div>
-            <h2 className="text-4xl font-bold mb-6 leading-tight">
+            <h2 className="mb-6 font-serif text-4xl font-bold leading-tight tracking-tight">
               Why GEO? The AI Search Shift Is Real.
             </h2>
-            <ul className="space-y-4 mb-8">
-              <li className="flex gap-3">
-                <span className="text-brand-accent font-bold">→</span>
-                <span>
-                  <strong>2025 data:</strong> 64% of Gen Z never uses Google Search
-                </span>
-              </li>
-              <li className="flex gap-3">
-                <span className="text-brand-accent font-bold">→</span>
-                <span>
-                  <strong>AI Overviews:</strong> Google&apos;s AI answers are stealing
-                  clicks from organic results
-                </span>
-              </li>
-              <li className="flex gap-3">
-                <span className="text-brand-accent font-bold">→</span>
-                <span>
-                  <strong>Content agencies:</strong> Traditional SEO briefs don&apos;t
-                  get cited by AI
-                </span>
-              </li>
-              <li className="flex gap-3">
-                <span className="text-brand-accent font-bold">→</span>
-                <span>
-                  <strong>The shift:</strong> Content that gets cited = traffic,
-                  authority, backlinks
-                </span>
-              </li>
+            <ul className="mb-8 space-y-4">
+              {[
+                ["2025 data:", "64% of Gen Z never uses Google Search"],
+                ["AI Overviews:", "Google's AI answers are stealing clicks from organic results"],
+                ["Content agencies:", "Traditional SEO briefs don't get cited by AI"],
+                ["The shift:", "Content that gets cited = traffic, authority, backlinks"],
+              ].map(([label, text]) => (
+                <li key={label} className="flex gap-3">
+                  <span className="font-bold text-ui-accent">→</span>
+                  <span className="text-ui-body">
+                    <strong className="text-ui-ink">{label}</strong> {text}
+                  </span>
+                </li>
+              ))}
             </ul>
-            <p className="text-white/60 text-sm">
-              GEObrief.ai bridges the gap. Instead of guessing what AI engines
-              want, we analyze what they&apos;re currently citing—then show you how
-              to outcompete.
+            <p className="text-sm text-ui-muted">
+              GEObrief.ai bridges the gap. Instead of guessing what AI engines want, we
+              analyze what they&apos;re currently citing—then show you how to outcompete.
             </p>
           </div>
-          <div className="bg-white/5 border border-white/10 rounded-2xl p-8 backdrop-blur">
+
+          <div className="rounded-2xl border border-ui-border bg-ui-surface p-8">
             <div className="space-y-4">
-              <div className="bg-black/40 rounded-lg p-4">
-                <h4 className="text-brand-accent font-bold mb-2">Traditional SEO Brief</h4>
-                <p className="text-white/60 text-sm">
-                  ✗ Optimized for keyword rankings &nbsp; ✗ SERP-focused &nbsp; ✗ Ignores AI
+              <div className="rounded-lg border border-ui-border bg-ui-shell p-4">
+                <h4 className="mb-2 font-semibold text-ui-muted">
+                  Traditional SEO Brief
+                </h4>
+                <p className="text-sm text-ui-muted">
+                  ✗ Optimized for keyword rankings &nbsp; ✗ SERP-focused &nbsp; ✗ Ignores
+                  AI
                 </p>
               </div>
-              <div className="bg-brand-accent/10 border border-brand-accent rounded-lg p-4">
-                <h4 className="text-brand-accent font-bold mb-2">GEO Brief</h4>
-                <p className="text-white text-sm">
-                  ✓ Optimized for AI citation &nbsp; ✓ Citation-first &nbsp; ✓ Works for ChatGPT, Perplexity, Google AI
+              <div className="rounded-lg border border-ui-ring bg-ui-soft p-4">
+                <h4 className="mb-2 font-semibold text-ui-accent">GEO Brief</h4>
+                <p className="text-sm text-ui-body">
+                  ✓ Optimized for AI citation &nbsp; ✓ Citation-first &nbsp; ✓ Works for
+                  ChatGPT, Perplexity, Google AI
                 </p>
               </div>
             </div>
@@ -177,120 +226,80 @@ export default function Home() {
       </section>
 
       {/* Pricing */}
-      <section id="pricing" className="py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4">Simple, Transparent Pricing</h2>
-          <p className="text-white/60 text-lg">
+      <section id="pricing" className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
+        <div className="mb-12 text-center">
+          <h2 className="mb-4 font-serif text-4xl font-bold tracking-tight">
+            Simple, Transparent Pricing
+          </h2>
+          <p className="text-lg text-ui-muted">
             Start free. Upgrade when you&apos;re ready.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          {/* Free Tier */}
-          <div className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:border-brand-accent/30 transition-colors">
-            <h3 className="text-2xl font-bold mb-2">Free</h3>
-            <p className="text-white/60 mb-6">Get started instantly</p>
+        <div className="grid gap-6 md:grid-cols-3">
+          {/* Free */}
+          <div className="rounded-2xl border border-ui-border bg-ui-surface p-8 transition-colors hover:border-ui-ring">
+            <h3 className="mb-2 font-serif text-2xl font-semibold">Free</h3>
+            <p className="mb-6 text-ui-muted">Get started instantly</p>
             <div className="mb-8">
-              <div className="text-4xl font-bold text-brand-accent">$0</div>
-              <p className="text-white/60 text-sm mt-1">/month</p>
+              <div className="font-serif text-4xl font-bold">$0</div>
+              <p className="mt-1 text-sm text-ui-muted">/month</p>
             </div>
-            <ul className="space-y-3 mb-8 text-sm">
-              <li className="flex items-center gap-2">
-                <span className="text-brand-accent">✓</span> 3 briefs/month
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="text-brand-accent">✓</span> Full brief output
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="text-brand-accent">✓</span> Copy to clipboard
-              </li>
-              <li className="flex items-center gap-2 text-white/40">
-                <span>✗</span> PDF download
-              </li>
-              <li className="flex items-center gap-2 text-white/40">
-                <span>✗</span> Brief history
-              </li>
+            <ul className="mb-8 space-y-3 text-sm">
+              {PLAN_FEATURES.free.map(([label, included]) => (
+                <PlanFeature key={label} label={label} included={included} />
+              ))}
             </ul>
             <Link
               href="/auth/signup"
-              className="w-full bg-white/10 border border-white/20 text-white py-3 rounded-lg font-semibold hover:border-brand-accent hover:bg-white/5 transition-all text-center block"
+              className="block w-full rounded-lg border border-ui-border bg-ui-shell py-3 text-center font-semibold text-ui-ink transition-colors hover:border-ui-ring"
             >
               Get Started Free
             </Link>
           </div>
 
-          {/* Pro Tier */}
-          <div className="bg-brand-accent/10 border-2 border-brand-accent rounded-2xl p-8 relative">
-            <div className="absolute top-4 right-4 bg-brand-accent text-brand-dark px-3 py-1 rounded-full text-xs font-bold">
+          {/* Pro — highlighted */}
+          <div className="relative rounded-2xl border-2 border-ui-accent bg-ui-surface p-8 shadow-[0_1px_2px_rgba(42,41,40,0.04),0_20px_48px_-26px_rgba(5,150,105,0.30)]">
+            <div className="absolute right-4 top-4 rounded-full bg-ui-highlight px-3 py-1 text-xs font-bold text-white">
               POPULAR
             </div>
-            <h3 className="text-2xl font-bold mb-2">Pro</h3>
-            <p className="text-white/60 mb-6">For serious content creators</p>
+            <h3 className="mb-2 font-serif text-2xl font-semibold">Pro</h3>
+            <p className="mb-6 text-ui-muted">For serious content creators</p>
             <div className="mb-8">
-              <div className="text-4xl font-bold">$15</div>
-              <p className="text-white/60 text-sm mt-1">/month</p>
+              <div className="font-serif text-4xl font-bold text-ui-accent">$15</div>
+              <p className="mt-1 text-sm text-ui-muted">/month</p>
             </div>
-            <ul className="space-y-3 mb-8 text-sm">
-              <li className="flex items-center gap-2">
-                <span className="text-brand-accent">✓</span> Unlimited briefs
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="text-brand-accent">✓</span> Full brief output
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="text-brand-accent">✓</span> Copy to clipboard
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="text-brand-accent">✓</span> PDF download
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="text-brand-accent">✓</span> Brief history
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="text-brand-accent">✓</span> Priority support
-              </li>
+            <ul className="mb-8 space-y-3 text-sm">
+              {PLAN_FEATURES.paid.map(([label, included]) => (
+                <PlanFeature key={label} label={label} included={included} />
+              ))}
             </ul>
             <Link
               href="/auth/signup?plan=pro"
-              className="w-full bg-brand-accent text-brand-dark py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity text-center block"
+              className="block w-full rounded-lg bg-ui-accent py-3 text-center font-semibold text-white transition-opacity hover:opacity-90"
             >
               Upgrade to Pro
             </Link>
           </div>
 
-          {/* Lifetime Plan */}
-          <div className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:border-brand-accent/30 transition-colors">
-            <h3 className="text-2xl font-bold mb-2">Lifetime</h3>
-            <p className="text-white/60 mb-6">Early adopter deal — pay once</p>
+          {/* Lifetime */}
+          <div className="rounded-2xl border border-ui-border bg-ui-surface p-8 transition-colors hover:border-ui-ring">
+            <h3 className="mb-2 font-serif text-2xl font-semibold">Lifetime</h3>
+            <p className="mb-6 text-ui-muted">Early adopter deal — pay once</p>
             <div className="mb-8">
-              <div className="text-4xl font-bold text-brand-accent">$59</div>
-              <p className="text-white/60 text-sm mt-1">one-time</p>
+              <div className="font-serif text-4xl font-bold">$59</div>
+              <p className="mt-1 text-sm text-ui-muted">one-time</p>
             </div>
-            <ul className="space-y-3 mb-8 text-sm">
-              <li className="flex items-center gap-2">
-                <span className="text-brand-accent">✓</span> Unlimited briefs
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="text-brand-accent">✓</span> Full brief output
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="text-brand-accent">✓</span> Copy to clipboard
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="text-brand-accent">✓</span> PDF download
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="text-brand-accent">✓</span> Brief history
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="text-brand-accent">✓</span> Priority support
-              </li>
+            <ul className="mb-8 space-y-3 text-sm">
+              {PLAN_FEATURES.paid.map(([label, included]) => (
+                <PlanFeature key={label} label={label} included={included} />
+              ))}
             </ul>
             <a
               href={GUMROAD_LIFETIME_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full bg-white/10 border border-white/20 text-white py-3 rounded-lg font-semibold hover:border-brand-accent hover:bg-white/5 transition-all text-center block"
+              className="block w-full rounded-lg border border-ui-border bg-ui-shell py-3 text-center font-semibold text-ui-ink transition-colors hover:border-ui-ring"
             >
               Get Lifetime Deal
             </a>
@@ -299,96 +308,40 @@ export default function Home() {
       </section>
 
       {/* FAQ */}
-      <section id="faq" className="py-20 px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto">
-        <h2 className="text-4xl font-bold mb-12 text-center">Frequently Asked Questions</h2>
+      <section id="faq" className="mx-auto max-w-3xl px-4 py-20 sm:px-6 lg:px-8">
+        <h2 className="mb-12 text-center font-serif text-4xl font-bold tracking-tight">
+          Frequently Asked Questions
+        </h2>
 
-        <div className="space-y-6">
-          <details className="bg-white/5 border border-white/10 rounded-lg p-6 hover:border-brand-accent/30 transition-colors group cursor-pointer">
-            <summary className="font-bold flex items-center justify-between">
-              What is GEO (Generative Engine Optimization)?
-              <span className="group-open:rotate-180 transition-transform">↓</span>
-            </summary>
-            <p className="text-white/60 mt-4">
-              GEO is the practice of optimizing content to be cited and surfaced by
-              AI answer engines like ChatGPT, Perplexity, and Google AI Overviews.
-              It&apos;s different from traditional SEO, which focuses on ranking in search
-              results.
-            </p>
-          </details>
-
-          <details className="bg-white/5 border border-white/10 rounded-lg p-6 hover:border-brand-accent/30 transition-colors group cursor-pointer">
-            <summary className="font-bold flex items-center justify-between">
-              How do you analyze what AI engines are citing?
-              <span className="group-open:rotate-180 transition-transform">↓</span>
-            </summary>
-            <p className="text-white/60 mt-4">
-              We use advanced web search to find how ChatGPT, Perplexity, and Google AI
-              Overviews currently answer your target keyword. We analyze their
-              citations, recommended formats, and E-E-A-T signals, then generate a
-              brief optimized to outcompete.
-            </p>
-          </details>
-
-          <details className="bg-white/5 border border-white/10 rounded-lg p-6 hover:border-brand-accent/30 transition-colors group cursor-pointer">
-            <summary className="font-bold flex items-center justify-between">
-              Can I use GEO for my blog? My agency?
-              <span className="group-open:rotate-180 transition-transform">↓</span>
-            </summary>
-            <p className="text-white/60 mt-4">
-              Yes. GEObrief.ai works for indie bloggers, agencies, and content teams.
-              Each brief is a standalone document you can use immediately or refine
-              further. Copy it to a doc, export as PDF, or integrate into your
-              workflow.
-            </p>
-          </details>
-
-          <details className="bg-white/5 border border-white/10 rounded-lg p-6 hover:border-brand-accent/30 transition-colors group cursor-pointer">
-            <summary className="font-bold flex items-center justify-between">
-              Do you store my briefs?
-              <span className="group-open:rotate-180 transition-transform">↓</span>
-            </summary>
-            <p className="text-white/60 mt-4">
-              Yes. All your briefs are saved in your account history. You can
-              revisit, edit, and re-export them anytime. We use Supabase for secure
-              storage.
-            </p>
-          </details>
-
-          <details className="bg-white/5 border border-white/10 rounded-lg p-6 hover:border-brand-accent/30 transition-colors group cursor-pointer">
-            <summary className="font-bold flex items-center justify-between">
-              What about privacy? Do you sell my data?
-              <span className="group-open:rotate-180 transition-transform">↓</span>
-            </summary>
-            <p className="text-white/60 mt-4">
-              No. We don&apos;t sell data. Briefs are private to your account. Your keywords
-              and briefs are never logged or shared. We take privacy seriously.
-            </p>
-          </details>
-
-          <details className="bg-white/5 border border-white/10 rounded-lg p-6 hover:border-brand-accent/30 transition-colors group cursor-pointer">
-            <summary className="font-bold flex items-center justify-between">
-              Can I cancel anytime?
-              <span className="group-open:rotate-180 transition-transform">↓</span>
-            </summary>
-            <p className="text-white/60 mt-4">
-              Yes. No contracts, no lock-in. Upgrade or downgrade anytime. Lifetime
-              deal purchases are final (non-refundable) but never expire.
-            </p>
-          </details>
+        <div className="space-y-4">
+          {FAQS.map((faq) => (
+            <details
+              key={faq.q}
+              className="group cursor-pointer rounded-lg border border-ui-border bg-ui-surface p-6 transition-colors hover:border-ui-ring"
+            >
+              <summary className="flex items-center justify-between font-semibold">
+                {faq.q}
+                <span className="text-ui-accent transition-transform group-open:rotate-180">
+                  ↓
+                </span>
+              </summary>
+              <p className="mt-4 leading-relaxed text-ui-muted">{faq.a}</p>
+            </details>
+          ))}
         </div>
       </section>
 
-      {/* CTA Footer */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto text-center">
-        <h2 className="text-4xl font-bold mb-6">
+      {/* CTA */}
+      <section className="mx-auto max-w-4xl px-4 py-20 text-center sm:px-6 lg:px-8">
+        <h2 className="mb-6 font-serif text-4xl font-bold tracking-tight">
           Ready to adapt your content for AI?
         </h2>
-        <p className="text-white/60 mb-8 text-lg">
+        <p className="mb-8 text-lg text-ui-muted">
           Generate your first GEO brief free. No credit card required.
         </p>
         <Link
           href="/auth/signup"
-          className="bg-brand-accent text-brand-dark px-8 py-4 rounded-lg font-bold text-lg hover:opacity-90 transition-opacity inline-flex items-center gap-2"
+          className="inline-flex items-center gap-2 rounded-lg bg-ui-accent px-8 py-4 text-lg font-bold text-white transition-opacity hover:opacity-90"
         >
           Generate Your First Brief <ArrowRight size={20} />
         </Link>
@@ -396,39 +349,18 @@ export default function Home() {
 
       <MarketingFooter />
 
-      {/* Structured Data - FAQ Schema */}
+      {/* Structured Data — FAQ */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            mainEntity: [
-              {
-                "@type": "Question",
-                name: "What is GEO (Generative Engine Optimization)?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "GEO is the practice of optimizing content to be cited and surfaced by AI answer engines like ChatGPT, Perplexity, and Google AI Overviews. It&apos;s different from traditional SEO, which focuses on ranking in search results.",
-                },
-              },
-              {
-                "@type": "Question",
-                name: "How do you analyze what AI engines are citing?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "We use advanced web search to find how ChatGPT, Perplexity, and Google AI Overviews currently answer your target keyword. We analyze their citations, recommended formats, and E-E-A-T signals, then generate a brief optimized to outcompete.",
-                },
-              },
-              {
-                "@type": "Question",
-                name: "Can I use GEO for my blog? My agency?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Yes. GEObrief.ai works for indie bloggers, agencies, and content teams. Each brief is a standalone document you can use immediately or refine further.",
-                },
-              },
-            ],
+            mainEntity: FAQS.map((faq) => ({
+              "@type": "Question",
+              name: faq.q,
+              acceptedAnswer: { "@type": "Answer", text: faq.a },
+            })),
           }),
         }}
       />
@@ -443,7 +375,7 @@ export default function Home() {
             name: "GEObrief.ai",
             description:
               "AI-optimized content brief generator designed to get cited by ChatGPT, Perplexity, and AI Overviews",
-            url: process.env.NEXT_PUBLIC_APP_URL || "https://geobrief.ai",
+            url: SITE_URL,
             applicationCategory: "ProductivityApplication",
             offers: {
               "@type": "Offer",

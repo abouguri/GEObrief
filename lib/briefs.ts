@@ -1,5 +1,5 @@
 import { supabaseAdmin } from "./supabase";
-import type { GROKBriefOutput } from "./grok";
+import type { GeoBriefOutput } from "./ai";
 
 export interface BriefRecord {
   id: string;
@@ -7,7 +7,7 @@ export interface BriefRecord {
   keyword: string;
   website_url: string | null;
   niche: string | null;
-  brief_data: GROKBriefOutput;
+  brief_data: GeoBriefOutput;
   brief_markdown: string;
   created_at: string;
 }
@@ -23,7 +23,7 @@ export interface SaveBriefInput {
   keyword: string;
   websiteUrl?: string;
   niche?: string;
-  brief: GROKBriefOutput;
+  brief: GeoBriefOutput;
   briefMarkdown: string;
 }
 
@@ -33,7 +33,7 @@ export interface SaveBriefInput {
  * Runs with the service role because it is called from the API route right
  * after generation. Returns the new row id, or null if the insert failed —
  * a storage failure should never discard a brief the user already paid a
- * Grok call for, so callers log and continue.
+ * model call for, so callers log and continue.
  */
 export async function saveBrief(input: SaveBriefInput): Promise<string | null> {
   try {

@@ -57,27 +57,27 @@ export default function AuthCallback() {
   }, [router]);
 
   return (
-    <div className="min-h-screen bg-brand-dark text-white flex items-center justify-center px-6">
+    <div className="min-h-screen bg-ui-paper text-ui-ink flex items-center justify-center px-6">
       {error ? (
-        <div className="max-w-md w-full p-6 rounded-lg bg-white/5 border border-white/10">
+        <div className="max-w-md w-full p-6 rounded-lg bg-ui-surface border border-ui-border">
           <div className="flex items-start gap-3 mb-4">
-            <AlertCircle className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
+            <AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
             <div>
               <h1 className="font-semibold mb-1">Sign in failed</h1>
-              <p className="text-sm text-white/60">{error}</p>
+              <p className="text-sm text-ui-muted">{error}</p>
             </div>
           </div>
           <Link
             href="/auth/login"
-            className="block w-full px-4 py-2 bg-brand-accent text-brand-dark rounded font-semibold text-center hover:opacity-90 transition-opacity"
+            className="block w-full px-4 py-2 bg-ui-accent text-white rounded font-semibold text-center hover:opacity-90 transition-opacity"
           >
             Back to login
           </Link>
         </div>
       ) : (
         <div className="text-center">
-          <Loader className="w-8 h-8 animate-spin text-brand-accent mx-auto mb-4" />
-          <p className="text-white/60">Completing sign in…</p>
+          <Loader className="w-8 h-8 animate-spin text-ui-accent mx-auto mb-4" />
+          <p className="text-ui-muted">Completing sign in…</p>
         </div>
       )}
     </div>
