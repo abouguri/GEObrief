@@ -62,10 +62,11 @@ export default function Privacy() {
                 authentication. Stores your account, briefs, and usage records.
               </li>
               <li>
-                <strong className="text-white">xAI (Grok API)</strong> — brief generation.
-                The keyword, URL, and niche you submit are sent to xAI to produce the
-                brief. Do not enter confidential information you would not want processed
-                by a third-party AI provider.
+                <strong className="text-white">Groq</strong> — brief generation. The
+                keyword, URL, and niche you submit are sent to Groq to produce the brief,
+                and Groq performs live web searches based on them. Do not enter
+                confidential information you would not want processed by a third-party AI
+                provider or used as a search query.
               </li>
               <li>
                 <strong className="text-white">Gumroad</strong> — payment processing.
