@@ -35,14 +35,6 @@ const config: Config = {
           skeleton: '#F4EDE5',
           shimmer: '#EAE0D5',
         },
-        /**
-         * Original dark palette. Still used by the marketing pages (landing,
-         * blog, privacy, terms), which have not been recoloured yet.
-         */
-        brand: {
-          dark: '#080C14',
-          accent: '#00D8FF',
-        },
       },
       fontFamily: {
         serif: ['var(--font-serif)', 'Source Serif 4', 'Georgia', 'serif'],

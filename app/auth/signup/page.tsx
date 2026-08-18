@@ -67,18 +67,18 @@ export default function SignupPage() {
 
   if (authLoading) {
     return (
-      <div className="min-h-screen bg-brand-dark flex items-center justify-center">
-        <Loader className="w-8 h-8 text-brand-accent animate-spin" />
+      <div className="min-h-screen bg-clay-paper flex items-center justify-center">
+        <Loader className="w-8 h-8 text-clay-accent animate-spin" />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-brand-dark text-white flex flex-col">
+    <div className="min-h-screen bg-clay-paper text-clay-ink flex flex-col">
       {/* Nav */}
-      <nav className="border-b border-white/10 bg-black/30 backdrop-blur-lg">
+      <nav className="border-b border-clay-border bg-clay-shell backdrop-blur-lg">
         <div className="max-w-md mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href="/" className="text-2xl font-bold text-brand-accent">
+          <Link href="/" className="text-2xl font-bold text-clay-accent">
             GEObrief.ai
           </Link>
         </div>
@@ -89,7 +89,7 @@ export default function SignupPage() {
         <div className="w-full max-w-md">
           <div className="mb-8">
             <h1 className="text-3xl font-bold mb-2">Create account</h1>
-            <p className="text-white/60">Start generating GEO briefs free (3/month)</p>
+            <p className="text-clay-muted">Start generating GEO briefs free (3/month)</p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-5">
@@ -104,7 +104,7 @@ export default function SignupPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="you@example.com"
-                className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-brand-accent focus:outline-none transition-colors text-white placeholder-white/40"
+                className="w-full px-4 py-3 rounded-lg bg-clay-surface border border-clay-border focus:border-clay-ring focus:outline-none transition-colors text-clay-ink placeholder-clay-placeholder"
                 disabled={loading || googleLoading}
               />
             </div>
@@ -120,10 +120,10 @@ export default function SignupPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
-                className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-brand-accent focus:outline-none transition-colors text-white placeholder-white/40"
+                className="w-full px-4 py-3 rounded-lg bg-clay-surface border border-clay-border focus:border-clay-ring focus:outline-none transition-colors text-clay-ink placeholder-clay-placeholder"
                 disabled={loading || googleLoading}
               />
-              <p className="text-xs text-white/40 mt-1">Min. 8 characters</p>
+              <p className="text-xs text-clay-faint mt-1">Min. 8 characters</p>
             </div>
 
             {/* Confirm Password */}
@@ -137,16 +137,16 @@ export default function SignupPage() {
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 placeholder="••••••••"
-                className="w-full px-4 py-3 rounded-lg bg-white/5 border border-white/10 focus:border-brand-accent focus:outline-none transition-colors text-white placeholder-white/40"
+                className="w-full px-4 py-3 rounded-lg bg-clay-surface border border-clay-border focus:border-clay-ring focus:outline-none transition-colors text-clay-ink placeholder-clay-placeholder"
                 disabled={loading || googleLoading}
               />
             </div>
 
             {/* Error */}
             {error && (
-              <div className="p-4 rounded-lg bg-red-500/10 border border-red-500/20 flex items-start gap-3">
-                <AlertCircle className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
-                <p className="text-sm text-red-300">{error}</p>
+              <div className="p-4 rounded-lg bg-red-50 border border-red-200 flex items-start gap-3">
+                <AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
+                <p className="text-sm text-red-700">{error}</p>
               </div>
             )}
 
@@ -154,7 +154,7 @@ export default function SignupPage() {
             <button
               type="submit"
               disabled={loading || googleLoading}
-              className="w-full px-6 py-3 bg-brand-accent text-brand-dark rounded-lg font-semibold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full px-6 py-3 bg-clay-accent text-white rounded-lg font-semibold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loading ? (
                 <>
@@ -169,16 +169,16 @@ export default function SignupPage() {
 
           {/* Divider */}
           <div className="my-6 flex items-center gap-4">
-            <div className="flex-1 h-px bg-white/10" />
-            <span className="text-sm text-white/50">or</span>
-            <div className="flex-1 h-px bg-white/10" />
+            <div className="flex-1 h-px bg-clay-shell" />
+            <span className="text-sm text-clay-muted">or</span>
+            <div className="flex-1 h-px bg-clay-shell" />
           </div>
 
           {/* Google Button */}
           <button
             onClick={handleGoogleSignup}
             disabled={loading || googleLoading}
-            className="w-full px-6 py-3 border border-white/20 text-white rounded-lg font-semibold flex items-center justify-center gap-2 hover:border-brand-accent hover:bg-white/5 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full px-6 py-3 border border-clay-border text-clay-ink rounded-lg font-semibold flex items-center justify-center gap-2 hover:border-clay-ring hover:bg-clay-surface transition-all disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {googleLoading ? (
               <>
@@ -199,9 +199,9 @@ export default function SignupPage() {
           </button>
 
           {/* Sign In Link */}
-          <p className="text-center text-sm text-white/60 mt-6">
+          <p className="text-center text-sm text-clay-muted mt-6">
             Already have an account?{' '}
-            <Link href="/auth/login" className="text-brand-accent hover:underline font-semibold">
+            <Link href="/auth/login" className="text-clay-accent hover:underline font-semibold">
               Sign in
             </Link>
           </p>
