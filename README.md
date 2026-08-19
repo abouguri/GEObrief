@@ -1,8 +1,55 @@
 # GEObrief.ai
 
-AI-optimized content brief generator. Enter a keyword; the app searches the live web for how AI engines currently answer it and returns a GEO brief built to get cited by ChatGPT, Perplexity, and Google AI Overviews.
-
 **Stop writing for Google. Start writing for AI.**
+
+Type a keyword. GEObrief searches the live web for how ChatGPT, Perplexity and Google AI Overviews answer it right now, then hands back a content brief built to be the source they quote — not just another page in a ranked list.
+
+<p align="center">
+  <img src="docs/screenshots/landing-hero.png" alt="GEObrief.ai landing page hero" width="820">
+</p>
+
+## What it does
+
+A GEO brief isn't a keyword list — it's the shape of an answer an engine can lift whole: a citation-ready title, a self-contained answer block, question-shaped headings, schema recommendations, E-E-A-T signals, and a GEO score. The one part that matters most — **cited sources** — is built from what a live search actually retrieves, never from a model's recollection. If nothing was retrieved, the brief says so instead of inventing a URL.
+
+<p align="center">
+  <img src="docs/screenshots/brief-anatomy.png" alt="The eight parts of a GEO brief" width="820">
+</p>
+
+## See it in action
+
+<table>
+<tr>
+<td width="50%">
+<img src="docs/screenshots/dashboard.png" alt="Dashboard — generate a brief from one keyword">
+<p align="center"><sub>One keyword. No site connection, no Search Console, no setup.</sub></p>
+</td>
+<td width="50%">
+<img src="docs/screenshots/example-brief.png" alt="A rendered GEO brief">
+<p align="center"><sub>Real output — copy as Markdown or export as PDF.</sub></p>
+</td>
+</tr>
+<tr>
+<td width="50%">
+<img src="docs/screenshots/history.png" alt="Brief history, filterable by keyword">
+<p align="center"><sub>Every brief you've generated, filterable and reopenable.</sub></p>
+</td>
+<td width="50%">
+<img src="docs/screenshots/settings.png" alt="Account, plan and usage settings">
+<p align="center"><sub>Plan, usage, and billing in one place.</sub></p>
+</td>
+</tr>
+</table>
+
+## Also ships with a blog
+
+Five full GEO/SEO guides, each with Article + FAQPage structured data kept in sync with the visible copy — not a separate schema block that can drift.
+
+<p align="center">
+  <img src="docs/screenshots/blog.png" alt="GEO & AI search guides blog index" width="820">
+</p>
+
+---
 
 ## Stack
 
@@ -12,7 +59,7 @@ AI-optimized content brief generator. Enter a keyword; the app searches the live
 | Styling | Tailwind CSS |
 | Database | Supabase (PostgreSQL + RLS) |
 | Auth | Supabase Auth — email/password + Google OAuth |
-| AI | Groq `compound` (built-in web search) via the OpenAI SDK, pointed at `api.groq.com` |
+| AI | Groq — `compound-mini` for retrieval, `openai/gpt-oss-20b` for synthesis (see [Notes](#notes)) |
 | Payments | Gumroad (Ping webhook) |
 | Hosting | Vercel |
 
@@ -30,7 +77,7 @@ Before the app will work end to end you also need to run the database migrations
 
 | Route | Purpose |
 |---|---|
-| `/` | Landing page — hero, pricing, FAQ, structured data |
+| `/` | Landing page — hero, brief anatomy, pricing, FAQ, structured data |
 | `/blog`, `/blog/[slug]` | GEO guides (5 posts), Article + FAQPage schema |
 | `/privacy`, `/terms` | Legal pages |
 | `/auth/signup`, `/auth/login` | Email/password + Google OAuth |
@@ -95,9 +142,11 @@ components/             Shared UI (nav, footer, auth guard, brief renderer)
 content/
   types.ts              Post type
   posts/                One file per blog post + registry
+docs/
+  screenshots/          Images used in this README
 lib/
   supabase.ts           Browser + service-role clients
-  ai.ts                 Groq compound call, source extraction, markdown formatting
+  ai.ts                 Groq retrieval + synthesis calls, markdown formatting
   usage.ts              Usage gate
   briefs.ts             Brief persistence
   auth-server.ts        Bearer-token verification for API routes
@@ -109,9 +158,10 @@ migrations/             SQL, run in order
 
 ## Notes
 
+- **Brief generation is two Groq calls, not one.** `lib/ai.ts` first calls `groq/compound-mini` for search only, then hands the real results to `openai/gpt-oss-20b` (no search tool) to write the brief. A single request asking one model to both search and write a full structured brief reliably exceeds Groq's free-tier per-request token ceiling (~8,000 tokens/min for the underlying reasoning model, confirmed directly against the API). Splitting the calls also means `citedSources` is assembled by this code from real search results and never re-typed by the writing model — there's no step where a URL could be misremembered.
+- **Known limitation on Groq's free tier:** the retrieval call itself is unreliable independent of the fix above — confirmed with repeated clean attempts, full token budget available, same failure each time. In practice this means `citedSources` will be empty on most briefs until retrieval moves to a dedicated search API (e.g. Tavily, Brave Search) or the Groq account moves to a paid tier. The app degrades honestly when this happens: the markdown states plainly that no live sources were found rather than presenting invented ones.
 - **Blog authorship.** Posts are attributed to "The GEObrief.ai Team." E-E-A-T rewards a named author with verifiable credentials — swap in a real byline and a `sameAs` profile link in `content/types.ts` before launch.
 - **Blog statistics.** The posts deliberately contain no third-party statistics, since unverifiable numbers are a liability on exactly the kind of content that argues for sourcing claims. Where you add data, cite it.
-- **Web search is the product.** `lib/ai.ts` uses Groq's `compound` system, where search runs automatically and the executed searches come back in the response. The cited-sources section is built from those real results, never from the model's recollection. If a brief comes back with `searchPerformed: false`, the markdown says so explicitly rather than presenting invented URLs.
 - **Groq is not Grok.** Groq (groq.com) is the inference provider used here. Grok (xAI) is a different product; its web search is a server-side tool on the Responses API, noted in `lib/ai.ts` if you ever switch.
 
 ## Scripts
