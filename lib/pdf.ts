@@ -31,7 +31,7 @@ function parseMarkdown(markdown: string): Block[] {
       continue;
     }
 
-    // Horizontal rule — render as spacing rather than a glyph
+    // Horizontal rule: render as spacing rather than a glyph
     if (/^---+$/.test(line.trim())) {
       blocks.push({ text: "", size: 11, style: "normal", spaceBefore: 12, indent: 0 });
       continue;
@@ -121,7 +121,7 @@ export function briefFileName(keyword: string): string {
 
 /**
  * Render brief markdown to a downloaded PDF.
- * Runs in the browser only — call from an event handler.
+ * Runs in the browser only. Call from an event handler.
  */
 export async function downloadBriefAsPdf(
   markdown: string,

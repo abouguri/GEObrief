@@ -32,8 +32,8 @@ export const metadata: Metadata = {
 };
 
 // Colour rotates emerald / purple / amber across the anatomy grid and the
-// "how it works" steps — a Tailwind-safe lookup, since class names built by
-// string interpolation are invisible to the content scanner.
+// "how it works" steps. This is a Tailwind-safe lookup, since class names
+// built by string interpolation are invisible to the content scanner.
 const ACCENT = {
   accent: { text: "text-mk-accent", border: "border-mk-accent/30", bg: "bg-mk-accent/10" },
   purple: { text: "text-mk-purple", border: "border-mk-purple/30", bg: "bg-mk-purple/10" },
@@ -55,7 +55,7 @@ const ANATOMY_ITEMS: Array<{
     color: "accent",
     icon: Type,
     title: "Citation-shaped title",
-    body: "Specific and direct, not a curiosity gap — engines quote what states the answer.",
+    body: "Specific and direct, not a curiosity gap. Engines quote what states the answer.",
   },
   {
     n: "02",
@@ -83,7 +83,7 @@ const ANATOMY_ITEMS: Array<{
     color: "purple",
     icon: Code,
     title: "Schema markup",
-    body: "FAQPage, HowTo or Article — whichever the current answers are built from.",
+    body: "FAQPage, HowTo or Article: whichever the current answers are built from.",
   },
   {
     n: "06",
@@ -96,7 +96,7 @@ const ANATOMY_ITEMS: Array<{
     n: "07",
     color: "accent",
     icon: LinkIcon,
-    title: "Cited sources — retrieved, not recalled",
+    title: "Cited sources, retrieved not recalled",
     body: "Pulled from a live search performed while your brief is written. If nothing was retrieved, the brief says so instead of inventing URLs.",
     highlighted: true,
   },
@@ -105,7 +105,7 @@ const ANATOMY_ITEMS: Array<{
     color: "purple",
     icon: Gauge,
     title: "GEO score",
-    body: "Low, Medium or High — an honest read on whether this brief can win the citation.",
+    body: "Low, Medium or High: an honest read on whether this brief can win the citation.",
   },
 ];
 
@@ -127,11 +127,11 @@ const COMPARISON = {
 const FAQS = [
   {
     q: "What is GEO, and how is it different from SEO?",
-    a: "GEO — generative engine optimization — is writing so that AI answer engines cite you. SEO competes for a position on a results page; GEO competes to be the source an engine quotes when it writes the answer instead.",
+    a: "GEO, or generative engine optimization, is writing so that AI answer engines cite you. SEO competes for a position on a results page; GEO competes to be the source an engine quotes when it writes the answer instead.",
   },
   {
     q: "How do you know what AI engines are citing?",
-    a: "We search the live web while your brief is being written, and the brief is built from what came back — the sources, the formats they use, the E-E-A-T signals they carry. If a search returns nothing, the brief says so rather than presenting URLs a model recalled.",
+    a: "We search the live web while your brief is being written, and the brief is built from what came back: the sources, the formats they use, the E-E-A-T signals they carry. If a search returns nothing, the brief says so rather than presenting URLs a model recalled.",
   },
   {
     q: "What setup do I need before my first brief?",
@@ -139,15 +139,15 @@ const FAQS = [
   },
   {
     q: "How long does a brief take?",
-    a: "Usually 20–45 seconds. A search step retrieves real sources first, then a separate step writes the brief from them — that two-step handoff is what the wait buys you.",
+    a: "Usually 20–45 seconds. A search step retrieves real sources first, then a separate step writes the brief from them. That two-step handoff is what the wait buys you.",
   },
   {
     q: "Do you store or sell my keywords?",
-    a: "No. We don't sell data. Briefs are private to your account, and your keywords go to our AI provider to generate the brief — never to advertising.",
+    a: "No. We don't sell data. Briefs are private to your account, and your keywords go to our AI provider to generate the brief, never to advertising.",
   },
   {
     q: "Can I cancel anytime?",
-    a: "Yes — no contracts, no lock-in, upgrade or downgrade whenever. Lifetime purchases are final and non-refundable, but they never expire.",
+    a: "Yes. No contracts, no lock-in, upgrade or downgrade whenever. Lifetime purchases are final and non-refundable, but they never expire.",
   },
 ];
 
@@ -336,7 +336,7 @@ function LandingFooter() {
   );
 }
 
-/** Framed, non-interactive reproduction of the dashboard — built in the real
+/** Framed, non-interactive reproduction of the dashboard, built in the real
  * app's `ui-*` tokens so the marketing page and the product visually agree. */
 function BriefMockup() {
   return (
@@ -447,7 +447,7 @@ export default function Home() {
   return (
     <main className="overflow-x-hidden bg-mk-paper text-mk-ink">
       {/* Scroll-reveal is pure CSS (animation-timeline: view()), with a
-          @supports fallback and a prefers-reduced-motion off-switch — no
+          @supports fallback and a prefers-reduced-motion off-switch. No
           client JS involved. */}
       <style>{`
         @keyframes geobrief-reveal-up { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
@@ -481,7 +481,7 @@ export default function Home() {
             </h1>
             <p className="mb-9 max-w-[620px] text-pretty text-[19px] leading-relaxed text-mk-body">
               Type a keyword. GEObrief searches the live web for how ChatGPT, Perplexity and
-              AI Overviews answer it right now — and hands back a brief built to be the
+              AI Overviews answer it right now, then hands back a brief built to be the
               source they quote.
             </p>
             <div className="mb-4 flex flex-wrap items-center gap-3.5">
@@ -504,7 +504,7 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Decorative keyword field — illustrative, not a live form */}
+          {/* Decorative keyword field: illustrative, not a live form */}
           <div className="mx-auto -mb-1.5 max-w-[760px]">
             <div className="flex items-center gap-3 rounded-[14px] border border-mk-border-strong bg-mk-surface px-4 py-3.5">
               <Search size={18} className="flex-none text-mk-faint" />
@@ -578,7 +578,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Example brief — light band, real app tokens */}
+      {/* Example brief: light band, real app tokens */}
       <section className="bg-ui-paper px-6 py-24 text-ui-ink">
         <div data-reveal className="mx-auto max-w-[1080px]">
           <div className="mb-10 flex flex-wrap items-end justify-between gap-5">
@@ -700,21 +700,21 @@ export default function Home() {
                 Sources Currently Ranking For This Topic
               </h4>
               <p className="mb-4 text-[13.5px] text-ui-faint">
-                Retrieved by live search while the brief was generated — with the snippet
+                Retrieved by live search while the brief was generated, with the snippet
                 each result was matched on.
               </p>
               <div className="flex flex-col gap-3">
                 {[
                   {
-                    title: "1. Small business CRM comparison — software review directory",
+                    title: "1. Small business CRM comparison (software review directory)",
                     body: "Round-up of CRM options segmented by company size, with user-submitted ratings and pricing tiers.",
                   },
                   {
-                    title: "2. CRM buyer's guide — vendor blog",
+                    title: "2. CRM buyer's guide (vendor blog)",
                     body: "Explains evaluation criteria and implementation steps; currently the most-quoted framing for this query.",
                   },
                   {
-                    title: "3. Community thread — practitioners comparing tools",
+                    title: "3. Community thread (practitioners comparing tools)",
                     body: "First-hand accounts of switching costs; a recurring citation in AI answers on this topic.",
                   },
                 ].map((source) => (
@@ -749,7 +749,7 @@ export default function Home() {
           </h2>
           <p className="mb-[54px] max-w-[640px] text-pretty text-[17px] leading-relaxed text-mk-muted">
             The mechanics changed. An engine reads a handful of sources and writes one
-            answer — so the job is no longer to be findable, it is to be the passage worth
+            answer, so the job is no longer to be findable. It is to be the passage worth
             quoting.
           </p>
 
@@ -848,7 +848,7 @@ export default function Home() {
                 </h3>
                 <p className="max-w-[420px] text-[16.5px] leading-relaxed text-mk-muted">
                   Search runs first and retrieves real sources, then a second step
-                  writes the brief from them — so the sources in it are ones that
+                  writes the brief from them, so the sources in it are ones that
                   were actually found, not ones a model remembered. Takes 20–45
                   seconds.
                 </p>
@@ -918,7 +918,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Pricing — light band, real app tokens */}
+      {/* Pricing: light band, real app tokens */}
       <section id="pricing" className="bg-ui-paper px-6 py-24 text-ui-ink">
         <div data-reveal className="mx-auto max-w-[1120px]">
           <div className="mb-12">
@@ -956,7 +956,7 @@ export default function Home() {
               </Link>
             </div>
 
-            {/* Pro — highlighted */}
+            {/* Pro: highlighted */}
             <div className="relative rounded-[18px] border-2 border-ui-accent bg-ui-surface p-[30px] shadow-[0_1px_2px_rgba(42,41,40,0.04),0_24px_56px_-28px_rgba(5,150,105,0.34)] transition-all hover:-translate-y-2">
               <span className="absolute right-[18px] top-[18px] rounded-full bg-ui-highlight px-[11px] py-1 text-[11px] font-bold tracking-wide text-white">
                 POPULAR
@@ -988,7 +988,7 @@ export default function Home() {
             <div className="rounded-[18px] border border-ui-border bg-ui-surface p-[30px] transition-all hover:-translate-y-1.5 hover:border-ui-ring hover:shadow-[0_20px_44px_-28px_rgba(42,41,40,0.30)]">
               <h3 className="mb-1.5 font-serif text-2xl font-semibold">Lifetime</h3>
               <p className="mb-[22px] text-[14.5px] text-ui-muted">
-                Early adopter deal — pay once
+                Early adopter deal, pay once
               </p>
               <div className="mb-[26px]">
                 <span className="font-serif text-[46px] font-bold tracking-tight">$59</span>

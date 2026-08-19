@@ -28,7 +28,7 @@ export default function Terms() {
             <p>
               GEObrief.ai generates content briefs intended to help you structure content
               for AI answer engines. Briefs are produced by an AI model with live web
-              search, and are recommendations — not guarantees of ranking, citation, or
+              search, and are recommendations, not guarantees of ranking, citation, or
               traffic.
             </p>
           </section>
@@ -38,7 +38,7 @@ export default function Terms() {
             <p>
               You need an account to generate briefs. You are responsible for keeping your
               credentials secure and for activity under your account. Provide an email
-              address you control — we use it for account recovery and for applying
+              address you control; we use it for account recovery and for applying
               purchases.
             </p>
           </section>
@@ -71,7 +71,7 @@ export default function Terms() {
               Payments are processed by Gumroad under their terms; we never handle your
               card details. Use the same email address for your purchase as for your
               account so your plan applies automatically. Subscriptions renew monthly until
-              cancelled, and you can cancel any time through Gumroad — access continues to
+              cancelled, and you can cancel any time through Gumroad; access continues to
               the end of the paid period. Lifetime purchases are one-time and
               non-refundable. If a charge was made in error, contact us and we will work
               with you to resolve it.
@@ -117,7 +117,7 @@ export default function Terms() {
             </h2>
             <p>
               The service is provided &ldquo;as is.&rdquo; We depend on third-party
-              providers — including our AI, database, and hosting vendors — and cannot
+              providers, including our AI, database, and hosting vendors, and cannot
               guarantee uninterrupted availability or that any brief will be accurate,
               complete, or effective. To the fullest extent permitted by law, our total
               liability is limited to the amount you paid us in the twelve months before

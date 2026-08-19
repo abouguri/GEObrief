@@ -12,7 +12,7 @@ export interface BriefRecord {
   created_at: string;
 }
 
-/** Shape returned to the history list — omits the heavy JSONB payload. */
+/** Shape returned to the history list. Omits the heavy JSONB payload. */
 export type BriefSummary = Pick<
   BriefRecord,
   "id" | "keyword" | "website_url" | "niche" | "created_at"
@@ -31,7 +31,7 @@ export interface SaveBriefInput {
  * Persist a generated brief so it shows up on the history page.
  *
  * Runs with the service role because it is called from the API route right
- * after generation. Returns the new row id, or null if the insert failed —
+ * after generation. Returns the new row id, or null if the insert failed,
  * a storage failure should never discard a brief the user already paid a
  * model call for, so callers log and continue.
  */

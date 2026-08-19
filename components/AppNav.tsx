@@ -14,7 +14,7 @@ const LINKS = [
 
 /**
  * Persistent quota readout. Lives in the nav on every app screen so users
- * always know where they stand — passive pressure, no modal, no nagging.
+ * always know where they stand: passive pressure, no modal, no nagging.
  */
 function QuotaPill({ profile }: { profile: UserProfile | null }) {
   if (!profile) {

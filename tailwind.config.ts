@@ -12,7 +12,7 @@ const config: Config = {
     extend: {
       colors: {
         /**
-         * Semantic UI palette — light editorial. Names describe the role, not
+         * Semantic UI palette, light editorial. Names describe the role, not
          * the colour, so swapping the palette is a change to this block alone.
          * Values sampled from the reference interface rather than estimated.
          */
@@ -44,7 +44,7 @@ const config: Config = {
           shimmer: '#E3E3E8',
         },
         /**
-         * Dark marketing palette — the public landing page only. Deliberately
+         * Dark marketing palette, the public landing page only. Deliberately
          * separate from `ui-*` (the light app palette): the app renders inside
          * framed mockups on the marketing page using literal `ui-*` values, so
          * the two palettes coexist on one page and must not collide.
@@ -62,12 +62,12 @@ const config: Config = {
           muted: '#8E958F',
           faint: '#666D68',
 
-          accent: '#10B981',         // marketing green — brighter than ui-accent
+          accent: '#10B981',         // marketing green, brighter than ui-accent
           'accent-hover': '#34D6A0',
           'accent-ink': '#05221A',   // text on accent-filled buttons
 
           purple: '#A855F7',         // marketing secondary accent
-          badge: '#7E22CE',          // matches ui-highlight — bridges to the app
+          badge: '#7E22CE',          // matches ui-highlight, bridges to the app
           amber: '#F0A93B',          // third rotating accent
         },
       },

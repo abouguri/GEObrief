@@ -3,7 +3,7 @@ import ReactMarkdown from 'react-markdown';
 /**
  * Shared brief renderer used by the dashboard and the history detail view.
  * The brief is the product, so it gets the highest elevation and the
- * editorial serif — it should read like a document, not a data panel.
+ * editorial serif. It should read like a document, not a data panel.
  */
 export default function BriefMarkdown({ markdown }: { markdown: string }) {
   return (

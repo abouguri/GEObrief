@@ -9,7 +9,7 @@ Start-to-finish deployment on Vercel + Supabase + Gumroad. Budget about an hour 
 ### Create the project
 
 1. Create a project at [supabase.com](https://supabase.com) (the free tier is fine to launch).
-2. Pick a region close to your users — it sets database latency for every request.
+2. Pick a region close to your users. It sets database latency for every request.
 3. Save the database password somewhere safe.
 
 ### Run the migrations
@@ -43,7 +43,7 @@ Both queries must return rows. If the trigger is missing, signups will succeed a
 | `anon` `public` key | `NEXT_PUBLIC_SUPABASE_ANON_KEY` |
 | `service_role` `secret` key | `SUPABASE_SERVICE_ROLE_KEY` |
 
-The `service_role` key bypasses RLS entirely. It must only ever be set as a server-side variable — never with a `NEXT_PUBLIC_` prefix, never in client code.
+The `service_role` key bypasses RLS entirely. It must only ever be set as a server-side variable, never with a `NEXT_PUBLIC_` prefix, never in client code.
 
 ### Configure auth URLs
 
@@ -57,7 +57,7 @@ The `service_role` key bypasses RLS entirely. It must only ever be set as a serv
 ### Google OAuth (optional)
 
 1. In [Google Cloud Console](https://console.cloud.google.com), create an OAuth 2.0 Client ID (type: Web application).
-2. Authorized redirect URI — use the value Supabase shows you, which looks like:
+2. Authorized redirect URI: use the value Supabase shows you, which looks like:
    `https://<project-ref>.supabase.co/auth/v1/callback`
 3. In Supabase, **Authentication → Providers → Google**: enable it and paste the client ID and secret.
 
@@ -67,7 +67,7 @@ Skip this and email/password still works; the Google button will just error.
 
 By default Supabase requires email confirmation. For launch, either:
 
-- **Keep it on** — users must click the emailed link, which lands on `/auth/callback`. Set up custom SMTP under **Project Settings → Auth → SMTP** before real traffic; the built-in sender is heavily rate-limited.
+- **Keep it on.** Users must click the emailed link, which lands on `/auth/callback`. Set up custom SMTP under **Project Settings → Auth → SMTP** before real traffic; the built-in sender is heavily rate-limited.
 - **Turn it off** for a frictionless funnel (**Authentication → Providers → Email → Confirm email**), accepting that signups can use addresses they do not own.
 
 ---
@@ -76,28 +76,28 @@ By default Supabase requires email confirmation. For launch, either:
 
 1. Get a key at [console.groq.com](https://console.groq.com) → `GROQ_API_KEY`. The
    free tier needs no credit card.
-2. Nothing else to configure — both models are fixed in `lib/ai.ts`.
+2. Nothing else to configure. Both models are fixed in `lib/ai.ts`.
 3. The free tier's on-demand rate limit is small: about 8,000 tokens/minute
    per model, verified directly against the API. Brief generation is
-   deliberately split into two calls to stay under that — see the comment
+   deliberately split into two calls to stay under that. See the comment
    at the top of `lib/ai.ts` for the full reasoning. Heavy signup traffic
    will still produce 429s under load; watch for those in the logs before
    deciding whether to move to Groq's paid Dev Tier.
 
-Groq (groq.com) is not Grok (xAI) — a different company. Brief generation
-uses two Groq calls: `groq/compound-mini` retrieves real search results,
-then `openai/gpt-oss-20b` (no search, no Compound overhead) writes the brief
-from them. `citedSources` in the output comes directly from the first call's
-results — the writing model never restates URLs, so there is no step where
-one could be misremembered.
+Groq (groq.com) is not Grok (xAI); they are different companies. Brief
+generation uses two Groq calls: `groq/compound-mini` retrieves real search
+results, then `openai/gpt-oss-20b` (no search, no Compound overhead) writes
+the brief from them. `citedSources` in the output comes directly from the
+first call's results. The writing model never restates URLs, so there is
+no step where one could be misremembered.
 
 ---
 
 ## 3. Gumroad
 
 1. Create two products:
-   - **GEObrief Pro** — $15, recurring monthly
-   - **GEObrief Lifetime** — $59, one-time
+   - **GEObrief Pro:** $15, recurring monthly
+   - **GEObrief Lifetime:** $59, one-time
 2. Copy each checkout URL into `NEXT_PUBLIC_GUMROAD_PRO_URL` and `NEXT_PUBLIC_GUMROAD_LIFETIME_URL`.
 3. Note the lifetime product's permalink (the part after `/l/`) → `GUMROAD_LIFETIME_PERMALINK`.
 4. Generate the webhook secret:
@@ -146,7 +146,7 @@ GUMROAD_LIFETIME_PERMALINK
 GUMROAD_SELLER_ID          # optional
 ```
 
-`NEXT_PUBLIC_APP_URL` must be your real production URL with **no trailing slash**. It drives canonical tags, the sitemap, and OAuth redirects — a wrong value here produces broken canonicals and failing logins.
+`NEXT_PUBLIC_APP_URL` must be your real production URL with **no trailing slash**. It drives canonical tags, the sitemap, and OAuth redirects, so a wrong value here produces broken canonicals and failing logins.
 
 `NEXT_PUBLIC_*` variables are inlined at build time, so changing one requires a redeploy, not just a restart.
 
@@ -154,7 +154,7 @@ GUMROAD_SELLER_ID          # optional
 
 1. **Settings → Domains → Add** `geobrief.ai`.
 2. Point DNS at Vercel as instructed.
-3. Wait for the certificate, then update `NEXT_PUBLIC_APP_URL`, the Supabase Site URL, and the Gumroad ping URL to the final domain — and redeploy.
+3. Wait for the certificate, then update `NEXT_PUBLIC_APP_URL`, the Supabase Site URL, and the Gumroad ping URL to the final domain, and redeploy.
 
 ---
 
@@ -217,7 +217,7 @@ Work through this on the live site.
 
 ## 6. Operating notes
 
-**Monthly usage reset** happens lazily: the first brief attempt after `usage_reset_date` passes resets the counter. There is no cron job, so an inactive user's row simply stays stale until they return — which is harmless.
+**Monthly usage reset** happens lazily: the first brief attempt after `usage_reset_date` passes resets the counter. There is no cron job, so an inactive user's row simply stays stale until they return. That's harmless.
 
 **Unmatched purchases.** If someone buys with a different email than their account, the webhook logs a warning and returns 200 (so Gumroad stops retrying) without changing any plan. Watch Vercel logs for `Gumroad ping for unknown account` after launch and fix those by hand:
 
@@ -226,16 +226,16 @@ update public.users set plan = 'pro', plan_updated_at = now()
 where email = 'buyer@example.com';
 ```
 
-**Cost control.** Every free signup can consume 3 Groq calls. On the free tier that means rate limits rather than cost, but briefs will start failing with 429s once you hit them. `FREE_BRIEF_LIMIT` in `lib/config.ts` is the single source of truth — both the UI copy and the server-side gate read it, so changing it there is enough.
+**Cost control.** Every free signup can consume 3 Groq calls. On the free tier that means rate limits rather than cost, but briefs will start failing with 429s once you hit them. `FREE_BRIEF_LIMIT` in `lib/config.ts` is the single source of truth: both the UI copy and the server-side gate read it, so changing it there is enough.
 
-**Logs.** Vercel → Deployments → Functions shows API route logs. Groq and Supabase failures are logged with context there.
+**Logs.** Vercel → Deployments → Functions shows API route logs. Groq and Supabase failures are logged with context there too.
 
 ---
 
 ## 7. Before you promote it
 
-- [ ] Replace the blog byline with a real author and a `sameAs` profile link (`content/types.ts`) — the posts argue for exactly this, so shipping anonymous content undercuts them
+- [ ] Replace the blog byline with a real author and a `sameAs` profile link (`content/types.ts`). The posts argue for exactly this, so shipping anonymous content undercuts them
 - [ ] Have a lawyer or a competent template review `/privacy` and `/terms` for your jurisdiction; they are written to be accurate about this app's data flows, not to be legal advice
 - [ ] Set up custom SMTP if email confirmation is on
 - [ ] Add analytics (Vercel Analytics is a one-click start)
-- [ ] Run your own product on your own keywords and publish the resulting briefs — it is the cheapest proof the tool works
+- [ ] Run your own product on your own keywords and publish the resulting briefs. It is the cheapest proof the tool works

@@ -11,7 +11,7 @@ export const runtime = "nodejs";
  * is no signature to verify. The supported approach is a shared secret carried
  * in the ping URL (configured in Gumroad Settings -> Advanced -> Ping), which
  * we compare in constant time and back up with a seller_id check. Keep the
- * ping URL secret — it is the credential.
+ * ping URL secret. It is the credential.
  *
  * Gumroad posts application/x-www-form-urlencoded, not JSON.
  */

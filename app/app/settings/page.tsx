@@ -74,7 +74,7 @@ function SettingsContent() {
             Account
           </h2>
           <div className="p-5 rounded-lg bg-ui-surface border border-ui-border">
-            <Row label="Email">{user?.email ?? '—'}</Row>
+            <Row label="Email">{user?.email ?? 'N/A'}</Row>
             <Row label="Signed in with">
               {user?.app_metadata?.provider === 'google' ? 'Google' : 'Email & password'}
             </Row>
@@ -85,7 +85,7 @@ function SettingsContent() {
                     month: 'long',
                     day: 'numeric',
                   })
-                : '—'}
+                : 'N/A'}
             </Row>
           </div>
         </section>
@@ -101,7 +101,7 @@ function SettingsContent() {
             <div className="p-5 rounded-lg bg-ui-surface border border-ui-border">
               <Row label="Current plan">
                 <span className={isPaid ? 'text-ui-accent' : undefined}>
-                  {profile ? PLAN_LABELS[profile.plan] : '—'}
+                  {profile ? PLAN_LABELS[profile.plan] : 'N/A'}
                 </span>
               </Row>
               <Row label="Briefs this month">
@@ -109,11 +109,11 @@ function SettingsContent() {
                   ? isPaid
                     ? `${profile.usageCount} (unlimited)`
                     : `${profile.usageCount} of ${FREE_BRIEF_LIMIT}`
-                  : '—'}
+                  : 'N/A'}
               </Row>
               {!isPaid && (
                 <Row label="Free briefs reset">
-                  {profile ? formatResetDate(profile.usageResetDate) : '—'}
+                  {profile ? formatResetDate(profile.usageResetDate) : 'N/A'}
                 </Row>
               )}
             </div>
@@ -141,7 +141,7 @@ function SettingsContent() {
                     rel="noopener noreferrer"
                     className="flex-1 px-4 py-2 bg-ui-accent text-white rounded font-semibold text-center hover:opacity-90 transition-opacity text-sm"
                   >
-                    Pro — $15/mo
+                    Pro: $15/mo
                   </a>
                   <a
                     href={GUMROAD_LIFETIME_URL}
@@ -149,7 +149,7 @@ function SettingsContent() {
                     rel="noopener noreferrer"
                     className="flex-1 px-4 py-2 bg-ui-shell hover:border-ui-ring rounded font-semibold text-center transition-colors text-sm"
                   >
-                    Lifetime — $59
+                    Lifetime: $59
                   </a>
                 </div>
                 <p className="text-xs text-ui-faint mt-3">

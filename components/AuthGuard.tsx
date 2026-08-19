@@ -7,8 +7,8 @@ import { useAuth } from '@/lib/auth-context';
 
 /**
  * Client-side gate for the /app pages. Redirects signed-out visitors to
- * login. The real protection is server-side — every API route verifies the
- * access token and RLS scopes each query to its owner — this only keeps
+ * login. The real protection is server-side: every API route verifies the
+ * access token and RLS scopes each query to its owner. This only keeps
  * signed-out users from staring at an empty dashboard.
  */
 export default function AuthGuard({ children }: { children: React.ReactNode }) {

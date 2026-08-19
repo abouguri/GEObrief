@@ -149,7 +149,7 @@ function DashboardContent() {
 
       <div className="mx-auto max-w-6xl px-6 py-10 sm:py-12">
         <div className="grid grid-cols-1 items-start gap-7 lg:grid-cols-[minmax(300px,1fr)_1.9fr]">
-          {/* Input form — L2 */}
+          {/* Input form: L2 */}
           <form
             onSubmit={handleGenerateBrief}
             className="flex flex-col gap-[18px] rounded-2xl border border-ui-border bg-ui-surface p-5 lg:sticky lg:top-24"
@@ -254,7 +254,7 @@ function DashboardContent() {
             )}
           </form>
 
-          {/* Brief output — L3 */}
+          {/* Brief output: L3 */}
           <div>
             {loading ? (
               <BriefSkeleton keyword={keyword.trim()} />
@@ -320,7 +320,7 @@ function DashboardContent() {
               <EmptyState
                 icon={FileSearch}
                 title="Type a keyword, get a brief built to be cited"
-                body="We read how ChatGPT, Perplexity and AI Overviews answer it right now — no site connection, no setup."
+                body="We read how ChatGPT, Perplexity and AI Overviews answer it right now, no site connection, no setup."
                 action={
                   <button
                     type="button"

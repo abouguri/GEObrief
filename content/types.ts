@@ -11,7 +11,7 @@ export interface PostFaq {
 export interface Post {
   slug: string;
   title: string;
-  /** Meta description — also the card subtitle on the blog index. */
+  /** Meta description. Also the card subtitle on the blog index. */
   description: string;
   /** Primary keyword this post targets. */
   keyword: string;

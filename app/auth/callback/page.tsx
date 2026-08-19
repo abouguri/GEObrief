@@ -11,7 +11,7 @@ import { supabase } from '@/lib/supabase';
  *
  * Supabase's browser client exchanges the `?code=` param automatically when
  * it initialises, but that race is not guaranteed to be finished by the time
- * this page mounts — so we exchange explicitly if no session exists yet.
+ * this page mounts, so we exchange explicitly if no session exists yet.
  */
 export default function AuthCallback() {
   const router = useRouter();

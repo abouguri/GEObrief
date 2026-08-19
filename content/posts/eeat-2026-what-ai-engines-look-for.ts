@@ -4,7 +4,7 @@ export const post: Post = {
   slug: 'eeat-2026-what-ai-engines-look-for',
   title: 'E-E-A-T in 2026: What AI Engines Actually Look For',
   description:
-    'Experience, expertise, authoritativeness and trust are not ranking factors — they are evaluations built from signals. Here are the signals, and how to make yours legible.',
+    'Experience, expertise, authoritativeness and trust are not ranking factors. They are evaluations built from signals. Here are the signals, and how to make yours legible.',
   keyword: 'E-E-A-T 2026',
   keywords: [
     'E-E-A-T 2026',
@@ -25,7 +25,7 @@ export const post: Post = {
     {
       question: 'What does the extra E in E-E-A-T mean?',
       answer:
-        'Experience — evidence that the author has direct, first-hand involvement with the subject, not just knowledge about it. It is demonstrated through specifics only a participant would know: what you actually did, what it cost, what went wrong, and what the numbers were.',
+        'Experience: evidence that the author has direct, first-hand involvement with the subject, not just knowledge about it. It is demonstrated through specifics only a participant would know: what you actually did, what it cost, what went wrong, and what the numbers were.',
     },
     {
       question: 'Does an author byline improve AI citation?',
@@ -38,7 +38,7 @@ export const post: Post = {
         'Through demonstrated work and first-hand data. Documented results, original analysis, published tools, and specific case detail all substantiate expertise. In most practical fields, verifiable experience carries more weight than a qualification with nothing attached to it.',
     },
   ],
-  content: `E-E-A-T gets discussed as though it were a dial you could turn. It is not a dial, and it is not a ranking factor — it is a framework for judging quality, originally written for human quality raters.
+  content: `E-E-A-T gets discussed as though it were a dial you could turn. It is not a dial, and it is not a ranking factor. It is a framework for judging quality, originally written for human quality raters.
 
 That does not make it irrelevant to AI search. It makes it indirect. Systems cannot read "authoritativeness." They read signals that correlate with it. If you want the evaluation to come out in your favour, the practical work is making those signals unambiguous.
 
@@ -52,14 +52,14 @@ The distinction is visible in the writing. Knowledge-about produces accurate gen
 
 > **Knowledge-about:** Site migrations can be risky and should be carefully planned to avoid losing organic traffic.
 
-> **Experience:** We migrated 38,000 URLs in March 2026. Redirects were mapped for every page with sessions in the prior 12 months — about 11,000 URLs — and the remaining 27,000 went to category pages. Organic sessions fell 18% in week two and recovered by week six. The thing that actually hurt was 400 paginated URLs we had not mapped at all.
+> **Experience:** We migrated 38,000 URLs in March 2026. Redirects were mapped for every page with sessions in the prior 12 months (about 11,000 URLs), and the remaining 27,000 went to category pages. Organic sessions fell 18% in week two and recovered by week six. The thing that actually hurt was 400 paginated URLs we had not mapped at all.
 
 The second version carries dates, quantities, a failure, and a recovery timeline. None of it is impressive. All of it is evidence.
 
 **How to make experience legible:**
 
 - Name what you personally did, with dates and quantities
-- Report what went wrong — failure detail is the hardest thing to fabricate and the most credible thing to read
+- Report what went wrong: failure detail is the hardest thing to fabricate and the most credible thing to read
 - Include artefacts: screenshots of your own dashboards, photographs of the thing, exports of your own data
 - Say when you *lack* experience: "we have not tested this at enterprise scale" builds more trust than implying you have
 
@@ -67,7 +67,7 @@ The most common failure here is content written by someone competent who has nev
 
 ## Expertise: demonstrated command of the subject
 
-Expertise is about depth and accuracy — whether the author actually understands the field, including its edges.
+Expertise is about depth and accuracy: whether the author actually understands the field, including its edges.
 
 Signals that read as expertise:
 
@@ -82,13 +82,13 @@ Signals that read as expertise:
 **How to make expertise legible:**
 
 - Include a "when this does not apply" section on advice content
-- Cite primary sources — original documentation and papers, not other people's summaries
+- Cite primary sources: original documentation and papers, not other people's summaries
 - Be precise with numbers and scope rather than rounding to comfortable claims
 - Get facts right, including small ones; a wrong date is a cheap credibility loss
 
 ## Authoritativeness: recognition by others
 
-The first two are properties of your content. Authoritativeness is a property of your reputation, and you cannot assert it — it is conferred.
+The first two are properties of your content. Authoritativeness is a property of your reputation, and you cannot assert it. It is conferred.
 
 For AI engines, this largely comes down to whether you are resolvable as an entity and corroborated independently.
 
@@ -102,7 +102,7 @@ The failure mode is inconsistency. Different job titles, different company names
 
 **How to build it:**
 
-- Standardise your author bio, credentials, and title everywhere — literally the same wording
+- Standardise your author bio, credentials, and title everywhere, literally the same wording
 - Add \`sameAs\` links in your Article schema pointing at profiles that corroborate the byline
 - Maintain real author pages with credentials, publication history, and contact details
 - Publish original research; it is the most reliable way to become the thing others cite
@@ -134,7 +134,7 @@ Signals that make repetition feel safe:
 
 Concretely, a page that scores well on all four tends to have:
 
-1. **An author block** — real name, credential, link to a corroborating profile — near the top, not buried in the footer
+1. **An author block**, real name, credential, link to a corroborating profile, near the top, not buried in the footer
 2. **Visible published and updated dates**
 3. **A direct answer** in the first 80 words, specific and scoped
 4. **Inline citations** to primary sources, at the point of the claim
@@ -148,7 +148,7 @@ None of that requires guessing at algorithms. It is a checklist, and most publis
 
 ## The uncomfortable part
 
-E-E-A-T cannot be retrofitted onto content produced by people with no experience of the subject. You can add an author box to a page written by someone who has never done the thing, and the page will still contain no first-hand detail, no failure cases, and no original data — because there are none to add.
+E-E-A-T cannot be retrofitted onto content produced by people with no experience of the subject. You can add an author box to a page written by someone who has never done the thing, and the page will still contain no first-hand detail, no failure cases, and no original data, because there are none to add.
 
 Which means the real implication is upstream of your content process. If you want content that reads as authoritative to systems designed to detect the difference, it has to be produced by, or genuinely built with, people who have done the work.
 

@@ -28,7 +28,7 @@ export default function Privacy() {
             <ul className="list-disc pl-6 space-y-2">
               <li>
                 <strong className="text-ui-ink">Account data:</strong> your email address,
-                and — if you sign in with Google — the basic profile information Google
+                and, if you sign in with Google, the basic profile information Google
                 returns. Passwords are handled by our authentication provider and are never
                 stored by us in readable form.
               </li>
@@ -58,23 +58,23 @@ export default function Privacy() {
             </h2>
             <ul className="list-disc pl-6 space-y-2">
               <li>
-                <strong className="text-ui-ink">Supabase</strong> — database and
+                <strong className="text-ui-ink">Supabase:</strong> database and
                 authentication. Stores your account, briefs, and usage records.
               </li>
               <li>
-                <strong className="text-ui-ink">Groq</strong> — brief generation. The
+                <strong className="text-ui-ink">Groq:</strong> brief generation. The
                 keyword, URL, and niche you submit are sent to Groq to produce the brief,
                 and Groq performs live web searches based on them. Do not enter
                 confidential information you would not want processed by a third-party AI
                 provider or used as a search query.
               </li>
               <li>
-                <strong className="text-ui-ink">Gumroad</strong> — payment processing.
+                <strong className="text-ui-ink">Gumroad:</strong> payment processing.
                 Gumroad handles the transaction and sends us the purchase email and plan
                 status.
               </li>
               <li>
-                <strong className="text-ui-ink">Vercel</strong> — hosting. Processes
+                <strong className="text-ui-ink">Vercel:</strong> hosting. Processes
                 request logs, which may include IP addresses.
               </li>
             </ul>

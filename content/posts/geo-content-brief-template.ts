@@ -4,7 +4,7 @@ export const post: Post = {
   slug: 'geo-content-brief-template',
   title: 'The GEO Content Brief Template (Copy It Free)',
   description:
-    'A complete, copy-paste content brief template built for AI citation — with a worked example and notes on what each section is actually for.',
+    'A complete, copy-paste content brief template built for AI citation, with a worked example and notes on what each section is actually for.',
   keyword: 'GEO content brief template',
   keywords: [
     'GEO content brief template',
@@ -83,14 +83,14 @@ It sits directly under the H1, before any preamble.]
 ## 6. Questions the page must answer
 [Sourced from real prompts, People-Also-Ask, support tickets,
 sales calls, and forum threads. Each becomes a heading or an
-FAQ entry — and must be answered in one self-contained passage.]
+FAQ entry, and must be answered in one self-contained passage.]
 1. [question]
 2. [question]
 3. [question]
 
 ## 7. Required evidence
 [Every claim that needs support, and what support to attach.
-"No source available" is an acceptable answer — it means the
+"No source available" is an acceptable answer: it means the
 claim gets explicitly scoped or cut.]
 | Claim | Support to attach |
 |---|---|
@@ -111,27 +111,27 @@ claim gets explicitly scoped or cut.]
 ## 10. Currently cited sources to outperform
 [The pages AI engines cite for this query today. For each:
 what it does well, and the specific gap to exploit.]
-1. [URL] — strong: [x] / gap: [y]
-2. [URL] — strong: [x] / gap: [y]
-3. [URL] — strong: [x] / gap: [y]
+1. [URL] (strong: [x] / gap: [y])
+2. [URL] (strong: [x] / gap: [y])
+3. [URL] (strong: [x] / gap: [y])
 
 ## 11. Internal links
 - Link out to: [pages]
 - Link in from: [pages]
 
 ## 12. GEO score estimate
-[Low | Medium | High] — [one line on the limiting factor]
+[Low | Medium | High] ([one line on the limiting factor])
 \`\`\`
 
 ## Why each section is there
 
 **Sections 1 and 6 (queries and questions)** exist because prompts are longer and more specific than keywords. One page usually has to satisfy a cluster of related phrasings, not one term. Listing them stops the writer from optimizing for a phrasing nobody uses.
 
-**Section 4 (primary answer block)** is the section that most distinguishes a GEO brief. You are pre-writing the passage you want quoted. If you leave this to chance, the engine picks whichever paragraph happens to be most extractable — often a throwaway line from your introduction.
+**Section 4 (primary answer block)** is the section that most distinguishes a GEO brief. You are pre-writing the passage you want quoted. If you leave this to chance, the engine picks whichever paragraph happens to be most extractable, often a throwaway line from your introduction.
 
 **Section 5 (heading structure)** specifies both the heading *and* what its first sentence must assert. Requiring the answer up front is the difference between a section that gets retrieved and one that gets skipped.
 
-**Section 7 (required evidence)** turns vagueness into a decision. Forcing a writer to name the support for each claim surfaces which claims they cannot actually back — which is exactly the set that will get you contradicted by better-sourced competitors.
+**Section 7 (required evidence)** turns vagueness into a decision. Forcing a writer to name the support for each claim surfaces which claims they cannot actually back, which is exactly the set that will get you contradicted by better-sourced competitors.
 
 **Section 8 (E-E-A-T)** matters because trust evaluation is partly entity-level. Anonymous content competes badly against content attached to a person with verifiable expertise.
 
@@ -169,12 +169,12 @@ fixed calendar wastes effort on pages that have not decayed.
 
 ## 5. Heading structure
 - H2: How do you know a post needs updating?
-  - First sentence: three signals — falling impressions with stable
+  - First sentence: three signals: falling impressions with stable
     rank, factual drift, and competitor pages with newer dates.
 - H2: Which posts should you update first?
   - First sentence: prioritise by traffic value multiplied by decay rate.
 - H2: What counts as a real update?
-  - First sentence: material change to facts, structure, or scope —
+  - First sentence: material change to facts, structure, or scope,
     not a date change.
 - H2: How often should each content type be reviewed?
   - Table by type with review intervals.
@@ -190,7 +190,7 @@ fixed calendar wastes effort on pages that have not decayed.
 |---|---|
 | Updated pages get re-crawled faster | Google docs on crawl scheduling |
 | Date changes without content changes don't help | Google guidance on dates |
-| Decay rates vary by topic type | Own data — scope explicitly to our client set |
+| Decay rates vary by topic type | Own data, scope explicitly to our client set |
 
 ## 8. E-E-A-T signals
 - Author: named practitioner, link to LinkedIn
@@ -202,16 +202,16 @@ fixed calendar wastes effort on pages that have not decayed.
 ## 9. Schema
 - [x] Article (full author object)
 - [x] FAQPage (the four questions in section 6)
-- [ ] HowTo — not procedural enough
+- [ ] HowTo (not procedural enough)
 
 ## 10. Currently cited sources to outperform
-1. [major SEO blog guide] — strong: comprehensive / gap: recommends a
-   flat 6-month interval regardless of topic
-2. [agency post] — strong: good screenshots / gap: undated, no author
-3. [forum thread] — strong: real practitioner detail / gap: unstructured
+1. [major SEO blog guide] (strong: comprehensive / gap: recommends a
+   flat 6-month interval regardless of topic)
+2. [agency post] (strong: good screenshots / gap: undated, no author)
+3. [forum thread] (strong: real practitioner detail / gap: unstructured)
 
 ## 12. GEO score estimate
-High — the framework angle is genuinely absent from current answers.
+High. The framework angle is genuinely absent from current answers.
 \`\`\`
 
 ## Using it well
@@ -222,7 +222,7 @@ Three habits separate briefs that work from briefs that get ignored:
 
 **Keep it to two pages.** A brief is a spec, not a research dump. If it needs a summary, it has failed.
 
-**Write section 4 yourself.** Even if a writer produces everything else, the primary answer block deserves your attention — it is the sentence most likely to be read by strangers who never visit your site.
+**Write section 4 yourself.** Even if a writer produces everything else, the primary answer block deserves your attention. It is the sentence most likely to be read by strangers who never visit your site.
 
 ---
 

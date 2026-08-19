@@ -74,7 +74,7 @@ function HistoryContent() {
     loadBriefs();
   }, [loadBriefs]);
 
-  // Fetch the markdown only when a brief is actually opened — the list view
+  // Fetch the markdown only when a brief is actually opened. The list view
   // does not need to carry every full brief body.
   const handleOpen = async (id: string, keyword: string) => {
     setOpeningId(id);

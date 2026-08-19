@@ -45,7 +45,7 @@ For twenty years the deal was simple: you published a page, a crawler indexed it
 
 That deal is being renegotiated. When someone asks ChatGPT, Perplexity, or Google's AI Overviews a question, they usually do not get a list. They get a written answer, assembled from a handful of sources, with citations attached. The user reads the answer. Sometimes they click a citation. Often they do not.
 
-This is the shift that generative engine optimization — GEO — exists to address. And it is genuinely different work, not a rebrand.
+This is the shift that generative engine optimization (GEO) exists to address. And it is genuinely different work, not a rebrand.
 
 ## The mechanical difference
 
@@ -55,7 +55,7 @@ The clearest way to understand GEO is to look at what the machine on the other s
 
 **A generative engine synthesizes an answer.** It interprets the prompt, retrieves a small set of candidate passages, and writes prose grounded in them. Your competitive question becomes: *was my passage one of the ones it pulled from, and did it survive into the final text?*
 
-That second question has different mechanics. Retrieval is passage-level, not page-level. The engine is not asking "is this a good page about pricing strategy" — it is asking "does this specific chunk of text answer the specific thing that was asked." A page can rank well and still never be retrieved, because no single passage inside it cleanly answers anything.
+That second question has different mechanics. Retrieval is passage-level, not page-level. The engine is not asking "is this a good page about pricing strategy." It is asking "does this specific chunk of text answer the specific thing that was asked." A page can rank well and still never be retrieved, because no single passage inside it cleanly answers anything.
 
 This is why GEO work tends to feel like editing more than marketing.
 
@@ -63,7 +63,7 @@ This is why GEO work tends to feel like editing more than marketing.
 
 ### 1. The unit of optimization shrinks
 
-In SEO, you optimize a page. In GEO, you optimize passages — self-contained blocks that make sense when lifted out of context.
+In SEO, you optimize a page. In GEO, you optimize passages: self-contained blocks that make sense when lifted out of context.
 
 The practical test: take any 80-word section of your article and read it cold, with no heading and no surrounding paragraphs. Does it still answer a real question? If it only makes sense in sequence, it is unlikely to be quoted.
 
@@ -91,7 +91,7 @@ Attach support to claims: name the source, give the date, link the study, state 
 
 Ranking is largely about one page's relationship to one query. Being cited is partly about whether an engine's picture of you is coherent.
 
-If your site says you have twelve years of experience, your LinkedIn says six, and three directories list different company names, you are a weaker candidate for citation than someone whose story matches everywhere. Entity consistency — same name, same credentials, same specialization, everywhere you appear — quietly compounds.
+If your site says you have twelve years of experience, your LinkedIn says six, and three directories list different company names, you are a weaker candidate for citation than someone whose story matches everywhere. Entity consistency (same name, same credentials, same specialization, everywhere you appear) quietly compounds.
 
 ### 6. Freshness has a sharper edge
 
@@ -130,7 +130,7 @@ This is the least mature area of GEO, and anyone claiming precision is overselli
 
 **Branded search as a leading indicator.** A pattern worth watching: people read an answer that mentions you, do not click, and later search your name directly. Rising branded search alongside flat organic clicks often means GEO is working even when traffic charts look grim.
 
-**Assisted conversions.** Users who arrive already knowing your positioning — and convert faster — are a plausible sign your content is being read inside answers you never see.
+**Assisted conversions.** Users who arrive already knowing your positioning, and convert faster, are a plausible sign your content is being read inside answers you never see.
 
 ## Where to start
 
@@ -143,7 +143,7 @@ If you want the shortest path from here to something useful:
 5. Add author information with real, verifiable credentials.
 6. Re-run your target prompts in a month and record what changed.
 
-That is unglamorous work, and it is most of the job. GEO is less a new discipline than an old one with a different reader in mind — one that does not skim, does not forgive vagueness, and does not care how good your introduction is.
+That is unglamorous work, and it is most of the job. GEO is less a new discipline than an old one with a different reader in mind: one that does not skim, does not forgive vagueness, and does not care how good your introduction is.
 
 Write for that reader.`,
 };

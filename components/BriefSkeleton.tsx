@@ -58,7 +58,7 @@ const SECTIONS: Array<{ label: string; bars: Array<{ h: string; w: string }> }> 
  * (named search steps that advance) and show the shape of what is coming
  * (labelled placeholders in the real brief order).
  *
- * The steps advance on a timer and deliberately stop at the last one — the
+ * The steps advance on a timer and deliberately stop at the last one. The
  * real result replaces this component, so it must never claim to be finished.
  */
 export default function BriefSkeleton({ keyword }: { keyword: string }) {
@@ -86,8 +86,8 @@ export default function BriefSkeleton({ keyword }: { keyword: string }) {
           </h2>
         </div>
         <p className="text-[13.5px] text-ui-muted">
-          Reading the live web for &ldquo;{keyword}&rdquo; — how ChatGPT, Perplexity and AI
-          Overviews answer it right now. Usually 20–45 seconds — two searches, then the write-up.
+          Reading the live web for &ldquo;{keyword}&rdquo;: how ChatGPT, Perplexity and AI
+          Overviews answer it right now. Usually 20–45 seconds: two searches, then the write-up.
         </p>
 
         <ol className="mt-[18px] space-y-2.5">

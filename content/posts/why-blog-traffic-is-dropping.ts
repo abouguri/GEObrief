@@ -4,7 +4,7 @@ export const post: Post = {
   slug: 'why-blog-traffic-is-dropping',
   title: 'Why Your Blog Traffic Is Dropping (And How to Tell If AI Search Is To Blame)',
   description:
-    'Stable rankings with falling clicks is the signature of AI search absorbing your traffic. Here is how to diagnose it in your own data — and what to do next.',
+    'Stable rankings with falling clicks is the signature of AI search absorbing your traffic. Here is how to diagnose it in your own data, and what to do next.',
   keyword: 'why is my blog traffic dropping',
   keywords: [
     'why is my blog traffic dropping',
@@ -21,17 +21,17 @@ export const post: Post = {
     {
       question: 'How do I know if AI Overviews are causing my traffic drop?',
       answer:
-        'Look for impressions holding steady or rising while clicks and click-through rate fall, with average position unchanged. That divergence means people are seeing your listing and not clicking — the signature of an answer being satisfied above your result rather than a ranking loss.',
+        'Look for impressions holding steady or rising while clicks and click-through rate fall, with average position unchanged. That divergence means people are seeing your listing and not clicking: the signature of an answer being satisfied above your result rather than a ranking loss.',
     },
     {
       question: 'Which pages lose the most traffic to AI search?',
       answer:
-        'Pages answering short factual questions — definitions, conversions, simple how-tos, and specification lookups. Their entire value can be restated in two sentences, so the answer panel fully substitutes for the click. Pages requiring tools, judgement, or deep comparison lose far less.',
+        'Pages answering short factual questions: definitions, conversions, simple how-tos, and specification lookups. Their entire value can be restated in two sentences, so the answer panel fully substitutes for the click. Pages requiring tools, judgement, or deep comparison lose far less.',
     },
     {
       question: 'Is a traffic drop always caused by AI search?',
       answer:
-        'No. Ranking losses, seasonality, tracking changes, algorithm updates, and technical regressions all produce drops too. Each has a different fingerprint in your data, so diagnose before acting — the remedies are not interchangeable.',
+        'No. Ranking losses, seasonality, tracking changes, algorithm updates, and technical regressions all produce drops too. Each has a different fingerprint in your data, so diagnose before acting. The remedies are not interchangeable.',
     },
     {
       question: 'Can you recover traffic lost to AI answers?',
@@ -39,7 +39,7 @@ export const post: Post = {
         'Rarely the same clicks, honestly. Traffic lost because an answer panel fully satisfied the query does not come back by optimising harder for that query. The realistic response is to shift toward content AI answers cannot replace, and to compete for citation within the answers themselves.',
     },
   ],
-  content: `Traffic charts have a way of turning into panic. Before you rewrite your strategy, it is worth spending an hour establishing *which* problem you have — because "AI search took my clicks" and "we lost rankings" look identical on a line chart and need opposite responses.
+  content: `Traffic charts have a way of turning into panic. Before you rewrite your strategy, it is worth spending an hour establishing *which* problem you have, because "AI search took my clicks" and "we lost rankings" look identical on a line chart and need opposite responses.
 
 Here is how to tell them apart.
 
@@ -53,7 +53,7 @@ Each common cause of decline leaves a different pattern across impressions, clic
 - Clicks: falling
 - CTR: falling, often sharply
 
-You are still being shown. People are choosing not to click, because the answer arrived before your listing did. This is the pattern most people mean when they blame AI search — and it is the one where "improve your rankings" is the wrong prescription, since your rankings are fine.
+You are still being shown. People are choosing not to click, because the answer arrived before your listing did. This is the pattern most people mean when they blame AI search, and it is the one where "improve your rankings" is the wrong prescription, since your rankings are fine.
 
 **2. Genuine ranking loss**
 - Impressions: falling
@@ -83,7 +83,7 @@ Check deploys against the drop date first. This is the cheapest cause to rule ou
 
 You may have lost visibility, not visitors.
 
-Run your own numbers against those five before reading further. The rest of this article is about pattern 1 — but applying pattern 1's remedies to a pattern 2 problem will waste a quarter.
+Run your own numbers against those five before reading further. The rest of this article is about pattern 1, but applying pattern 1's remedies to a pattern 2 problem will waste a quarter.
 
 ## How to confirm pattern 1 properly
 
@@ -97,7 +97,7 @@ Three checks, in order:
 
 ## What is actually happening to the click
 
-The uncomfortable structural point: for a whole class of query, the click was never the user's goal. It was a toll on the way to an answer. When something removes the toll, the traffic does not "leak" — it stops being necessary.
+The uncomfortable structural point: for a whole class of query, the click was never the user's goal. It was a toll on the way to an answer. When something removes the toll, the traffic does not "leak." It stops being necessary.
 
 That means some of your traffic is not recoverable, and pretending otherwise leads to a year of optimizing pages whose economic function has been eliminated. The pages most exposed:
 
@@ -111,7 +111,7 @@ The pages least exposed:
 
 - Anything requiring a tool, login, or interaction
 - Original data nobody else has
-- Genuine first-hand experience — you did the thing and reported what happened
+- Genuine first-hand experience: you did the thing and reported what happened
 - Deep comparisons with real trade-offs
 - Community, discussion, and opinion with a recognisable voice
 - Content where the brand *is* the value
@@ -122,7 +122,7 @@ The strategic question is not "how do I get those clicks back." It is "what prop
 
 ### 1. Segment your library by exposure
 
-Tag every page: *substitutable* (an AI answer can fully replace it) or *non-substitutable*. Be honest — most content teams are optimistic here. Then look at what share of your traffic came from the substitutable half. That number is your actual exposure, and it is the only number that should drive the size of your response.
+Tag every page: *substitutable* (an AI answer can fully replace it) or *non-substitutable*. Be honest; most content teams are optimistic here. Then look at what share of your traffic came from the substitutable half. That number is your actual exposure, and it is the only number that should drive the size of your response.
 
 ### 2. Compete for citation on the substitutable pages
 
@@ -140,7 +140,7 @@ You will not recover the click. You can recover the brand impression, and the fr
 
 This is the part that requires actual decisions rather than tactics:
 
-- **Publish original data.** A survey of 200 customers, an analysis of your own platform data, a benchmark nobody else has run. Original data is both un-substitutable and heavily cited — you become the source other answers are built from.
+- **Publish original data.** A survey of 200 customers, an analysis of your own platform data, a benchmark nobody else has run. Original data is both un-substitutable and heavily cited: you become the source other answers are built from.
 - **Put tools behind the answer.** A calculator, a generator, a checker. The answer can be summarised; using the tool cannot.
 - **Report first-hand experience.** "We migrated 40,000 pages and here is what broke" cannot be synthesised from other sources, because it does not exist in them.
 - **Take positions.** Opinion with a name attached is not substitutable in the way a definition is.
@@ -149,10 +149,10 @@ This is the part that requires actual decisions rather than tactics:
 
 Sessions were always a proxy. If the proxy has broken, replace it rather than mourning it:
 
-- **Citation presence** — a fixed prompt set, checked monthly, across engines
-- **Branded search volume** — visibility that does not show up as a click
-- **Conversion rate per session** — AI-referred visitors typically arrive better informed; falling sessions with rising conversion rate is a different story than falling both
-- **Assisted pipeline** — buyers who mention reading you before their first click
+- **Citation presence:** a fixed prompt set, checked monthly, across engines
+- **Branded search volume:** visibility that does not show up as a click
+- **Conversion rate per session:** AI-referred visitors typically arrive better informed; falling sessions with rising conversion rate is a different story than falling both
+- **Assisted pipeline:** buyers who mention reading you before their first click
 
 ### 5. Do not do these things
 
@@ -164,7 +164,7 @@ Sessions were always a proxy. If the proxy has broken, replace it rather than mo
 
 If your impressions are flat and your clicks are falling on factual queries, your content is still winning retrieval and losing the click. That is a real loss and partly a permanent one.
 
-The response that works is unglamorous: restructure the exposed pages so you are cited rather than skipped, and shift new investment toward the things a generated answer cannot stand in for — your data, your tools, your experience, your judgement.
+The response that works is unglamorous: restructure the exposed pages so you are cited rather than skipped, and shift new investment toward the things a generated answer cannot stand in for. Your data, your tools, your experience, your judgement.
 
 That is a slower strategy than the one you had. It is also considerably harder for anyone else to copy.`,
 };

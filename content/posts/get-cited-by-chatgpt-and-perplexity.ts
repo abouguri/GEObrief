@@ -39,7 +39,7 @@ export const post: Post = {
         'Yes. If your robots.txt blocks an assistant’s crawler, that engine cannot retrieve your pages and cannot cite you. Blocking is a legitimate business choice, but it removes you from that engine’s answers entirely.',
     },
   ],
-  content: `Most advice about getting cited by AI engines stops at "write high-quality content." That is true and useless. Quality is a threshold, not a differentiator — the pages competing with yours are also good.
+  content: `Most advice about getting cited by AI engines stops at "write high-quality content." That is true and useless. Quality is a threshold, not a differentiator. The pages competing with yours are also good.
 
 What actually decides citation is narrower and more mechanical than most content teams expect. Here is the pipeline, and how to write for each stage of it.
 
@@ -47,7 +47,7 @@ What actually decides citation is narrower and more mechanical than most content
 
 When someone asks an assistant a question that needs current information, roughly this sequence runs:
 
-1. **Query interpretation.** The prompt becomes one or more search queries — often several, expanding a single question into sub-questions.
+1. **Query interpretation.** The prompt becomes one or more search queries, often several, expanding a single question into sub-questions.
 2. **Retrieval.** A search layer returns candidate documents, and passages inside them are scored for semantic closeness to the query.
 3. **Grounding.** A shortlist of passages is handed to the model as context.
 4. **Generation.** The model writes an answer using that context, attaching citations to the passages it leaned on.
@@ -57,7 +57,7 @@ Two implications fall out of this immediately.
 
 **You are competing at the passage level.** A great page whose best insight is spread across five paragraphs loses to a mediocre page with one tight, complete paragraph on exactly that point.
 
-**Retrieval and citation are separate battles.** Being retrieved is mostly a search problem — authority, relevance, crawlability. Being cited, once retrieved, is a writing problem. Most sites lose the second one.
+**Retrieval and citation are separate battles.** Being retrieved is mostly a search problem: authority, relevance, crawlability. Being cited, once retrieved, is a writing problem. Most sites lose the second one.
 
 ## The self-contained passage
 
@@ -109,7 +109,7 @@ Weak claims get skipped. Strong ones get lifted.
 
 Every quotable version has the same three properties: a specific number or named authority, a scope, and a date or context. That triple is what makes a sentence portable into an answer with the hedging an engine needs.
 
-If you do not have data, say what you do have. "In our own client work across roughly 30 sites, the pattern we see is…" is honest, scoped, and still citable. Inventing a statistic is not just unethical — it is fragile, because contradicting sources will outrank you.
+If you do not have data, say what you do have. "In our own client work across roughly 30 sites, the pattern we see is…" is honest, scoped, and still citable. Inventing a statistic is not just unethical. It is fragile, because contradicting sources will outrank you.
 
 ## Question-shaped headings
 
@@ -127,23 +127,23 @@ Schema markup does not force a citation, but it clarifies what your content is, 
 
 The three worth implementing:
 
-**FAQPage** — for pages with genuine question-and-answer sections. The questions and answers must appear in the visible page content, not only in the markup.
+**FAQPage**, for pages with genuine question-and-answer sections. The questions and answers must appear in the visible page content, not only in the markup.
 
-**Article** with a real \`author\` object — including \`name\`, \`jobTitle\`, and a \`sameAs\` link to a verifiable profile. This connects the content to an entity, which matters for the trust evaluation.
+**Article** with a real \`author\` object, including \`name\`, \`jobTitle\`, and a \`sameAs\` link to a verifiable profile. This connects the content to an entity, which matters for the trust evaluation.
 
-**HowTo** — for genuine step sequences with an ordered structure. Do not use it for listicles that are not really procedures.
+**HowTo**, for genuine step sequences with an ordered structure. Do not use it for listicles that are not really procedures.
 
 Skip the rest. Marking up a blog post as \`Product\` because it mentions a product is the kind of mismatch that gets ignored at best.
 
 ## Cover the comparison space
 
-Assistants are asked to compare things constantly — "X vs Y," "best tool for Z," "alternatives to W." If your content only ever describes your own approach in isolation, you are structurally absent from that entire class of answers.
+Assistants are asked to compare things constantly: "X vs Y," "best tool for Z," "alternatives to W." If your content only ever describes your own approach in isolation, you are structurally absent from that entire class of answers.
 
 Write the comparisons yourself, honestly:
 
 - Name real alternatives, including ones better than you for some use cases.
 - State clearly who each option suits.
-- Say where you lose. "If you need a full site audit, use a crawler instead — we only produce briefs."
+- Say where you lose. "If you need a full site audit, use a crawler instead; we only produce briefs."
 
 Counter-intuitively, admitting limitations makes you *more* citable, because an engine synthesizing a balanced answer needs balanced sources. Pure advocacy reads as marketing copy and gets treated accordingly.
 
@@ -164,7 +164,7 @@ Take one important page and run this pass:
 1. **Read it as a stranger.** Highlight every sentence containing "this," "that," "it," or "the above" where the referent is off-screen. Rewrite each one to name its subject.
 2. **Rewrite the headings** as questions in the user's language.
 3. **Move the answers up.** Under each heading, the first 40–80 words should fully answer it.
-4. **Audit the claims.** Every assertion gets a number, a source, a date, or an explicit scope — or it gets cut.
+4. **Audit the claims.** Every assertion gets a number, a source, a date, or an explicit scope. Otherwise it gets cut.
 5. **Add the author block.** Real name, real credentials, link to a verifiable profile.
 6. **Add FAQPage markup** for the questions genuinely present on the page.
 7. **Record your baseline.** Run ten target prompts across engines and note whether you appear. Re-check in four weeks.

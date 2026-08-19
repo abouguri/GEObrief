@@ -11,7 +11,7 @@ export interface AuthedUser {
  *
  * The browser client stores its session locally, so API routes receive the
  * access token as `Authorization: Bearer <token>` and verify it here. Never
- * trust a user id sent in the request body — it would let any caller spend
+ * trust a user id sent in the request body. It would let any caller spend
  * another account's quota (or skip the quota entirely).
  *
  * Returns null when the header is missing or the token does not verify.

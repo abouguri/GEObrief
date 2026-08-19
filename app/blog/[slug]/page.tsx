@@ -207,7 +207,7 @@ export default function BlogPost({ params }: PageProps) {
           </ReactMarkdown>
         </div>
 
-        {/* Visible FAQ — must exist in the body for the FAQPage markup above */}
+        {/* Visible FAQ: must exist in the body for the FAQPage markup above */}
         <section className="mt-16 pt-10 border-t border-ui-border">
           <h2 className="font-serif text-2xl font-semibold mb-6">Frequently asked questions</h2>
           <div className="space-y-4">
@@ -229,7 +229,7 @@ export default function BlogPost({ params }: PageProps) {
           </h2>
           <p className="text-ui-muted mb-6">
             GEObrief.ai searches how AI engines answer your topic today and returns a
-            complete GEO brief — answer block, headings, questions, schema, and the sources
+            complete GEO brief: answer block, headings, questions, schema, and the sources
             to beat.
           </p>
           <Link

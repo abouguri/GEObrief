@@ -137,7 +137,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       const client = supabase();
 
       // Sign up with email/password. The matching public.users row is created
-      // by a database trigger — the browser cannot insert it itself, since RLS
+      // by a database trigger. The browser cannot insert it itself, since RLS
       // (correctly) refuses writes to that table from the anon key.
       const { data: { user: newUser }, error: signUpError } = await client.auth.signUp({
         email,
