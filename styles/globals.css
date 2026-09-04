@@ -11,9 +11,16 @@
 
 html {
   scroll-behavior: smooth;
-  --scrollbar-thumb: rgba(97, 95, 93, 0.30);
-  --scrollbar-thumb-hover: rgba(97, 95, 93, 0.48);
-  --scrollbar-thumb-active: rgba(5, 150, 105, 0.58);
+  --mori-deep-green: #064e3b;
+  --mori-lime: #84cc16;
+  --radius-pill: 999px;
+  --scrollbar-thumb: color-mix(in srgb, var(--mori-deep-green) 28%, transparent);
+  --scrollbar-thumb-hover: color-mix(in srgb, var(--mori-deep-green) 46%, transparent);
+  --scrollbar-thumb-active: color-mix(
+    in srgb,
+    color-mix(in srgb, var(--mori-deep-green) 68%, var(--mori-lime)) 62%,
+    transparent
+  );
   --scrollbar-track: transparent;
 }
 
@@ -92,15 +99,23 @@ pre {
 .bg-mk-band,
 .bg-mk-surface,
 .scrollbar-dark {
-  --scrollbar-thumb: rgba(142, 149, 143, 0.32);
-  --scrollbar-thumb-hover: rgba(199, 205, 200, 0.48);
-  --scrollbar-thumb-active: rgba(16, 185, 129, 0.62);
+  --scrollbar-thumb: color-mix(in srgb, color-mix(in srgb, var(--mori-deep-green) 82%, var(--mori-lime)) 34%, transparent);
+  --scrollbar-thumb-hover: color-mix(in srgb, color-mix(in srgb, var(--mori-deep-green) 72%, var(--mori-lime)) 52%, transparent);
+  --scrollbar-thumb-active: color-mix(
+    in srgb,
+    color-mix(in srgb, var(--mori-deep-green) 52%, var(--mori-lime)) 70%,
+    transparent
+  );
 }
 
 html:has(main.bg-mk-paper) {
-  --scrollbar-thumb: rgba(142, 149, 143, 0.32);
-  --scrollbar-thumb-hover: rgba(199, 205, 200, 0.48);
-  --scrollbar-thumb-active: rgba(16, 185, 129, 0.62);
+  --scrollbar-thumb: color-mix(in srgb, color-mix(in srgb, var(--mori-deep-green) 82%, var(--mori-lime)) 34%, transparent);
+  --scrollbar-thumb-hover: color-mix(in srgb, color-mix(in srgb, var(--mori-deep-green) 72%, var(--mori-lime)) 52%, transparent);
+  --scrollbar-thumb-active: color-mix(
+    in srgb,
+    color-mix(in srgb, var(--mori-deep-green) 52%, var(--mori-lime)) 70%,
+    transparent
+  );
 }
 
 /* Keep standards-based sizing Firefox-only so Chromium uses the richer rules below. */
@@ -130,7 +145,7 @@ body::-webkit-scrollbar-thumb,
   min-width: 40px;
   min-height: 40px;
   border: 3px solid transparent;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   background: var(--scrollbar-thumb);
   background-clip: content-box;
 }
