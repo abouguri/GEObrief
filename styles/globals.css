@@ -11,6 +11,12 @@
 
 html {
   scroll-behavior: smooth;
+  --scrollbar-thumb: rgba(97, 95, 93, 0.30);
+  --scrollbar-thumb-hover: rgba(97, 95, 93, 0.48);
+  --scrollbar-thumb-active: rgba(240, 169, 59, 0.58);
+  --scrollbar-track: transparent;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+  scrollbar-width: thin;
 }
 
 body {
@@ -80,20 +86,74 @@ pre {
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 
-/* Scrollbar: neutral enough to read on both themes. */
+/*
+ * App-wide scrollbar tokens. Any scrollable surface can locally override the
+ * four custom properties without replacing the cross-browser mechanics.
+ */
+.bg-mk-paper,
+.bg-mk-band,
+.bg-mk-surface,
+.scrollbar-dark {
+  --scrollbar-thumb: rgba(142, 149, 143, 0.32);
+  --scrollbar-thumb-hover: rgba(199, 205, 200, 0.48);
+  --scrollbar-thumb-active: rgba(240, 169, 59, 0.62);
+}
+
+html:has(main.bg-mk-paper) {
+  --scrollbar-thumb: rgba(142, 149, 143, 0.32);
+  --scrollbar-thumb-hover: rgba(199, 205, 200, 0.48);
+  --scrollbar-thumb-active: rgba(240, 169, 59, 0.62);
+}
+
+* {
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+  scrollbar-width: thin;
+}
+
 ::-webkit-scrollbar {
-  @apply w-2;
+  width: 12px;
+  height: 12px;
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: var(--scrollbar-track);
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply rounded-full;
-  background: rgba(128, 118, 106, 0.35);
+  min-width: 40px;
+  min-height: 40px;
+  border: 3px solid transparent;
+  border-radius: 999px;
+  background: var(--scrollbar-thumb);
+  background-clip: content-box;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(128, 118, 106, 0.55);
+  background-color: var(--scrollbar-thumb-hover);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: var(--scrollbar-thumb-active);
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Preserve scrolling while visually suppressing the scrollbar. */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
 }
