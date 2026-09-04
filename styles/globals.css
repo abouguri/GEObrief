@@ -13,7 +13,7 @@ html {
   scroll-behavior: smooth;
   --scrollbar-thumb: rgba(97, 95, 93, 0.30);
   --scrollbar-thumb-hover: rgba(97, 95, 93, 0.48);
-  --scrollbar-thumb-active: rgba(240, 169, 59, 0.58);
+  --scrollbar-thumb-active: rgba(5, 150, 105, 0.58);
   --scrollbar-track: transparent;
 }
 
@@ -94,13 +94,13 @@ pre {
 .scrollbar-dark {
   --scrollbar-thumb: rgba(142, 149, 143, 0.32);
   --scrollbar-thumb-hover: rgba(199, 205, 200, 0.48);
-  --scrollbar-thumb-active: rgba(240, 169, 59, 0.62);
+  --scrollbar-thumb-active: rgba(16, 185, 129, 0.62);
 }
 
 html:has(main.bg-mk-paper) {
   --scrollbar-thumb: rgba(142, 149, 143, 0.32);
   --scrollbar-thumb-hover: rgba(199, 205, 200, 0.48);
-  --scrollbar-thumb-active: rgba(240, 169, 59, 0.62);
+  --scrollbar-thumb-active: rgba(16, 185, 129, 0.62);
 }
 
 /* Keep standards-based sizing Firefox-only so Chromium uses the richer rules below. */
