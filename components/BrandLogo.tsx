@@ -7,7 +7,7 @@ type BrandLogoProps = {
   className?: string;
 };
 
-/** The primary GEObrief lockup, rebuilt as crisp, scalable brand geometry. */
+/** Official GeoBrief lockup. Keep this geometry synchronized with app/icon.svg. */
 export default function BrandLogo({
   href = '/',
   theme = 'light',
@@ -20,10 +20,10 @@ export default function BrandLogo({
       className={`inline-flex items-center gap-2.5 ${className}`}
       aria-label="GEObrief"
     >
-      <svg viewBox="0 0 48 48" className="h-9 w-9 shrink-0" aria-hidden="true">
-        <path fill={ink} d="M9 5h30v12H27v4H9z" />
-        <path fill="#059669" d="M3 19h42v11H3z" />
-        <path fill={ink} d="M9 32h18v4h12v8H9z" />
+      <svg viewBox="0 0 430 425" className="h-9 w-[37px] shrink-0" aria-hidden="true">
+        <path fill={ink} d="M118 0H428V106L306 104V141H118Z" />
+        <path fill="#059669" d="M0 155H430V274H0Z" />
+        <path fill={ink} d="M118 284H306V322L428 318V425H118Z" />
       </svg>
       {!compact && (
         <span className="whitespace-nowrap text-[21px] leading-none tracking-[-0.055em]" style={{ color: ink }}>
