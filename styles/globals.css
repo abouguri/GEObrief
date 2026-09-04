@@ -32,6 +32,14 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+:where(a, button, input, textarea, select, summary):focus-visible {
+  outline: 2px solid #059669;
+  outline-offset: 3px;
+}
+
+button, a, input, textarea, select { -webkit-tap-highlight-color: transparent; }
+button, a { transition-duration: 160ms; }
+
 body::before {
   content: "";
   position: fixed;
@@ -74,6 +82,78 @@ body::before {
   height: 20px;
   background: #059669;
   opacity: .12;
+}
+
+/* Approved environmental patterns, adapted directly from the GeoBrief library. */
+.pattern-editorial,
+.pattern-source-thread,
+.pattern-citation-halo,
+.pattern-reference-rail {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.pattern-editorial::before,
+.pattern-source-thread::before,
+.pattern-citation-halo::before,
+.pattern-reference-rail::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.pattern-editorial > *,
+.pattern-source-thread > *,
+.pattern-citation-halo > *,
+.pattern-reference-rail > * {
+  position: relative;
+  z-index: 1;
+}
+
+.pattern-editorial::before {
+  opacity: .045;
+  background-image:
+    repeating-linear-gradient(to bottom, #2a2928 0 1px, transparent 1px 28px),
+    linear-gradient(to right, transparent 0 17%, #2a2928 17% calc(17% + 1px), transparent calc(17% + 1px) 83%, #2a2928 83% calc(83% + 1px), transparent calc(83% + 1px));
+}
+
+.pattern-source-thread::before {
+  inset: -5%;
+  opacity: .07;
+  background:
+    radial-gradient(circle at 10% 23%, #2a2928 0 3px, transparent 4px),
+    radial-gradient(circle at 28% 64%, #2a2928 0 3px, transparent 4px),
+    radial-gradient(circle at 52% 38%, #059669 0 4px, transparent 5px),
+    linear-gradient(17deg, transparent 0 47.7%, #2a2928 48% 48.15%, transparent 48.5%),
+    linear-gradient(-12deg, transparent 0 53.7%, #2a2928 54% 54.15%, transparent 54.5%);
+}
+
+.pattern-citation-halo::before {
+  inset: -12%;
+  opacity: .09;
+  background: radial-gradient(circle at 56% 44%, #059669 0 3%, transparent 3.5% 15%, #2a2928 15.2% 15.45%, transparent 16% 28%, #2a2928 28.2% 28.4%, transparent 29%);
+}
+
+.pattern-reference-rail::before {
+  opacity: .055;
+  background-image:
+    linear-gradient(to right, transparent 0 8%, #2a2928 8% calc(8% + 1px), transparent calc(8% + 1px)),
+    radial-gradient(circle, #059669 0 2px, transparent 2.2px),
+    repeating-linear-gradient(to bottom, transparent 0 31px, #2a2928 31px 32px, transparent 32px 64px);
+  background-size: 100% 100%, 120px 64px, 28% 64px;
+  background-position: 0 0, 6.8% 0, 10% 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
 }
 
 /* A consistent icon treatment across marketing, product and account screens. */

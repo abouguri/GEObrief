@@ -76,7 +76,7 @@ export default function BriefSkeleton({ keyword }: { keyword: string }) {
     <div
       role="status"
       aria-live="polite"
-      className="overflow-hidden rounded-2xl border border-ui-border bg-ui-surface shadow-[0_1px_2px_rgba(42,41,40,0.04),0_18px_44px_-26px_rgba(42,41,40,0.16)]"
+      className="pattern-source-thread overflow-hidden rounded-2xl border border-ui-border bg-ui-surface shadow-[0_1px_2px_rgba(42,41,40,0.04),0_18px_44px_-26px_rgba(42,41,40,0.16)]"
     >
       <div className="border-b border-ui-border bg-ui-wash px-6 py-6">
         <div className="mb-1.5 flex items-center gap-2.5">

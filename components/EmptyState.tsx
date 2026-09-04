@@ -24,7 +24,7 @@ export default function EmptyState({
   children?: React.ReactNode;
 }) {
   return (
-    <div className="rounded-2xl border border-ui-border bg-ui-surface px-6 py-14 text-center shadow-[0_1px_2px_rgba(42,41,40,0.04),0_18px_44px_-26px_rgba(42,41,40,0.16)] sm:px-10">
+    <div className="pattern-citation-halo rounded-2xl border border-ui-border bg-ui-surface px-6 py-14 text-center shadow-[0_1px_2px_rgba(42,41,40,0.04),0_18px_44px_-26px_rgba(42,41,40,0.16)] sm:px-10">
       <div className="mx-auto mb-5 flex h-[52px] w-[52px] items-center justify-center rounded-[14px] bg-ui-soft">
         <Icon className="h-6 w-6 text-ui-accent" strokeWidth={1.8} />
       </div>

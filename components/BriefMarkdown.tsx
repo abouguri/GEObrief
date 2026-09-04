@@ -7,7 +7,7 @@ import ReactMarkdown from 'react-markdown';
  */
 export default function BriefMarkdown({ markdown }: { markdown: string }) {
   return (
-    <div className="overflow-hidden rounded-2xl border border-ui-border bg-ui-surface p-6 shadow-[0_1px_2px_rgba(42,41,40,0.04),0_18px_44px_-26px_rgba(42,41,40,0.16)] sm:p-8">
+    <article className="pattern-editorial overflow-hidden rounded-2xl border border-ui-border bg-ui-surface p-6 shadow-[0_1px_2px_rgba(42,41,40,0.04),0_18px_44px_-26px_rgba(42,41,40,0.16)] sm:p-8">
       <ReactMarkdown
         components={{
           h1: (props) => (
@@ -78,6 +78,6 @@ export default function BriefMarkdown({ markdown }: { markdown: string }) {
       >
         {markdown}
       </ReactMarkdown>
-    </div>
+    </article>
   );
 }
