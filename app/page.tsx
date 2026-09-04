@@ -17,6 +17,7 @@ import {
   X,
 } from "lucide-react";
 import { posts } from "@/content/posts";
+import BrandLogo from "@/components/BrandLogo";
 import {
   GUMROAD_LIFETIME_URL,
   SITE_NAME,
@@ -191,9 +192,7 @@ function LandingNav() {
   return (
     <nav className="sticky top-0 z-50 w-full border-b border-mk-border bg-mk-paper/80 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-4">
-        <Link href="/" className="text-[19px] font-bold tracking-tight text-mk-ink">
-          GEObrief<span className="text-mk-accent">.ai</span>
-        </Link>
+        <BrandLogo theme="dark" />
         <div className="flex items-center gap-6">
           {NAV_LINKS.map((link) => (
             <a
@@ -236,9 +235,7 @@ function LandingFooter() {
       <div className="mx-auto max-w-6xl">
         <div className="mb-10 grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4">
           <div>
-            <p className="mb-3.5 text-lg font-bold tracking-tight text-mk-ink">
-              GEObrief<span className="text-mk-accent">.ai</span>
-            </p>
+            <BrandLogo theme="dark" className="mb-4" />
             <p className="max-w-[240px] text-sm leading-relaxed text-mk-faint">
               Content briefs built to be cited by AI answer engines.
             </p>
@@ -467,7 +464,7 @@ export default function Home() {
       <LandingNav />
 
       {/* Hero */}
-      <section className="relative bg-mk-paper px-6 pt-24 sm:pt-28">
+      <section className="brand-pattern brand-extract relative bg-mk-paper px-6 pt-24 sm:pt-28">
         <div
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.055)_1px,transparent_1px)] bg-[length:34px_34px]"
           aria-hidden="true"

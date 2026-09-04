@@ -14,7 +14,7 @@ const sourceSerif = Source_Serif_4({
 });
 
 export const metadata: Metadata = {
-  title: "GEObrief.ai - AI-Optimized Content Briefs",
+  title: "GEObrief - AI-Optimized Content Briefs",
   description:
     "Stop writing for Google. Start writing for AI. Generate GEO-optimized content briefs designed to get cited by ChatGPT, Perplexity, and AI Overviews.",
   keywords: [
@@ -40,11 +40,13 @@ export const metadata: Metadata = {
     description:
       "Stop writing for Google. Start writing for AI. Generate GEO-optimized content briefs.",
   },
+  icons: { icon: '/icon.svg', apple: '/apple-icon.svg' },
 };
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
+  themeColor: "#FCFCFA",
 };
 
 export default function RootLayout({
@@ -54,10 +56,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <meta charSet="utf-8" />
-        <link rel="icon" href="/favicon.ico" />
-      </head>
+      <head><meta charSet="utf-8" /></head>
       <body className={`${inter.variable} ${sourceSerif.variable} ${inter.className}`}>
         <AuthProvider>
           {children}

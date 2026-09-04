@@ -112,7 +112,7 @@ export default function BlogPost({ params }: PageProps) {
   ];
 
   return (
-    <main className="min-h-screen bg-ui-paper text-ui-ink">
+    <main className="brand-pattern min-h-screen bg-ui-paper text-ui-ink">
       <MarketingNav />
 
       <article className="pt-32 pb-16 px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto">

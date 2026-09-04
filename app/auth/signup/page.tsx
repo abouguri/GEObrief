@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/lib/auth-context';
 import { AlertCircle, Loader } from 'lucide-react';
+import BrandLogo from '@/components/BrandLogo';
 
 export default function SignupPage() {
   const router = useRouter();
@@ -78,14 +79,12 @@ export default function SignupPage() {
       {/* Nav */}
       <nav className="border-b border-ui-border bg-ui-shell backdrop-blur-lg">
         <div className="max-w-md mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href="/" className="text-2xl font-bold text-ui-accent">
-            GEObrief.ai
-          </Link>
+          <BrandLogo />
         </div>
       </nav>
 
       {/* Signup Form */}
-      <div className="flex-1 flex items-center justify-center px-6 py-12">
+      <div className="brand-pattern brand-extract flex-1 flex items-center justify-center px-6 py-12">
         <div className="w-full max-w-md">
           <div className="mb-8">
             <h1 className="text-3xl font-bold mb-2">Create account</h1>

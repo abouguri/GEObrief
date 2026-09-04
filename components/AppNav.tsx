@@ -5,6 +5,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import { LogOut } from 'lucide-react';
 import { useAuth, type UserProfile } from '@/lib/auth-context';
 import { FREE_BRIEF_LIMIT, GUMROAD_PRO_URL, PLAN_LABELS } from '@/lib/config';
+import BrandLogo from '@/components/BrandLogo';
 
 const LINKS = [
   { href: '/app/dashboard', label: 'Dashboard' },
@@ -88,12 +89,7 @@ export default function AppNav() {
   return (
     <nav className="sticky top-0 z-50 border-b border-ui-border bg-ui-surface/90 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-x-5 gap-y-3 px-6 py-3.5">
-        <Link
-          href="/"
-          className="text-xl font-bold tracking-tight text-ui-ink"
-        >
-          GEObrief<span className="text-ui-accent">.ai</span>
-        </Link>
+        <BrandLogo />
 
         <div className="order-2 flex items-center gap-0.5 sm:order-none">
           {LINKS.map((link) => (

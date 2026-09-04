@@ -57,7 +57,7 @@ export default function AuthCallback() {
   }, [router]);
 
   return (
-    <div className="min-h-screen bg-ui-paper text-ui-ink flex items-center justify-center px-6">
+    <div className="brand-pattern brand-extract min-h-screen bg-ui-paper text-ui-ink flex items-center justify-center px-6">
       {error ? (
         <div className="max-w-md w-full p-6 rounded-lg bg-ui-surface border border-ui-border">
           <div className="flex items-start gap-3 mb-4">

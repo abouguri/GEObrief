@@ -15,6 +15,64 @@ html {
 
 body {
   margin: 0;
+  background: #fcfcfa;
+  color: #2a2928;
+  -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: .022;
+  background-image: radial-gradient(circle at 10% 20%, currentColor .55px, transparent .7px), radial-gradient(circle at 73% 61%, currentColor .45px, transparent .65px);
+  background-size: 17px 19px, 23px 29px;
+}
+
+::selection { background: #d1fae5; color: #171817; }
+
+/* Brand environmental geometry: the extracted emerald passage and opposing slabs. */
+.brand-pattern { position: relative; isolation: isolate; overflow: hidden; }
+.brand-pattern::before,
+.brand-pattern::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: -8%;
+  width: min(52rem, 66%);
+  height: 34%;
+  pointer-events: none;
+  background: currentColor;
+  opacity: .035;
+}
+.brand-pattern::before { top: -5%; clip-path: polygon(0 0,100% 0,100% 62%,62% 62%,62% 100%,0 100%); }
+.brand-pattern::after { bottom: -6%; clip-path: polygon(0 0,62% 0,62% 38%,100% 38%,100% 100%,0 100%); }
+.brand-extract {
+  position: relative;
+  isolation: isolate;
+}
+.brand-extract::after {
+  content: "";
+  position: absolute;
+  inset: 46% auto auto -8%;
+  z-index: -1;
+  width: min(58rem, 78%);
+  height: 20px;
+  background: #059669;
+  opacity: .12;
+}
+
+/* A consistent icon treatment across marketing, product and account screens. */
+.icon-tile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e3e3e8;
+  border-radius: 10px;
+  background: #f6f6f4;
+  color: #059669;
 }
 
 code,

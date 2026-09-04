@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { posts } from '@/content/posts';
 import { SUPPORT_EMAIL } from '@/lib/config';
+import BrandLogo from '@/components/BrandLogo';
 
 /** Footer for the public pages. Every link here points at a page that exists. */
 export default function MarketingFooter() {
@@ -11,6 +12,7 @@ export default function MarketingFooter() {
       <div className="max-w-6xl mx-auto">
         <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8 mb-8">
           <div>
+            <BrandLogo className="mb-5" />
             <h4 className="mb-4 font-semibold text-ui-ink">Product</h4>
             <ul className="space-y-2 text-ui-muted text-sm">
               <li>

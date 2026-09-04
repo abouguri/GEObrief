@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import BrandLogo from '@/components/BrandLogo';
 
 /**
  * Header for the public pages. Section anchors are absolute (`/#pricing`) so
@@ -8,9 +9,7 @@ export default function MarketingNav() {
   return (
     <nav className="fixed top-0 z-50 w-full border-b border-ui-border bg-ui-surface/85 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
-        <Link href="/" className="text-xl font-bold tracking-tight text-ui-ink">
-          GEObrief<span className="text-ui-accent">.ai</span>
-        </Link>
+        <BrandLogo />
         <div className="flex items-center gap-4 sm:gap-6">
           <Link
             href="/#anatomy"

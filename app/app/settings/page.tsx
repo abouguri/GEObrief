@@ -59,7 +59,7 @@ function SettingsContent() {
   };
 
   return (
-    <div className="min-h-screen bg-ui-paper text-ui-ink">
+    <div className="brand-pattern min-h-screen bg-ui-paper text-ui-ink">
       <AppNav />
 
       <div className="max-w-2xl mx-auto px-6 py-12 space-y-8">
