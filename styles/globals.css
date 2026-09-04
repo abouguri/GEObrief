@@ -11,6 +11,7 @@
 
 html {
   scroll-behavior: smooth;
+  background: #fcfcfa;
   --mori-deep-green: #064e3b;
   --mori-lime: #84cc16;
   --radius-pill: 999px;
@@ -109,6 +110,7 @@ pre {
 }
 
 html:has(main.bg-mk-paper) {
+  background: #0b0d0c;
   --scrollbar-thumb: color-mix(in srgb, color-mix(in srgb, var(--mori-deep-green) 82%, var(--mori-lime)) 34%, transparent);
   --scrollbar-thumb-hover: color-mix(in srgb, color-mix(in srgb, var(--mori-deep-green) 72%, var(--mori-lime)) 52%, transparent);
   --scrollbar-thumb-active: color-mix(
@@ -137,6 +139,13 @@ html::-webkit-scrollbar-track,
 body::-webkit-scrollbar-track,
 *::-webkit-scrollbar-track {
   background: var(--scrollbar-track);
+}
+
+html::-webkit-scrollbar-track-piece,
+body::-webkit-scrollbar-track-piece,
+*::-webkit-scrollbar-track-piece {
+  border: 0;
+  background: transparent;
 }
 
 html::-webkit-scrollbar-thumb,
